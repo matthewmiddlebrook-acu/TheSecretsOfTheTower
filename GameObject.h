@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 using namespace std;
 
@@ -6,7 +8,7 @@ class GameObject {
         string _name;
         string _description;
     public:
-        GameObject(string name, string desc);
+        GameObject(string name, string desc) : _name(name), _description(desc) {};
 
         void setName(string name) { _name = name; }
         string getName() { return _name; }

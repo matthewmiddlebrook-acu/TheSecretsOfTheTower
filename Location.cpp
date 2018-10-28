@@ -3,31 +3,36 @@
 #include <iostream>
 using namespace std;
 
-
-Location* Location::getLocation(Direction dir) {
-
+Location::Location(string name, string desc) : GameObject(name, desc) {
+    for (int i = 0; i < NUM_DIRECTIONS; i++) {
+        locations[i] = NULL;
+    }
 }
 
-void Location::setDirection(Direction dir, Location *loc) {
+Location* Location::getLocation(Direction dir) {
+    return locations[dir];
+}
 
+void Location::setDirection(Direction dir, Location* loc) {
+    locations[dir] = loc;
 }
 
 bool Location::checkDirection(Direction dir) {
-
+    return locations[dir] != NULL;
 }
 
 void Location::addItem(Item* item) {
-
+    items.push_back(item);
 }
 
-void Location::removeItem(Item* item) {
-    
+Item* Location::removeItem(Item* item) {
+
 }
 
 void Location::addPerson(Person* person) {
-
+    people.push_back(person);
 }
 
-void Location::removePerson(Person* person) {
+Person* Location::removePerson(Person* person) {
 
 }

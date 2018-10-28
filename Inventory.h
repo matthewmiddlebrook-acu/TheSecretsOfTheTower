@@ -1,6 +1,9 @@
+#pragma once
+
 #include "Item.h"
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Inventory {

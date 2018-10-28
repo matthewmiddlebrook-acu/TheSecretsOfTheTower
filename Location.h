@@ -1,3 +1,5 @@
+#pragma once
+
 #include "GameObject.h"
 #include "Person.h"
 #include "Item.h"
@@ -6,23 +8,25 @@
 #include <vector>
 using namespace std;
 
-enum Direction{NORTH, SOUTH, EAST, WEST};
+// If you want to add more directions to the Direction enum, 
+// keep NUM_DIRECTIONS at the end for correct total length
+enum Direction{NORTH, SOUTH, EAST, WEST, NUM_DIRECTIONS};
 
-class Location : GameObject {
+class Location : public GameObject {
     private:
         Location* locations[4];
         vector<Item*> items;
         vector<Person*> people;
     public:
-        Location(string name, string desc) : GameObject(name, desc) {};
-        
+        Location(string name, string desc);
+
         Location* getLocation(Direction dir);
-        void setDirection(Direction dir, Location *loc);
+        void setDirection(Direction dir, Location* loc);
         bool checkDirection(Direction dir);
-        
+
         void addItem(Item* item);
-        void removeItem(Item* item);
-        
+        Item* removeItem(Item* item);
+
         void addPerson(Person* person);
-        void removePerson(Person* person);
+        Person* removePerson(Person* person);
 };
