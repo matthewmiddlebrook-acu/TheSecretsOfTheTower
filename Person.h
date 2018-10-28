@@ -6,11 +6,10 @@
 using namespace std;
 
 class Person : GameObject {
-    public:
-        string getDialogue(int index) { return dialogue[index]; }
-        void giveItem(Person* recipient, Item* gift);
-
     private:
-        string** dialogue;
+        vector<string> dialogue;
         Inventory* inventory;
+    public:
+        string getDialogue(int index) { return dialogue.at(index); }
+        void giveItem(Person* recipient, Item* gift);
 };

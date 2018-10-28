@@ -5,15 +5,15 @@
 using namespace std;
 
 class Player : Person {
+    private:
+        Location* currentLocation;
+        vector<Location*> visitedLocations;
+
+        static Player* p_instance;
+        Player();
     public:
         static Player* getPlayer();
         
         void move(Direction dir);
         void getItem(Item* pickup);
-    private:
-        static Player* p_instance;
-        Player();
-
-        Location* currentLocation;
-        Location** visitedLocations;
 }

@@ -4,10 +4,9 @@
 using namespace std;
 
 class Inventory {
+    private:
+        vector<Item*> inventory;
     public:
         void addItem(Item* item);
-        Item remove item();
-        
-    private:
-        Item **inventory;
+        Item* remove(Item* item);
 };
