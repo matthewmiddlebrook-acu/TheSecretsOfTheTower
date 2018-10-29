@@ -9,5 +9,4 @@ class Item : public GameObject {
     private:
 
     public:
-
 };

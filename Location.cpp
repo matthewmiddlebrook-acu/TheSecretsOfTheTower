@@ -13,12 +13,28 @@ Location* Location::getLocation(Direction dir) {
     return locations[dir];
 }
 
-void Location::setDirection(Direction dir, Location* loc) {
+void Location::setDirection(Direction dir, Location* loc, bool reEntry = true) {
     locations[dir] = loc;
+    if (reEntry)
+        loc->locations[oppositeDirection(dir)] = this;
 }
 
 bool Location::checkDirection(Direction dir) {
     return locations[dir] != NULL;
+}
+
+Direction Location::oppositeDirection(Direction d) {
+    switch (d) {
+        case NORTH:
+            return SOUTH;
+        case SOUTH:
+            return NORTH;
+        case EAST:
+            return WEST;
+        case WEST:
+            return EAST;
+    }
+    return NUM_DIRECTIONS; // IDK what else to return
 }
 
 void Location::addItem(Item* item) {

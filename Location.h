@@ -21,8 +21,11 @@ class Location : public GameObject {
         Location(string name, string desc);
 
         Location* getLocation(Direction dir);
-        void setDirection(Direction dir, Location* loc);
+        //reEntry means it automatically connects the other location to this one 
+        void setDirection(Direction dir, Location* loc, bool reEntry);
         bool checkDirection(Direction dir);
+
+        Direction oppositeDirection(Direction d);
 
         void addItem(Item* item);
         Item* removeItem(Item* item);

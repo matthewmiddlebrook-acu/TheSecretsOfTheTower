@@ -1,5 +1,7 @@
+#include "GameObject.cpp"
 #include "Location.cpp"
 
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -10,9 +12,7 @@ int main() {
     Location b("BSB", "Onstead-Packer Biblical Studies Building");
 
     a.setDirection(NORTH, &b);
-
-    //Currently this line of code does not automaticaly occur, but probably should.
-    //b.setDirection(SOUTH, &a);
+    a.setAlternateNames({"COBA", "Mabee"});
 
     // Check if a building in a direction exists
     if (a.checkDirection(NORTH)) {
@@ -21,7 +21,16 @@ int main() {
             << ", is " << north->getName() << ", The " << north->getDescription() << "." << endl;
     }
 
+    // Checks to make sure if automatic set opposite direction is working
+    if (b.checkDirection(SOUTH)) {
+        Location *south = b.getLocation(SOUTH);
+        cout << "South of " << b.getName() << " is " << south->getName() << "." << endl;
+    }
+
     // Check if a building in a direction does not exist
     if (!a.checkDirection(SOUTH))
         cout << "There is no building south of " << a.getName() << "." << endl;
+
+    if (a.checkName("mabee"))
+        cout << "Name is valid." << endl;
 }
