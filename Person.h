@@ -13,6 +13,7 @@ class Person : public GameObject {
         vector<string> dialogue;
         Inventory* inventory;
     public:
+        Person(string name = "", string desc = "") : GameObject(name, desc) {}
         string getDialogue(int index) { return dialogue.at(index); }
         void giveItem(Person* recipient, Item* gift);
 };
