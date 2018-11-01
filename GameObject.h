@@ -16,7 +16,7 @@ class GameObject {
 
         bool constainsString(string find, vector<string> strings);
       public:
-        GameObject(string name, string desc) : _name(name), _description(desc) {};
+        GameObject(string name = "", string desc = "") : _name(name), _description(desc) {};
 
         void setName(string name) { _name = name; }
         string getName() { return _name; }

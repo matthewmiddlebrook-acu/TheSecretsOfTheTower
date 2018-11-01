@@ -12,7 +12,7 @@ class Player : public Person {
         vector<Location*> visitedLocations;
 
         static Player* p_instance;
-        Player() {}
+        Player(string name = "", string desc = "") : Person(name, desc) {}
     public:
         static Player* getPlayer();
         
