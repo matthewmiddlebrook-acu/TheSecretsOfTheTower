@@ -15,7 +15,6 @@ class GameObject {
         string lowercase(string s);
 
         bool constainsString(string find, vector<string> strings);
-
       public:
         GameObject(string name, string desc) : _name(name), _description(desc) {};
 

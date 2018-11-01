@@ -42,7 +42,7 @@ void Location::addItem(Item* item) {
 }
 
 Item* Location::removeItem(Item* item) {
-
+	return NULL;
 }
 
 void Location::addPerson(Person* person) {
@@ -50,5 +50,5 @@ void Location::addPerson(Person* person) {
 }
 
 Person* Location::removePerson(Person* person) {
-
+	return NULL;
 }

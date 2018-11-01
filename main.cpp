@@ -1,5 +1,6 @@
 #include "GameObject.cpp"
 #include "Location.cpp"
+#include "Player.cpp"
 
 #include <string>
 #include <iostream>
@@ -33,4 +34,7 @@ int main() {
 
     if (a.checkName("mabee"))
         cout << "Name is valid." << endl;
+
+    Player *player = Player::getPlayer();
+    player->setLocation(&a);
 }
