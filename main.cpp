@@ -1,10 +1,12 @@
 #include "GameObject.cpp"
 #include "Location.cpp"
 #include "Player.cpp"
+#include "command.cpp"
 
 #include <string>
 #include <iostream>
 using namespace std;
+
 
 // This file tests creating locations, assigning a location in a direction, and getting the location in that direction
 
@@ -37,4 +39,24 @@ int main() {
 
     Player *player = Player::getPlayer();
     player->setLocation(&a);
+
+
+    QUIT root;
+    MAN m1;
+
+    GO l1;
+    LOOK l2;
+
+    TAKE a1;
+
+    root.add(&m1);
+    root.add(&l1);
+    root.add(&l2);
+    root.add(&a1);
+
+    while (true) {
+        string input;
+        cin >> input;
+        root.handle(input);
+    }
 }
