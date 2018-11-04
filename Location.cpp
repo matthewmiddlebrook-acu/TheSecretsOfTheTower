@@ -63,7 +63,7 @@ Person* Location::removePerson(Person* person) {
 	return NULL;
 }
 
-Location* Location::createLocations() {
+/*Location* Location::createLocations() {
     Location entrance("The Entrance", "The Entrance\nYou are standing inside a strange building. The room is dimly lit, and you hear strange grumbling noises coming from the EAST. The only object in the room is a potato, lying on the floor. It seems very inviting for some reason.");
 
     Item potato("Potato", "It looks delicious!");
@@ -102,4 +102,4 @@ Location* Location::createLocations() {
 
     // Return the root location that the player will start in
     return &entrance;
-}
+}*/

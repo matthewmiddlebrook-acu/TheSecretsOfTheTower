@@ -33,5 +33,5 @@ class Location : public GameObject {
         void addPerson(Person* person);
         Person* removePerson(Person* person);
 
-        Location* createLocations();
+        //Location* createLocations();
 };

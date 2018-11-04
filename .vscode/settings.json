@@ -4,7 +4,10 @@
         "vector": "cpp",
         "ostream": "cpp",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "sstream": "cpp",
+=======
+>>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
 =======
 >>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
         "cmath": "cpp",
@@ -21,9 +24,13 @@
         "iostream": "cpp",
         "istream": "cpp",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "iterator": "cpp",
         "limits": "cpp",
         "map": "cpp",
+=======
+        "limits": "cpp",
+>>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
 =======
         "limits": "cpp",
 >>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
@@ -47,11 +54,14 @@
         "xstddef": "cpp",
         "xtr1common": "cpp",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "xtree": "cpp",
         "xutility": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 =======
+=======
+>>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
         "xutility": "cpp"
     }
 >>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef

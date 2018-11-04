@@ -4,6 +4,10 @@
 #include "Player.h"
 #include <vector>
 #include <typeinfo>
+#include <iostream>
+
+enum Direction{NORTH, SOUTH, EAST, WEST, UP, DOWN, NUM_DIRECTIONS};
+vector<std::string> DIR = {"NORTH", "EAST", "WEST", "UP", "DOWN"};
 
 
 // BASE
@@ -64,34 +68,34 @@ void MAN::handle(vector<string>* input) {
         Handler::handle(input);
 }
 
-/* LOCATION COMMANDS: GO, LOOK 
-void GO::handle(std::string s) {
-    if (s == "GO") {
-        std::cout << "GO passed" << std::endl;
-         /* PSEUDO
-         get current location of player
-         check to see if direction chosen is valid 
-            move player 
-            return "you cannot do that";
-        */
+/* LOCATION COMMANDS: GO, LOOK */
+void GO::handle(vector<string>* input) {
+    /*
+    check if command is "GO"
+        check if command is used correctly
+            - get player instance
+            - get player location
+            - check if given direction is permissible given the player's location
+    */
+    if (input->at(0) == "GO") {
+        if (input->size() == 2) {
+            std::cout << "GO passed" << std::endl;
+            Player* player = Player::getPlayer();
+            std::vector<std::string>::iterator i;
+            i = find(DIR.begin(), DIR.end(), input[1]);
+            player->move(i);
 
-       /* ACTUAL
-       Player* player = Player::getPlayer();
-       Location* location = player->getLocation();
-       if (location->checkDirection()) {
-           // move player
-       }
-       else {
-           std::cout << "You cannot do that." << std::endl;
-       }
 
-       
-
+        }
+        else {
+            std::cout << MANUAL["GO"];
+        }
     }
     else
-        Handler::handle(s);
+        Handler::handle(input);
 }
 
+/*
 void LOOK::handle(std::string s) {
     if (s == "LOOK") {
         std::cout << "LOOK passed" << std::endl;

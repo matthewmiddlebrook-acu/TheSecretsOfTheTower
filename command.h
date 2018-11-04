@@ -34,17 +34,17 @@ class MAN : public Handler {
         void handle(vector<string>* input);
 };
 
-/* LOCATION COMMANDS: GO, LOOK */ /*
+/* LOCATION COMMANDS: GO, LOOK */
 
 class GO : public Handler {
     public:
-        void handle(std::string s);
+        void handle(vector<string>* input);
 };
 
-class LOOK : public Handler {
+/*class LOOK : public Handler {
     public:
         void handle(std::string s);
-};
+};*/
 
 /* ITEM COMMANDS: TAKE */ /*
 

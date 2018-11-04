@@ -45,13 +45,13 @@ int main() {
     QUIT root;
     MAN m1;
 
-    //GO l1;
+    GO l1;
     //LOOK l2;
 
     //TAKE a1;
 
    root.add(&m1);
-   // root.add(&l1);
+   root.add(&l1);
    // root.add(&l2);
    // root.add(&a1);
 
@@ -60,6 +60,7 @@ int main() {
     while (true) {
         try {
             string input;
+            cout << "~ ";
             getline(cin, input);
             vector<string> v;
             stringstream ss(input);
