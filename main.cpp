@@ -5,6 +5,7 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 
@@ -44,19 +45,40 @@ int main() {
     QUIT root;
     MAN m1;
 
-    GO l1;
-    LOOK l2;
+    //GO l1;
+    //LOOK l2;
 
-    TAKE a1;
+    //TAKE a1;
 
-    root.add(&m1);
-    root.add(&l1);
-    root.add(&l2);
-    root.add(&a1);
+   root.add(&m1);
+   // root.add(&l1);
+   // root.add(&l2);
+   // root.add(&a1);
+
+    
 
     while (true) {
-        string input;
-        cin >> input;
-        root.handle(input);
+        try {
+            string input;
+            getline(cin, input);
+            vector<string> v;
+            stringstream ss(input);
+
+            for (string word; ss >> word; ) {
+                v.push_back(word);
+            }
+
+            if (input == "")
+                throw "Please enter valid input. If you have any questions type MAN.";
+
+
+            root.handle(&v);
+
+
+        }
+        catch(const char* msg) {
+            cout << msg << endl;
+        }
+        
     }
 }

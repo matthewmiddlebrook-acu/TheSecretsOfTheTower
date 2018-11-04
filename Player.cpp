@@ -17,4 +17,14 @@ Location* Player::getLocation() {
 
 void Player::setLocation(Location* location) {
     currentLocation = location;
+    visitedLocations.insert(location);
+}
+
+bool Player::move(Direction dir) {
+    if (currentLocation->checkDirection(dir)) {
+        setLocation(currentLocation->getLocation(dir));
+        return true;
+    } else {
+        return false;
+    }
 }

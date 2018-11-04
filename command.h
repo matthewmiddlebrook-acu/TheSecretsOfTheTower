@@ -1,8 +1,10 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 #include "Player.h"
 #include "Location.h"
+#include "Manual.h"
 
 
 /* 
@@ -14,8 +16,7 @@ class Handler {
     public:
         Handler();
         void add(Handler* n);
-        virtual void handle(std::string s);
-
+        virtual void handle(vector<string>* input);
     private:
         Handler* next;
 };
@@ -25,15 +26,15 @@ class Handler {
 
 class QUIT : public Handler {
     public:
-        void handle(std::string s);
+        void handle(vector<string>* input);
 };
 
 class MAN : public Handler {
     public:
-        void handle(std::string s);
+        void handle(vector<string>* input);
 };
 
-/* LOCATION COMMANDS: GO, LOOK */
+/* LOCATION COMMANDS: GO, LOOK */ /*
 
 class GO : public Handler {
     public:
@@ -45,9 +46,9 @@ class LOOK : public Handler {
         void handle(std::string s);
 };
 
-/* ITEM COMMANDS: TAKE */
+/* ITEM COMMANDS: TAKE */ /*
 
 class TAKE : public Handler {
     public:
         void handle(std::string s);
-};
+};*/

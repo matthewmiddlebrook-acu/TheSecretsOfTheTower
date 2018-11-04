@@ -10,15 +10,15 @@ using namespace std;
 
 // If you want to add more directions to the Direction enum, 
 // keep NUM_DIRECTIONS at the end for correct total length
-enum Direction{NORTH, SOUTH, EAST, WEST, NUM_DIRECTIONS};
+enum Direction{NORTH, SOUTH, EAST, WEST, UP, DOWN, NUM_DIRECTIONS};
 
 class Location : public GameObject {
     private:
-        Location* locations[4];
+        Location* locations[NUM_DIRECTIONS];
         vector<Item*> items;
         vector<Person*> people;
     public:
-        Location(string name, string desc);
+        Location(string name = "", string desc = "");
 
         Location* getLocation(Direction dir);
         //reEntry means it automatically connects the other location to this one 
@@ -32,4 +32,6 @@ class Location : public GameObject {
 
         void addPerson(Person* person);
         Person* removePerson(Person* person);
+
+        Location* createLocations();
 };
