@@ -9,4 +9,5 @@ class Item : public GameObject {
     private:
 
     public:
+        Item(string name = "", string desc = "") : GameObject(name, desc) {};
 };
