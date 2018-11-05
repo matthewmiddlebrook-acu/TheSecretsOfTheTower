@@ -6,6 +6,8 @@
 #include "Location.h"
 #include "Manual.h"
 
+//HAVE NOT COVERED CASE WHERE USER ENTERS LONG STRING OF NOTHING
+
 
 /* 
 BASE HANDLER: abstract class
@@ -16,7 +18,7 @@ class Handler {
     public:
         Handler();
         void add(Handler* n);
-        virtual void handle(vector<string>* input);
+        virtual void handle(vector<std::string>* input);
     private:
         Handler* next;
 };
@@ -26,19 +28,19 @@ class Handler {
 
 class QUIT : public Handler {
     public:
-        void handle(vector<string>* input);
+        void handle(vector<std::string>* input);
 };
 
 class MAN : public Handler {
     public:
-        void handle(vector<string>* input);
+        void handle(vector<std::string>* input);
 };
 
 /* LOCATION COMMANDS: GO, LOOK */
 
 class GO : public Handler {
     public:
-        void handle(vector<string>* input);
+        void handle(vector<std::string>* input);
 };
 
 /*class LOOK : public Handler {
@@ -46,9 +48,9 @@ class GO : public Handler {
         void handle(std::string s);
 };*/
 
-/* ITEM COMMANDS: TAKE */ /*
+/* ITEM COMMANDS: TAKE */
 
 class TAKE : public Handler {
     public:
-        void handle(std::string s);
-};*/
+        void handle(vector<std::string>* input);
+};

@@ -5,8 +5,9 @@
 #include <vector>
 #include <typeinfo>
 #include <iostream>
+#include <algorithm>
 
-enum Direction{NORTH, SOUTH, EAST, WEST, UP, DOWN, NUM_DIRECTIONS};
+//enum Direction{NORTH, SOUTH, EAST, WEST, UP, DOWN, NUM_DIRECTIONS};
 vector<std::string> DIR = {"NORTH", "EAST", "WEST", "UP", "DOWN"};
 
 
@@ -22,7 +23,7 @@ void Handler::handle(vector<string>* input) {
     if (next)
         next->handle(input);
     else
-        std::cout << "You cannot do that."; 
+        std::cout << "You cannot do that.\n\n"; 
 }
 
 /* MENU COMMANDS: QUIT, MAN */
@@ -78,17 +79,23 @@ void GO::handle(vector<string>* input) {
             - check if given direction is permissible given the player's location
     */
     if (input->at(0) == "GO") {
-        if (input->size() == 2) {
-            std::cout << "GO passed" << std::endl;
-            Player* player = Player::getPlayer();
-            std::vector<std::string>::iterator i;
-            i = find(DIR.begin(), DIR.end(), input[1]);
-            player->move(i);
-
-
-        }
-        else {
+        if (input->size() != 2)
             std::cout << MANUAL["GO"];
+        else if (input->size() == 2) {
+            std::vector<string>::iterator i;
+            i = find(DIR.begin(), DIR.end(), input->at(1));
+            if (i == DIR.end())
+                std::cout << MANUAL["GO"];
+            else {
+                std::cout << "GO passed\n\n";
+                /* CANT TEST SINCE WE HAVE NO CONCRETE LOCATIONS
+                Player* player = Player::getPlayer();
+                std::vector<std::string>::iterator i;
+                i = find(DIR.begin(), DIR.end(), input[1]);
+                player->move(i);
+
+                */ 
+            }
         }
     }
     else
@@ -106,13 +113,13 @@ void LOOK::handle(std::string s) {
     }
     else
         Handler::handle(s);
-}
+}*/
 
-/* ACTION COMMANDS: TAKE */ /*
-void TAKE::handle(std::string s) {
-    if (s == "TAKE"){
+/* ACTION COMMANDS: TAKE */
+void TAKE::handle(vector<std::string>* input) {
+    if (input->at(0) == "TAKE"){
         std::cout << "TAKE passed" << std::endl;
     }
     else
-        Handler::handle(s);
-}*/
+        Handler::handle(input);
+}
