@@ -14,10 +14,10 @@ ostream& operator<<(ostream& os, const PrintColor& mp) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, mp.c_);
     os << mp.val_;
-    SetConsoleTextAttribute(hConsole, BLACK);
+    SetConsoleTextAttribute(hConsole, WHITE);
     return os;
 }
 
-void PrintColor::setOutputColor(Color c_) {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c_);
+void PrintColor::setOutputColor(Color c) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }

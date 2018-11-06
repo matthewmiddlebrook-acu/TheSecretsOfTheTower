@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-enum Color{WHITE, BLUE, GREEN, CYAN, RED, MAGENTA, BROWN, BLACK, GRAY};
+enum Color{BLACK, BLUE, GREEN, CYAN, RED, MAGENTA, BROWN, WHITE, GRAY, B_BLUE, B_GREEN, B_CYAN, B_RED, PINK, YELLOW, B_WHITE};
 
 class PrintColor {
     public:

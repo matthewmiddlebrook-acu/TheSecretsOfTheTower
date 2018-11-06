@@ -38,7 +38,7 @@ int main() {
    // root.add(&l2);
    // root.add(&a1);
 
-   cout << PrintColor(player->getLocation()->getName(), BLUE) << endl;
+   cout << PrintColor(player->getLocation()->getName(), B_CYAN) << endl;
    cout << endl;
    cout << player->getLocation()->getDescription() << endl;
 
@@ -49,13 +49,13 @@ int main() {
             string input;
             cout << "~ ";
 
-            PrintColor::setOutputColor(MAGENTA);
+            PrintColor::setOutputColor(YELLOW);
 
             getline(cin, input);
             vector<string> v;
             stringstream ss(input);
 
-            PrintColor::setOutputColor(BLACK);
+            PrintColor::setOutputColor(WHITE);
 
 
             for (string word; ss >> word;)
@@ -69,7 +69,7 @@ int main() {
             root.handle(&v);
 
             Location *location = player->getLocation();
-            cout << PrintColor(location->getName(), BLUE) << endl;
+            cout << PrintColor(location->getName(), B_CYAN) << endl;
             cout << endl;
             cout << location->getDescription() << endl;
        }
