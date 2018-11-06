@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
 
 #include <iostream>
 #include <vector>
@@ -27,3 +28,5 @@ class GameObject {
         void setAlternateNames(vector<string> alt) { alt_names = alt; }
         bool checkName(string value);
 };
+
+#endif

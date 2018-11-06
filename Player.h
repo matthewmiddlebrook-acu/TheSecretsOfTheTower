@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "Person.h"
 #include "Location.h"
@@ -25,3 +26,5 @@ class Player : public Person {
         Location* getLocation();
         void setLocation(Location *location);
 };
+
+#endif

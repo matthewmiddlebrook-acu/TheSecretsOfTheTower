@@ -1,4 +1,5 @@
-#pragma once
+#ifndef INVENTORY_H
+#define INVENTORY_H
 
 #include "Item.h"
 
@@ -13,3 +14,5 @@ class Inventory {
         void addItem(Item* item);
         Item* remove(Item* item);
 };
+
+#endif

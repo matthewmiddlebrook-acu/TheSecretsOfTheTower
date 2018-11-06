@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMMAND_H
+#define COMMAND_H
 
 #include <iostream>
 #include <vector>
@@ -54,3 +55,5 @@ class TAKE : public Handler {
     public:
         void handle(vector<std::string>* input);
 };
+
+#endif

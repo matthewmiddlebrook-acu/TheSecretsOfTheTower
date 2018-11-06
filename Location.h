@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LOCATION_H
+#define LOCATION_H
 
 #include "GameObject.h"
 #include "Person.h"
@@ -35,3 +36,5 @@ class Location : public GameObject {
 
         //Location* createLocations();
 };
+
+#endif

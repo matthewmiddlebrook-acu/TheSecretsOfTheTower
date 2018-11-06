@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ITEM_H
+#define ITEM_H
 
 #include "GameObject.h"
 
@@ -11,3 +12,5 @@ class Item : public GameObject {
     public:
         Item(string name = "", string desc = "") : GameObject(name, desc) {};
 };
+
+#endif

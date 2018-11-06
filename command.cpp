@@ -1,5 +1,3 @@
-#pragma once
-
 #include "command.h"
 #include "Player.h"
 #include <vector>

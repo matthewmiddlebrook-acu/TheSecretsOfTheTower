@@ -1,3 +1,6 @@
+#ifndef MANUAL_H
+#define MANUAL_H
+
 #include <map>
 #include <iterator>
 #include "command.h"
@@ -19,3 +22,5 @@ std::map <std::string, std::string> MANUAL = {
 
 std::string outputManual() {
 }
+
+#endif

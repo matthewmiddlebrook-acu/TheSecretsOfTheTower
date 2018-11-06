@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PERSON_H
+#define PERSON_H
 
 #include "GameObject.h"
 #include "Item.h"
@@ -17,3 +18,5 @@ class Person : public GameObject {
         string getDialogue(int index) { return dialogue.at(index); }
         void giveItem(Person* recipient, Item* gift);
 };
+
+#endif
