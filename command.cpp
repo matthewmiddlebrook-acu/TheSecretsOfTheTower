@@ -79,7 +79,7 @@ void GO::handle(vector<string>* input) {
             - check if given direction is permissible given the player's location
     */
     if (input->at(0) == "GO") {
-        if (input->size() != 2)
+        if (input->size() != 2) 
             std::cout << MANUAL["GO"];
         else if (input->size() == 2) {
             std::vector<string>::iterator i;
