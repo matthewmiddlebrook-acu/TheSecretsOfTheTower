@@ -1,13 +1,8 @@
 #include "Command.h"
-#include <vector>
-#include <typeinfo>
-#include <iostream>
-#include <algorithm>
 
-//enum Direction{NORTH, SOUTH, EAST, WEST, UP, DOWN, NUM_DIRECTIONS};
-vector<std::string> DIR = {"NORTH", "EAST", "WEST", "UP", "DOWN"};
+using namespace std;
 
-std::map <std::string, std::string> MANUAL = {
+/*map <string, string> MANUAL = {
     { "MENU COMMANDS:\n", ""},
     { "QUIT","\nManual QUIT:\n\tDescription: Exits the game\n\tExample: QUIT\n\n" },
     { "MAN", "\nManual: MAN\n\tDescription: Displays the manual for the game or a specified command. \
@@ -17,12 +12,20 @@ std::map <std::string, std::string> MANUAL = {
              \n\tPossible Directions: [NORTH, EAST, SOUTH, WEST, UP, DOWN]\n\tExample: GO NORTH\n\n" },
     { "TAKE","\nManual: TAKE:\n\n" },
     { "INVENTORY", "\nManual: Inventory\n\n" }
+};*/
+
+map<string,string> MANUAL = {
+    { "QUIT", "Exits the game." },
+    { "GO", "Moves the player in a specified direction." },
+    { "TAKE", "Picks up an item." },
+    { "INVENTORY", "Shows player's current inventory." }
 };
 
+vector<string> DIR = {"NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN"};
 
 // returns the corresponding direction
 // if the string "direciton" does not have a corresponding direction return 
-//  NUM_DIRECTIONS (last element in enum).
+// NUM_DIRECTIONS (last element in enum).
 Direction convertStringToEnum(std::string direction) {
     if (direction == "NORTH")
         return NORTH;
@@ -40,8 +43,7 @@ Direction convertStringToEnum(std::string direction) {
     return NUM_DIRECTIONS;
 }
 
-
-// BASE
+/* BASE HANDLER */
 Handler::Handler() { next = NULL; }
 void Handler::add(Handler* n) {
     if (next)
@@ -53,21 +55,16 @@ void Handler::handle(vector<string>* input) {
     if (next)
         next->handle(input);
     else
-        std::cout << "You cannot do that.\n\n"; 
+        cout << endl << "Please enter a valid command." << endl << endl; 
 }
 
 /* MENU COMMANDS: QUIT, MAN */
+
+// exits the game =
 void QUIT::handle(vector<string>* input) {
-    /*
-        check if command is "QUIT"
-            check if command is used correcly
-                calculations
-            if not output manual for command
-        if not pass command to next handler
-    */
     if (input->at(0) == "QUIT")  {
         if (input->size() != 1)
-             std::cout << MANUAL["QUIT"];
+             cout << MANUAL["QUIT"];
         else 
             exit(EXIT_SUCCESS);
     }
@@ -75,116 +72,108 @@ void QUIT::handle(vector<string>* input) {
         Handler::handle(input);
 }
 
+// no "arguements": ouputs game manual
+// one "arguement": outputs command manual
 void MAN::handle(vector<string>* input) {
-    /*
-        check if command is "MAN"
-            check if command is calling MAN or MAN ___
-                if MAN output manual
-                if MAN ___ output manual for ___
-            if not output manual for command
-        if not pass command to next handler
-    */
-    if (input->at(0) == "MAN")  {
-        if (input->size() == 1)
-            std::cout << "This will output the manual.\n\n";
-            //outputManual();
-        else if (input->size() == 2)  {
-            std::map<std::string,std::string>::iterator i = MANUAL.find(input->at(1));
-            if (i != MANUAL.end())
-                 std::cout << i->second;
-            else 
-                std::cout << MANUAL["MAN"];
+    if (input->at(0) == "MAN") {
+        if (input->size() == 1) {
+            cout << endl << "Manual:" << endl << "----------------------" << endl;
+            for (map<string,string>::iterator it = MANUAL.begin(); it != MANUAL.end(); it++)
+                cout << it->first << ":  " << it->second << endl;
+            cout << "----------------------" << endl << endl;
+        }
+        else if (input->size() == 2) {
+            map<string,string>::iterator i = MANUAL.find(input->at(1));
+            if (i != MANUAL.end()) {
+                cout << endl << "Manual: " + input->at(1) << endl << "----------------------" << endl << i->second << endl
+                << "----------------------" << endl << endl;
+            }
+            else {
+                cout << endl << "Please enter a valid command." << endl << endl; // MANUAL["MAN"];
+            }
+                
         }
     }
     else
         Handler::handle(input);
 }
 
-/* LOCATION COMMANDS: GO, LOOK */
+/* ACTION COMMANDS: GO, TAKE, INVENTORY, USE */
+
+// moves player, if possible, from current room to another room in the specified direction
 void GO::handle(vector<string>* input) {
-    /*
-    check if command is "GO"
-        check if command is used correctly
-            - get player instance
-            - get player location
-            - check if given direction is permissible given the player's location
-    */
     if (input->at(0) == "GO") {
         if (input->size() != 2) 
-            std::cout << MANUAL["GO"];
-        else if (input->size() == 2) {
-            std::vector<string>::iterator i;
-            i = find(DIR.begin(), DIR.end(), input->at(1));
-            if (i == DIR.end())
-                std::cout << MANUAL["GO"];
-            else {
-                std::cout << "GO passed\n\n";
-                Player* player = Player::getPlayer();
-                if (!(player->move(convertStringToEnum(input->at(1)))))
-                    std::cout << "You cannot do that.\n\n";
-            }
+            cout << endl << "Invalid input." << endl << endl; // + MANUAL["GO"];
+        else {
+            vector<string>::iterator it = find(DIR.begin(), DIR.end(), input->at(1));
+            if (it == DIR.end())
+                cout << endl << "Please enter a valid direction. Possible directions are: NORTH, SOUTH, EAST, WEST, UP, and DOWN." << endl << endl; // MANUAL["GO"];
+            else
+                if (!(Player::getPlayer()->move(convertStringToEnum(input->at(1)))))
+                    cout << endl << "There's nothing in the direction." << endl << endl;
         }
     }
     else
         Handler::handle(input);
 }
 
-/* ACTION COMMANDS: TAKE */
-void TAKE::handle(vector<std::string>* input) {
+// remvoves specified item from location and adds it to player's inventory
+void TAKE::handle(vector<string>* input) {
     if (input->at(0) == "TAKE") {
         if (input->size() != 2) 
-            std::cout << MANUAL["TAKE"];
+            cout << "Invlaid input." << endl; // MANUAL["TAKE"];
         else {
-            vector<Item*>* locationItems = Player::getPlayer()->getLocation()->getItems();
-            for (unsigned int i = 0; i < locationItems->size(); i++) {
-                Item* item = locationItems->at(i);
+            for (unsigned int i = 0; i <  Player::getPlayer()->getLocation()->getItems()->size(); i++) {
+                Item* item = Player::getPlayer()->getLocation()->getItems()->at(i);
                 if (item->getName() == input->at(1)) {
-                    //std::cout << "ITEM TAKEN" << std::endl;
                     Player::getPlayer()->getLocation()->removeItem(item);
                     Player::getPlayer()->addItem(item);
-
-                    //Player::getPlayer()->addItem(Player::getPlayer()->getLocation()->removeItem(locationItems->at(i)));
                 }
-                //std::cout << locationItems->at(i)->getName() << std::endl;
             }
-            
         }
-        //std::cout << "TAKE passed" << std::endl;
     }
     else
         Handler::handle(input);
 }
 
-void INVENTORY::handle(vector<std::string>* input) {
+// output current items in player inventory
+void INVENTORY::handle(vector<string>* input) {
     if (input->at(0) == "INVENTORY") {
         if (input->size() != 1)
-            std::cout << MANUAL["INVENTORY"];
+            cout << "Invalid input." << endl; // MANUAL["INVENTORY"];
         else {
-            std::cout << "INVENTORY:\n";
-            vector<Item*>* inventory = Player::getPlayer()->getItems();
-            for (unsigned int i = 0; i < inventory->size(); i++)
-                std::cout << inventory->at(i)->getName() << std::endl;
-        }
-        //std::cout << "INVENTORY passed" << std::endl;
-        
+            cout << endl << "INVENTORY:" << endl << "----------------------" << endl;
+            if (Player::getPlayer()->getItems()->size() == 0)
+                cout << "There are currently no items in your inventory.";
+            else
+                for (unsigned int i = 0; i < Player::getPlayer()->getItems()->size(); i++) {
+                    if (!(i % 3) && i != 0)
+                        cout << endl;
+                    cout << Player::getPlayer()->getItems()->at(i)->getName() << "\t";
+                }
+            cout << endl << "----------------------" << endl << endl;
+        } 
     }
     else
         Handler::handle(input);
 }
 
-void INFO::handle(vector<std::string>* input) {
+/* DEBUG COMMANDS: INFO */
+
+// output's current location, location iventory, and player inventory
+void INFO::handle(vector<string>* input) {
     if (input->at(0) == "INFO") {
-        std::cout << "Location: " << Player::getPlayer()->getLocation()->getName() << std::endl;
-        std::cout << "Location Inventory: ";
+        cout << "Location: " << Player::getPlayer()->getLocation()->getName() << std::endl;
+        cout << "Location Inventory: ";
         for (unsigned int i = 0; i < Player::getPlayer()->getLocation()->getItems()->size(); i++)
-            std::cout <<  Player::getPlayer()->getLocation()->getItems()->at(i)->getName() << " ";
-        std::cout << "\n";
-        std::cout << "Player Inventory: ";
+            cout <<  Player::getPlayer()->getLocation()->getItems()->at(i)->getName() << " ";
+        cout << endl;
+        cout << "Player Inventory: ";
         for (unsigned int i = 0; i < Player::getPlayer()->getItems()->size(); i++)
             std::cout <<  Player::getPlayer()->getItems()->at(i)->getName() << " ";
-        std::cout << "\n\n";
+        cout << endl << endl;
     }
     else
         Handler::handle(input);
 }
-

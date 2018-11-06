@@ -1,4 +1,4 @@
-#ifndef INVENTORY_H
+/*#ifndef INVENTORY_H
 #define INVENTORY_H
 
 #include "Item.h"
@@ -15,4 +15,4 @@ class Inventory {
         Item* remove(Item* item);
 };
 
-#endif
+#endif */

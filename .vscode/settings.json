@@ -1,41 +1,30 @@
 {
     "files.associations": {
-        "xstring": "cpp",
-        "vector": "cpp",
+        "iostream": "cpp",
+        "algorithm": "cpp",
         "ostream": "cpp",
-<<<<<<< HEAD
-<<<<<<< HEAD
-        "sstream": "cpp",
-=======
->>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
-=======
->>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
+        "vector": "cpp",
         "cmath": "cpp",
         "cstddef": "cpp",
         "cstdint": "cpp",
         "cstdio": "cpp",
         "cstdlib": "cpp",
         "cstring": "cpp",
+        "ctime": "cpp",
         "cwchar": "cpp",
         "exception": "cpp",
         "initializer_list": "cpp",
+        "iomanip": "cpp",
         "ios": "cpp",
         "iosfwd": "cpp",
-        "iostream": "cpp",
         "istream": "cpp",
-<<<<<<< HEAD
-<<<<<<< HEAD
         "iterator": "cpp",
         "limits": "cpp",
         "map": "cpp",
-=======
-        "limits": "cpp",
->>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
-=======
-        "limits": "cpp",
->>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
         "memory": "cpp",
         "new": "cpp",
+        "set": "cpp",
+        "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "string": "cpp",
@@ -48,21 +37,15 @@
         "xiosbase": "cpp",
         "xlocale": "cpp",
         "xlocinfo": "cpp",
+        "xlocmon": "cpp",
         "xlocnum": "cpp",
+        "xloctime": "cpp",
         "xmemory": "cpp",
         "xmemory0": "cpp",
         "xstddef": "cpp",
+        "xstring": "cpp",
         "xtr1common": "cpp",
-<<<<<<< HEAD
-<<<<<<< HEAD
         "xtree": "cpp",
         "xutility": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "Enabled"
-=======
-=======
->>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
-        "xutility": "cpp"
     }
->>>>>>> bc71412aa978e40bb20b7572dde575d79f73d2ef
 }

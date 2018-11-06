@@ -3,8 +3,10 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <map>
 #include <iterator>
+#include <string>
 
 #include "Player.h"
 #include "Location.h"
@@ -12,13 +14,7 @@
 //HAVE NOT COVERED CASE WHERE USER ENTERS LONG STRING OF NOTHING
 
 
-/* BASE HANDLER:
-    ~ add: adds handler to list
-    ~ handle: specified class handles request
-        if class is unable to handle the request, pass requst to next class in the chain
-    ~ next: pointer to the next handler in the chain
-        init as NULL
-*/
+/* BASE HANDLER */
 class Handler {
     public:
         Handler();
@@ -27,7 +23,6 @@ class Handler {
     private:
         Handler* next;
 };
-
 
 /* MENU COMMANDS: QUIT, MAN */
 class QUIT : public Handler {
@@ -39,15 +34,11 @@ class MAN : public Handler {
         void handle(vector<std::string>* input);
 };
 
-/* LOCATION COMMANDS: GO */
+/* ACTION COMMANDS: DO, TAKE, INVENTORY */
 class GO : public Handler {
     public:
         void handle(vector<std::string>* input);
 };
-
-#endif
-
-/* ACTION COMMANDS: TAKE */
 class TAKE : public Handler {
     public:
         void handle(vector<std::string>* input);
@@ -56,7 +47,11 @@ class INVENTORY : public Handler {
     public:
         void handle(vector<std::string>* input);
 };
+
+/* DEBUG COMMANDS: INFO */
 class INFO : public Handler {
     public:
         void handle(vector<std::string>* input);
 };
+
+#endif
