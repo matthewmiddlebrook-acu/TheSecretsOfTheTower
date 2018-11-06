@@ -2,7 +2,7 @@
 #include "Location.h"
 #include "Player.h"
 #include "Command.h"
-#include "PrintColor.cpp"
+#include "PrintColor.h"
 
 #include <string>
 #include <iostream>
