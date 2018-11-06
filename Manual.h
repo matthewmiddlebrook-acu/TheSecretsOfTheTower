@@ -20,7 +20,12 @@ std::map <std::string, std::string> MANUAL = {
 };
 
 
+<<<<<<< HEAD
 std::string outputManual() {
 }
 
 #endif
+=======
+//std::string outputManual() {
+//}
+>>>>>>> 9c4fdc05cecae2f7e4c3f62730da6c052c5f9adf
