@@ -20,6 +20,10 @@ class PrintColor {
             SetConsoleTextAttribute(hConsole, BLACK);
             return os;
         }
+
+        static void setOutputColor(Color c_) {
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c_);
+        }
     private:
         string val_;
         Color c_;

@@ -123,7 +123,7 @@ void GO::handle(vector<string>* input) {
             if (i == DIR.end())
                 std::cout << MANUAL["GO"];
             else {
-                std::cout << "GO passed\n\n";
+                // std::cout << "GO passed\n\n";
                 Player* player = Player::getPlayer();
                 if (!(player->move(convert(input->at(1)))))
                     std::cout << "You cannot do that.\n\n";
