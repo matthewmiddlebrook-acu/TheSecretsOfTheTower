@@ -1,3 +1,6 @@
+#ifndef PRINTCOLOR_H
+#define PRINTCOLOR_H
+
 #include <iostream>
 using namespace std;
 
@@ -14,3 +17,5 @@ class PrintColor {
         string val_;
         Color c_;
 };
+
+#endif
