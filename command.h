@@ -12,10 +12,12 @@
 //HAVE NOT COVERED CASE WHERE USER ENTERS LONG STRING OF NOTHING
 
 
-/* 
-BASE HANDLER: abstract class
-next: pointer to the next handler in the chain
-      init as NULL
+/* BASE HANDLER:
+    ~ add: adds handler to list
+    ~ handle: specified class handles request
+        if class is unable to handle the request, pass requst to next class in the chain
+    ~ next: pointer to the next handler in the chain
+        init as NULL
 */
 class Handler {
     public:
@@ -28,34 +30,33 @@ class Handler {
 
 
 /* MENU COMMANDS: QUIT, MAN */
-
 class QUIT : public Handler {
     public:
         void handle(vector<std::string>* input);
 };
-
 class MAN : public Handler {
     public:
         void handle(vector<std::string>* input);
 };
 
-/* LOCATION COMMANDS: GO, LOOK */
-
+/* LOCATION COMMANDS: GO */
 class GO : public Handler {
     public:
         void handle(vector<std::string>* input);
 };
 
-/*class LOOK : public Handler {
-    public:
-        void handle(std::string s);
-};*/
+#endif
 
-/* ITEM COMMANDS: TAKE */
-
+/* ACTION COMMANDS: TAKE */
 class TAKE : public Handler {
     public:
         void handle(vector<std::string>* input);
 };
-
-#endif
+class INVENTORY : public Handler {
+    public:
+        void handle(vector<std::string>* input);
+};
+class INFO : public Handler {
+    public:
+        void handle(vector<std::string>* input);
+};

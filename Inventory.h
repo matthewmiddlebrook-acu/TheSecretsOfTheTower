@@ -11,7 +11,7 @@ class Inventory {
     private:
         vector<Item*> inventory;
     public:
-        void addItem(Item* item);
+        void addItem(Item* item) { std::cout << "INVENTORY\n\n"; inventory.push_back(item); };
         Item* remove(Item* item);
 };
 

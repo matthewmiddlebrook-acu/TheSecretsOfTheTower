@@ -20,7 +20,7 @@ class Player : public Person {
         
         bool move(Direction dir);
         
-        void getItem(Item* pickup);
+        //void addItem(Item* pickup);
         void useItem();
 
         Location* getLocation();

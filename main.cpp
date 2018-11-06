@@ -12,13 +12,18 @@ using namespace std;
 // This file tests creating locations, assigning a location in a direction, and getting the location in that direction
 
 int main() {
-    Location start("Beginning", "Player starts the game here.");
+    Location start("Starting Room", "Player starts the game here.");
     Location west("Beginning", "This room is west.");
     Location east("Beginning", "This room is east.");
 
 
     start.setDirection(WEST, &west);
     start.setDirection(EAST, &east);
+
+    Item sword("sword", "excalibur");
+    Item dagger("dagger", "whitefang");
+    start.addItem(&sword);
+    start.addItem(&dagger);
 
     Player *player = Player::getPlayer();
     player->setLocation(&start);
@@ -28,14 +33,17 @@ int main() {
     MAN m1;
 
     GO l1;
-    //LOOK l2;
 
-    //TAKE a1;
+    TAKE a1;
+
+    INVENTORY a2;
+    INFO a3;
 
    root.add(&m1);
    root.add(&l1);
-   // root.add(&l2);
-   // root.add(&a1);
+   root.add(&a1);
+   root.add(&a2);
+   root.add(&a3);
 
     
 
@@ -54,11 +62,17 @@ int main() {
             if (input == "")
                 throw "Please enter valid input. If you have any questions type MAN.";
 
+            //cout <<"\n\n";
+            //Location* location = player->getLocation();
+           // cout << location->getDescription() << endl;
+            //vector<Item*>* itemsInRoom = location->getItems();
+            //for(unsigned int i = 0; i < itemsInRoom->size(); i++) 
+            //cout << itemsInRoom->at(i)->getName() << endl;
+
 
             root.handle(&v);
 
-            Location* location = player->getLocation();
-            cout << location->getDescription();
+ 
 
 
         }

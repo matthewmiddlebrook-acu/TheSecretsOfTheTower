@@ -29,12 +29,13 @@ class Location : public GameObject {
         Direction oppositeDirection(Direction d);
 
         void addItem(Item* item);
-        Item* removeItem(Item* item);
+        void removeItem(Item* item);
 
         void addPerson(Person* person);
         Person* removePerson(Person* person);
 
-        //Location* createLocations();
+        vector<Item*>* getItems();
+
 };
 
 #endif

@@ -1,6 +1,8 @@
 #include "Location.h"
 
 #include <iostream>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 Location::Location(string name, string desc) : GameObject(name, desc) {
@@ -54,8 +56,12 @@ void Location::addItem(Item* item) {
     items.push_back(item);
 }
 
-Item* Location::removeItem(Item* item) {
-	return NULL;
+void Location::removeItem(Item* item) {
+    // find location of item
+    vector<Item*>::iterator it;
+    it = std::find(items.begin(), items.end(), item);
+    items.erase(it);
+    //return item;
 }
 
 void Location::addPerson(Person* person) {
@@ -64,6 +70,10 @@ void Location::addPerson(Person* person) {
 
 Person* Location::removePerson(Person* person) {
 	return NULL;
+}
+
+vector<Item*>* Location::getItems() {
+    return &items;
 }
 
 /*Location* Location::createLocations() {
