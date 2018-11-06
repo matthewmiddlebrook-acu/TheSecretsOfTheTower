@@ -83,7 +83,8 @@ void MAN::handle(vector<string>* input) {
     */
     if (input->at(0) == "MAN")  {
         if (input->size() == 1)
-            outputManual();
+            std::cout << "This will output the manual.\n\n";
+            //outputManual();
         else if (input->size() == 2)  {
             std::map<std::string,std::string>::iterator i = MANUAL.find(input->at(1));
             if (i != MANUAL.end())
@@ -116,37 +117,14 @@ void GO::handle(vector<string>* input) {
             else {
                 std::cout << "GO passed\n\n";
                 Player* player = Player::getPlayer();
-                Location* location = player->getLocation();
                 if (!(player->move(convert(input->at(1)))))
                     std::cout << "You cannot do that.\n\n";
-                //std::cout << location->getDescription();
-
-                /* CANT TEST SINCE WE HAVE NO CONCRETE LOCATIONS
-                Player* player = Player::getPlayer();
-                std::vector<std::string>::iterator i;
-                i = find(DIR.begin(), DIR.end(), input[1]);
-                player->move(i);
-
-                */ 
             }
         }
     }
     else
         Handler::handle(input);
 }
-
-/*
-void LOOK::handle(std::string s) {
-    if (s == "LOOK") {
-        std::cout << "LOOK passed" << std::endl;
-        /*
-        get current locaiton of player
-        output description of current location
-        
-    }
-    else
-        Handler::handle(s);
-}*/
 
 /* ACTION COMMANDS: TAKE */
 void TAKE::handle(vector<std::string>* input) {

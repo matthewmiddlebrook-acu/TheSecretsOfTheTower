@@ -43,8 +43,10 @@ Direction Location::oppositeDirection(Direction d) {
             return DOWN;
         case DOWN:
             return UP;
+        default:
+            return NUM_DIRECTIONS;
     }
-    return NUM_DIRECTIONS; // IDK what else to return
+    //return NUM_DIRECTIONS; // IDK what else to return
 }
 
 void Location::addItem(Item* item) {

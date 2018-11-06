@@ -17,5 +17,5 @@ std::map <std::string, std::string> MANUAL = {
 };
 
 
-std::string outputManual() {
-}
+//std::string outputManual() {
+//}
