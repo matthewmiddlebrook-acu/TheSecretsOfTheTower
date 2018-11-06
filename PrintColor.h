@@ -8,14 +8,14 @@ enum Color{BLACK, BLUE, GREEN, CYAN, RED, MAGENTA, BROWN, WHITE, GRAY, B_BLUE, B
 
 class PrintColor {
     public:
-        PrintColor(string val, Color c = MAGENTA) : val_(val), c_(c) {}
+        PrintColor(string val, int c = MAGENTA) : val_(val), c_(c) {}
         friend ostream &operator<<(ostream &os, const PrintColor &mp);
 
-        static void setOutputColor(Color c_);
+        static void setOutputColor(int c_);
 
       private:
         string val_;
-        Color c_;
+        int c_;
 };
 
 #endif

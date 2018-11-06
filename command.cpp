@@ -5,7 +5,7 @@
 #include <algorithm>
 
 //enum Direction{NORTH, SOUTH, EAST, WEST, UP, DOWN, NUM_DIRECTIONS};
-vector<std::string> DIR = {"NORTH", "EAST", "WEST", "UP", "DOWN"};
+vector<std::string> DIR = {"NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN"};
 
 std::map <std::string, std::string> MANUAL = {
     { "MENU COMMANDS:\n", ""},

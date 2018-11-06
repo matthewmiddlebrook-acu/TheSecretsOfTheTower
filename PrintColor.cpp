@@ -18,6 +18,6 @@ ostream& operator<<(ostream& os, const PrintColor& mp) {
     return os;
 }
 
-void PrintColor::setOutputColor(Color c) {
+void PrintColor::setOutputColor(int c) {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
