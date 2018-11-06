@@ -10,6 +10,33 @@
 //enum Direction{NORTH, SOUTH, EAST, WEST, UP, DOWN, NUM_DIRECTIONS};
 vector<std::string> DIR = {"NORTH", "EAST", "WEST", "UP", "DOWN"};
 
+Direction convert(std::string direction)
+{
+    /*switch(direction)
+    {
+        case "NORTH":
+            return NORTH;
+        case "EAST":
+            return EAST;
+        case "SOUTH":
+            return SOUTH;
+        case "WEST":
+            return WEST;
+
+        default
+    }*/
+    if (direction == "NORTH")
+        return NORTH;
+    else if (direction == "EAST")
+        return EAST;
+    else if (direction == "SOUTH")
+        return SOUTH;
+    else if (direction == "WEST")
+        return WEST;
+    
+    return NUM_DIRECTIONS;
+}
+
 
 // BASE
 Handler::Handler() { next = NULL; }
@@ -88,6 +115,12 @@ void GO::handle(vector<string>* input) {
                 std::cout << MANUAL["GO"];
             else {
                 std::cout << "GO passed\n\n";
+                Player* player = Player::getPlayer();
+                Location* location = player->getLocation();
+                if (!(player->move(convert(input->at(1)))))
+                    std::cout << "You cannot do that.\n\n";
+                //std::cout << location->getDescription();
+
                 /* CANT TEST SINCE WE HAVE NO CONCRETE LOCATIONS
                 Player* player = Player::getPlayer();
                 std::vector<std::string>::iterator i;

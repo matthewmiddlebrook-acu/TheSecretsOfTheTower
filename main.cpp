@@ -13,7 +13,7 @@ using namespace std;
 // This file tests creating locations, assigning a location in a direction, and getting the location in that direction
 
 int main() {
-    Location a("MBB", "Mabee Business Building");
+    /*Location a("MBB", "Mabee Business Building");
     Location b("BSB", "Onstead-Packer Biblical Studies Building");
 
     a.setDirection(NORTH, &b);
@@ -37,10 +37,19 @@ int main() {
         cout << "There is no building south of " << a.getName() << "." << endl;
 
     if (a.checkName("mabee"))
-        cout << "Name is valid." << endl;
+        cout << "Name is valid." << endl;*/
+
+   
+    Location start("Beginning", "Player starts the game here.");
+    Location west("Beginning", "This room is west.");
+    Location east("Beginning", "This room is east.");
+
+
+    start.setDirection(WEST, &west);
+    start.setDirection(EAST, &east);
 
     Player *player = Player::getPlayer();
-    player->setLocation(&a);
+    player->setLocation(&start);
 
 
     QUIT root;
@@ -75,6 +84,9 @@ int main() {
 
 
             root.handle(&v);
+
+            Location* location = player->getLocation();
+            cout << location->getDescription();
 
 
         }
