@@ -13,7 +13,8 @@ Location* Location::getLocation(Direction dir) {
     return locations[dir];
 }
 
-void Location::setDirection(Direction dir, Location* loc, bool reEntry = true) {
+void Location::setDirection(Direction dir, Location* loc) {
+    bool reEntry = true;
     if (locations[dir] != NULL)
             cout << "There's already a room in this direction!" << endl;
     locations[dir] = loc;

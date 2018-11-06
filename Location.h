@@ -23,7 +23,7 @@ class Location : public GameObject {
 
         Location* getLocation(Direction dir);
         //reEntry means it automatically connects the other location to this one 
-        void setDirection(Direction dir, Location* loc, bool reEntry);
+        void setDirection(Direction dir, Location* loc);
         bool checkDirection(Direction dir);
 
         Direction oppositeDirection(Direction d);

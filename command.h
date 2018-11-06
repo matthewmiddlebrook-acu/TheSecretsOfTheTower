@@ -3,9 +3,11 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
+#include <iterator>
+
 #include "Player.h"
 #include "Location.h"
-#include "Manual.h"
 
 //HAVE NOT COVERED CASE WHERE USER ENTERS LONG STRING OF NOTHING
 

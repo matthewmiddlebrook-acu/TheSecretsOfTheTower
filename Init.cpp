@@ -1,4 +1,4 @@
-#include "Location.cpp"
+#include "Location.h"
 
 #include <iostream>
 using namespace std;

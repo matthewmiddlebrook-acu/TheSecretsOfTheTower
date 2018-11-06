@@ -1,7 +1,7 @@
-#include "GameObject.cpp"
-#include "Location.cpp"
-#include "Player.cpp"
-#include "command.cpp"
+#include "GameObject.h"
+#include "Location.h"
+#include "Player.h"
+#include "Command.h"
 
 #include <string>
 #include <iostream>
