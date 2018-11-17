@@ -6,6 +6,7 @@
 #include "Item.h"
 
 #include <iostream>
+#include <map>
 #include <vector>
 using namespace std;
 
@@ -18,7 +19,10 @@ class Location : public GameObject {
         Location* locations[NUM_DIRECTIONS];
         vector<Item*> items;
         vector<Person*> people;
-    public:
+        map<string, string> descriptions;
+        map<Direction, string> denied;
+
+      public:
         Location(string name = "", string desc = "");
 
         Location* getLocation(Direction dir);
@@ -36,6 +40,17 @@ class Location : public GameObject {
 
         vector<Item*>* getItems();
 
+        string getDescription();
+        void setDescription(string desc);
+
+        string getDescription(string state);
+        void setDescription(string state, string desc);
+
+        void denyEntry(Direction dir, string item_required);
+        void allowEntry(Direction dir);
+
+        bool deniedEntry(Direction dir);
+        string requiresItem(Direction dir);
 };
 
 #endif

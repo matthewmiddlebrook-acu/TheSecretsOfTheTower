@@ -3,7 +3,6 @@
 
 #include "GameObject.h"
 #include "Item.h"
-#include "Inventory.h"
 
 #include <iostream>
 #include <vector>
@@ -20,6 +19,7 @@ class Person : public GameObject {
         void giveItem(Person* recipient, Item* gift);
         void addItem(Item* item) { inventory.push_back(item); }
         vector<Item*>* getItems() { return &inventory; }
+        bool hasItem(string item_name);
 };
 
 #endif

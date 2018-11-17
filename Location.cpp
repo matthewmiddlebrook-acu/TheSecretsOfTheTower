@@ -5,10 +5,46 @@
 #include <vector>
 using namespace std;
 
-Location::Location(string name, string desc) : GameObject(name, desc) {
-    for (int i = 0; i < NUM_DIRECTIONS; i++) {
+Location::Location(string name, string desc) : GameObject(name) {
+    setDescription(desc);
+
+    for (int i = 0; i < NUM_DIRECTIONS; i++)
+    {
         locations[i] = NULL;
     }
+}
+
+string Location::getDescription() {
+    return descriptions.at("default");
+}
+
+void Location::setDescription(string desc) {
+    descriptions.insert(pair<string, string>("default", desc));
+}
+
+string Location::getDescription(string state) {
+    return descriptions.at(state);
+}
+
+
+void Location::setDescription(string state, string desc) {
+    descriptions.insert(pair<string, string>(state, desc));
+}
+
+void Location::denyEntry(Direction dir, string item_required) {
+    denied.insert(pair<Direction, string>(dir, item_required));
+}
+
+void Location::allowEntry(Direction dir) {
+    denied.erase(dir);
+}
+
+bool Location::deniedEntry(Direction dir) {
+    return denied.count(dir);
+}
+
+string Location::requiresItem(Direction dir) {
+    return denied.at(dir);
 }
 
 Location* Location::getLocation(Direction dir) {
@@ -75,44 +111,3 @@ Person* Location::removePerson(Person* person) {
 vector<Item*>* Location::getItems() {
     return &items;
 }
-
-/*Location* Location::createLocations() {
-    Location entrance("The Entrance", "The Entrance\nYou are standing inside a strange building. The room is dimly lit, and you hear strange grumbling noises coming from the EAST. The only object in the room is a potato, lying on the floor. It seems very inviting for some reason.");
-
-    Item potato("Potato", "It looks delicious!");
-    entrance.addItem(&potato);
-
-    Location elevator_room("The Elevator Room", "You see a statue of a person, with their mouth wide open. Next to the statue, you see an Elevator. The statue seems to be making a grumbling noise, as if it was hungry. Weird.");
-
-    Item statue("Strange Statue", "A strange looking statue of a man, with its mouth agape. It looks hungry");
-    elevator_room.addItem(&statue);
-
-    entrance.setDirection(EAST, &elevator_room);
-
-    Location test("Elevator - Floor 1");
-
-    elevator_room.setDirection(EAST, &test);
-
-
-    Location test2("Elevator - Floor 2");
-
-    test.setDirection(UP, &test2);
-
-
-    Location room1("Test room", "Blah blah");
-
-    test2.setDirection(SOUTH, &room1);
-
-
-    Location room2("Test room 2");
-
-    room1.setDirection(WEST, &room2);
-
-    
-    Location room3("Test room 3");
-
-    room2.setDirection(NORTH, &room3);
-
-    // Return the root location that the player will start in
-    return &entrance;
-}*/

@@ -1,0 +1,24 @@
+What works:
+	- Moving from location to location
+	- Picking up items
+	- Keeping track of which rooms have been visited
+	- Rudimentary manual
+	- Preventing entry into a room without an item
+	- Commands: GO, TAKE, INFO, MAN, INVENTORY
+
+What needs to be done:
+	- Functionally, most of the game is coded, the story simply needs to be fleshed out.
+
+COMMAND ORDER:
+
+GO SOUTH
+GO WEST
+GO NORTH
+GO EAST
+GO SOUTH
+GO SOUTH
+TAKE NOTEBOOK
+GO NORTH
+GO NORTH
+GO EAST
+QUIT

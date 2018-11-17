@@ -1,4 +1,5 @@
 #include "Command.h"
+#include "PrintColor.h"
 
 using namespace std;
 
@@ -112,6 +113,11 @@ void GO::handle(vector<string>* input) {
             else
                 if (!(Player::getPlayer()->move(convertStringToEnum(input->at(1)))))
                     cout << endl << "There's nothing in the direction." << endl << endl;
+                else {
+                    cout << PrintColor(Player::getPlayer()->getLocation()->getName(), B_CYAN) << endl;
+                    cout << endl;
+                    cout << Player::getPlayer()->getLocation()->getDescription() << endl;
+                }
         }
     }
     else

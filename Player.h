@@ -15,7 +15,16 @@ class Player : public Person {
 
         static Player* p_instance;
         Player(string name = "", string desc = "") : Person(name, desc) {}
-    public:
+
+        int skillTyping = 0, 
+            skillLogic = 0, 
+            skillSpeech = 0, 
+            skillCreativity = 0, 
+            skillCraft = 0, 
+            SkillJP = 0, 
+            skillIntel = 0;
+
+      public:
         static Player* getPlayer();
         
         bool move(Direction dir);
