@@ -46,6 +46,10 @@ class Location : public GameObject {
         string getDescription(string state);
         void setDescription(string state, string desc);
 
+        // Attempted to add descriptions for skills, still not used yet though...
+        void setDescriptionSkillLevel(int level, string desc);
+        string getDescriptionSkillLevel(int level);
+
         void denyEntry(Direction dir, string item_required);
         void allowEntry(Direction dir);
 

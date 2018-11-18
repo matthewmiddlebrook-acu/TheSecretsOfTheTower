@@ -22,13 +22,22 @@ void Location::setDescription(string desc) {
     descriptions.insert(pair<string, string>("default", desc));
 }
 
+// Gets the description if there is a special state (first entry or requires item), rather than just normal room description
 string Location::getDescription(string state) {
     return descriptions.at(state);
 }
 
-
 void Location::setDescription(string state, string desc) {
     descriptions.insert(pair<string, string>(state, desc));
+}
+
+// Sets the description for a specific skill level
+void Location::setDescriptionSkillLevel(int level, string desc) {
+    descriptions.insert(pair<string, string>(to_string(level), desc));
+}
+
+string Location::getDescriptionSkillLevel(int level) {
+    return descriptions.at(to_string(level));
 }
 
 void Location::denyEntry(Direction dir, string item_required) {
