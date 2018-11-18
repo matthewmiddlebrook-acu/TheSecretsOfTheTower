@@ -5,8 +5,11 @@
 #include "Location.h"
 
 #include <set>
+#include <map>
 #include <iostream>
 using namespace std;
+
+enum Skill{TYPING, LOGIC, SPEECH, CREATIVITY, CRAFTSMANSHIP, JAPANESE, INTELLIGENCE};
 
 class Player : public Person {
     private:
@@ -16,13 +19,7 @@ class Player : public Person {
         static Player* p_instance;
         Player(string name = "", string desc = "") : Person(name, desc) {}
 
-        int skillTyping = 0, 
-            skillLogic = 0, 
-            skillSpeech = 0, 
-            skillCreativity = 0, 
-            skillCraft = 0, 
-            SkillJP = 0, 
-            skillIntel = 0;
+        int skills[6] { };
 
       public:
         static Player* getPlayer();
@@ -34,6 +31,10 @@ class Player : public Person {
 
         Location* getLocation();
         void setLocation(Location *location);
+
+        void increaseSkill(Skill s, int amount) { skills[s] += amount; }
+        void decreaseSkill(Skill s, int amount) { skills[s] -= amount; }
+        int getSkill(Skill s) { return skills[s]; }
 };
 
 #endif
