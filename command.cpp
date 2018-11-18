@@ -22,12 +22,14 @@ map<string,string> MANUAL = {
     { "INVENTORY", "Shows player's current inventory." }
 };
 
+
 vector<string> DIR = {"NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN"};
+vector<string> STRING_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE"};
 
 // returns the corresponding direction
 // if the string "direciton" does not have a corresponding direction return 
 // NUM_DIRECTIONS (last element in enum).
-Direction convertStringToEnum(std::string direction) {
+Direction convertStringToEnumDir(string direction) {
     if (direction == "NORTH")
         return NORTH;
     else if (direction == "EAST")
@@ -42,6 +44,25 @@ Direction convertStringToEnum(std::string direction) {
         return DOWN;
 
     return NUM_DIRECTIONS;
+}
+
+SKILL convertStringToEnumSkill(string skill) {
+    if (skill == "TYPING")
+        return TYPING;
+    else if (skill == "LOGIC")
+        return LOGIC;
+    else if (skill == "SPEECH")
+        return SPEECH;
+    else if (skill == "CREATIVITY")
+        return CREATIVITY;
+    else if (skill == "CRAFTSMANSHIP")
+        return CRAFTSMANSHIP;
+    else if (skill == "JAPANESE")
+        return JAPANESE;
+    else if (skill == "INTELLIGENCE")
+        return INTELLIGENCE;
+
+    return NONE;
 }
 
 /* BASE HANDLER */
@@ -111,7 +132,7 @@ void GO::handle(vector<string>* input) {
             if (it == DIR.end())
                 cout << endl << "Please enter a valid direction. Possible directions are: NORTH, SOUTH, EAST, WEST, UP, and DOWN." << endl << endl; // MANUAL["GO"];
             else
-                if (!(Player::getPlayer()->move(convertStringToEnum(input->at(1)))))
+                if (!(Player::getPlayer()->move(convertStringToEnumDir(input->at(1)))))
                     cout << endl << "There's nothing in the direction." << endl << endl;
                 else {
                     cout << PrintColor(Player::getPlayer()->getLocation()->getName(), B_CYAN) << endl;
@@ -135,6 +156,7 @@ void TAKE::handle(vector<string>* input) {
                 if (item->getName() == input->at(1)) {
                     Player::getPlayer()->getLocation()->removeItem(item);
                     Player::getPlayer()->addItem(item);
+                    cout << "ITEM ADDED TO INVENTORY: " << item->getName() << endl;
                 }
             }
         }
@@ -160,6 +182,26 @@ void INVENTORY::handle(vector<string>* input) {
                 }
             cout << endl << "----------------------" << endl << endl;
         } 
+    }
+    else
+        Handler::handle(input);
+}
+
+void SKILLS::handle(vector<string>* input) {
+    if (input->at(0) == "SKILLS") {
+        if (input->size() != 1)
+            cout << "Invalid input." << endl;
+        else {
+            cout << endl << "SKILLS:" << endl <<  "-----------------------------------------------------------------------------------------------------------" << endl;
+            for (unsigned int i = 0; i < STRING_SKILLS.size(); i++) {
+                 cout.width(15); cout << std::left << STRING_SKILLS[i];
+            }
+            cout << endl;
+            for (unsigned int i = 0; i < STRING_SKILLS.size(); i++) {
+                cout.width(15); cout << std::left << Player::getPlayer()->getSkill(convertStringToEnumSkill(STRING_SKILLS[i]));
+            }
+            cout << endl<< "-----------------------------------------------------------------------------------------------------------" << endl << endl;
+        }
     }
     else
         Handler::handle(input);

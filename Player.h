@@ -9,7 +9,8 @@
 #include <iostream>
 using namespace std;
 
-enum Skill{TYPING, LOGIC, SPEECH, CREATIVITY, CRAFTSMANSHIP, JAPANESE, INTELLIGENCE};
+enum SKILL{TYPING, LOGIC, SPEECH, CREATIVITY, CRAFTSMANSHIP, JAPANESE, INTELLIGENCE, NONE};
+
 
 class Player : public Person {
     private:
@@ -19,7 +20,7 @@ class Player : public Person {
         static Player* p_instance;
         Player(string name = "", string desc = "") : Person(name, desc) {}
 
-        int skills[6] { };
+        int skills[7] { };
 
       public:
         static Player* getPlayer();
@@ -32,9 +33,10 @@ class Player : public Person {
         Location* getLocation();
         void setLocation(Location *location);
 
-        void increaseSkill(Skill s, int amount) { skills[s] += amount; }
-        void decreaseSkill(Skill s, int amount) { skills[s] -= amount; }
-        int getSkill(Skill s) { return skills[s]; }
+        bool completeClass(std::string course);
+        void increaseSkill(SKILL s, int amount) { skills[s] += amount; }
+        void decreaseSkill(SKILL s, int amount) { skills[s] -= amount; }
+        int getSkill(SKILL s) { return skills[s]; }
 };
 
 #endif

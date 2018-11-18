@@ -7,6 +7,7 @@
 #include <map>
 #include <iterator>
 #include <string>
+#include <iomanip>
 
 #include "Player.h"
 #include "Location.h"
@@ -44,6 +45,10 @@ class TAKE : public Handler {
         void handle(vector<std::string>* input);
 };
 class INVENTORY : public Handler {
+    public:
+        void handle(vector<std::string>* input);
+};
+class SKILLS : public Handler {
     public:
         void handle(vector<std::string>* input);
 };
