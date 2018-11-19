@@ -87,7 +87,7 @@ int main()
     cout << endl;
     cout << "\"Well, " + player->getName() + ", here\'s your schedule of the classes you can take. Complete one class and you\'ll\n" \
             "be able to move onto the next one. Did you come in with any previous credit? If so, you can clep out of the\n" \
-            "entry level course for one of the following: SCRIPTING, PROGRAMMING, ANIMATION, 3D MODELING, or BUSNIESS.\n" \
+            "entry level course for one of the following: SCRIPTING, PROGRAMMING, ANIMATION, 3D MODELING, or BUSINESS.\n" \
             "Would you like to clep out?\"";
     cout << endl << endl;
     cout << "TYPE ONE OF THE FOLLOWING OR NONE: "; // only programming works right now
@@ -122,8 +122,8 @@ int main()
     cout << "\"If you have any questions concerning how to navigate campus or classes, please feel free to look at your guidebook\n" \
             "by typing GUIDE. I wish you the best of luck with school tomorrow.\"";
     cout << endl << endl;
-    cout << "You grab your belongings and exit the room. You remeber Ms. Cuevas\' advice about avoiding Homer. School beings\n" \
-            "tomorrow. Freshman year. College life. Tomorrow... Parties. Freedom. Freinds. Tomorrow...";
+    cout << "You grab your belongings and exit the room. You remember Ms. Cuevas\' advice about avoiding Homer. School beings\n" \
+            "tomorrow. Freshman year. College life. Tomorrow... Parties. Freedom. Friends. Tomorrow...";
     cout << endl << endl;
     cout << "THE NEXT DAY" << endl << endl;
 
