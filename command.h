@@ -53,7 +53,6 @@ class SKILLS : public Handler {
     public:
         void handle(vector<std::string>* input);
 };
-
 /* DEBUG COMMANDS: INFO */
 class INFO : public Handler {
     public:

@@ -16,6 +16,18 @@ using namespace std;
 vector<string> CLASSES {"PROGRAMMING", "SCRIPTING", "ANIMATION", "3D MODELING", "BUSINESS"};
 vector<string> STR_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE","NONE","GENERAL",};
 
+void schedule(vector<Location*> Loc) {
+    string sched =
+            "SCHEDULE:\n" \
+            "-----------------------------\n" \
+            "Classes Being Offered:\n";
+        for (unsigned int i = 0; i < Loc.size(); i++) 
+            if (Loc.at(i)->isClassroom() && Player::getPlayer()->getSkill((SKILL)(Loc.at(i)->getRequiredSkill())) >= Loc.at(i)->getLowReq()) {
+                sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) + "\n"; // need to add teacher
+        cout << sched << endl;
+}
+        
+
 int main()
 {
     // INIT PLAYER //
@@ -194,7 +206,7 @@ int main()
 
     // Create a handler TALK, returns random string of person, size of vector
 
-    Person burton = Person("Dr. Burton");
+    /*Person burton = Person("Dr. Burton");
     burton.setDialogue(0, "\"Buy my book! I've written many books on Corona and Amazon Lumberyard.\"");
     burton.setDialogue(1, "\"Man buns are cool.\"");
     burton.setDialogue(2, "\"Did you hear about the new [generic tech] yet? It sounds amazing!\"");
@@ -235,26 +247,10 @@ int main()
     MBB315.addPerson(&tanner);
 
     MBB115.addPerson(&prather);
-    MBB118.addPerson(&bProf);
-
-    "Are you ready to take the final?";
-    "What is your favorite color?";
+    MBB118.addPerson(&bProf);*/
 
     // SET PLAYER //
     player->setLocation(&MBBHallway1);
-
-    // CREATE SCHEDULE //
-    string sched =
-        "SCHEDULE:\n" \
-        "-----------------------------\n" \
-        "Classes Being Offered:\n";
-        //"MBB318\tINTRO TO ITC\t\tDr. Burton\n";
-    for (unsigned int i = 0; i < Locations.size(); i++) {
-        if (Locations.at(i)->isClassroom() && player->getSkill((SKILL)(Locations.at(i)->getRequiredSkill())) >= Locations.at(i)->getLowReq()) {
-            sched += Locations.at(i)->getName() + "\t" + Locations.at(i)->getClass(player->getSkill((SKILL)Locations.at(i)->getRequiredSkill())) + "\n"; // need to add teacher
-        }      
-    }
-    cout << sched;
 
 
     // CREATE GUIDEBOOK //
@@ -275,7 +271,10 @@ int main()
             for (string word; ss >> word;)
                 v.push_back(word);
 
-            root.handle(&v);
+            if (v.at(0) == "SCHEDULE" && v.size() == 1)
+                schedule(Locations);
+            else
+                root.handle(&v);
         }
     }
 }
