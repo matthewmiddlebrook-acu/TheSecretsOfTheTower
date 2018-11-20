@@ -15,8 +15,29 @@ string MANUAL =
 "SITC GUIDE:\n" \
 "--------------------------------\n" \
 "Our goal here at SITC is to help you get through\n" \
-"college. Do assiments in classes to gain SKILLS.\n" \
-"Once you have ";
+"college. DO assignments in classes to upgrade your\n" \
+"SKILLS. Once you have completed a class by DOing a PROJECT\n" \
+"your SKILLS increase. ONCE you have enough SKILL\n" \
+"points you will be able to take the final exam and,\n"
+"if you pass, graduate from SITC.\n\n" \
+"COMMANDS:\n" \
+"---------------------\n" \
+"GUIDE: outpus the SITC guide\n" \
+"QUIT: exits the game\n" \
+"GO: moves the player in a specified direction\n" \
+"TAKE: adds an item to player's inventory\n" \
+"INVENTORY: outputs the player's inventory\n" \
+"SKILLS: outputs the player's skills\n" \
+"TALK: the players talks to a random person in the room\n" \
+"DO: the player does a project\n\n" \
+"The possible diretions a player can GO are:\n" \
+"NORTH, EAST, SOUTH, WEST, UP, DOWN\n\n" \
+"The SKILL tree consists of:\n" \
+"TYPING, LOGIC, SPEECH, CREATIVITY, CRAFTSMANSHIP, JAPANESE, INTELLIGENCE\n\n" \
+"--------------------------------\n\n";
+
+
+
 
 
 
@@ -128,21 +149,21 @@ void GO::handle(vector<string>* input) {
                 cout << endl << "Please enter a valid direction. Possible directions are: NORTH, SOUTH, EAST, WEST, UP, and DOWN." << endl << endl; // MANUAL["GO"];
             else
                 if (!(p->move((convertStringToEnumDir(input->at(1))))))
-                    cout << endl << "There's nothing in the direction." << endl << endl;
+                    cout << endl << "There's nothing in that direction." << endl << endl;
                 else {
                     if (p->getLocation()->isClassroom()) {
                         SKILL required = (SKILL)p->getLocation()->getRequiredSkill();
                         
                         if (p->getSkill(required) >= p->getLocation()->getLowReq()) {
-                            cout << PrintColor(p->getLocation()->getName(), B_CYAN) << ": " << p->getLocation()->getClass(p->getSkill((SKILL)(p->getLocation()->getRequiredSkill()-1))) << endl;
-                            cout << p->getLocation()->getDescriptionSkillLevel(p->getSkill(required)) << endl;
+                            cout << endl << PrintColor(p->getLocation()->getName(), B_CYAN) << ": " << p->getLocation()->getClass(p->getSkill((SKILL)(p->getLocation()->getRequiredSkill()-1))) << endl;
+                            cout << p->getLocation()->getDescriptionSkillLevel(p->getSkill(required)) << endl << endl;
                         } else {
-                            cout << "The door is locked. You do not have the prerequisites for " << p->getLocation()->getClass(0) << "." << endl;
+                            cout << endl << "The door is locked. You do not have the prerequisites for " << p->getLocation()->getClass(0) << "." << endl << endl;
                             p->move(p->getLocation()->oppositeDirection(convertStringToEnumDir(input->at(1))));
                         }
                     } else {
-                        cout << PrintColor(p->getLocation()->getName(), B_CYAN) << endl;
-                        cout << p->getLocation()->getDescription() << endl;
+                        //cout << PrintColor(p->getLocation()->getName(), B_CYAN) << endl;
+                        cout << endl << p->getLocation()->getDescription() << endl << endl;
                     }
                 }
         }
@@ -219,7 +240,7 @@ void TALK::handle(vector<string>* input) {
         vector<Person*> people = player->getLocation()->getPeople();
         if (people.size() != 0) {
             int index = rand() % people.size();
-            cout << people.at(index)->getName() << ": " << people.at(index)->getDialogue() << endl;
+            cout << endl << people.at(index)->getName() << ": " << people.at(index)->getDialogue() << endl << endl;
         }
         else
             cout << "There's no one to talk to." << endl;
@@ -228,19 +249,34 @@ void TALK::handle(vector<string>* input) {
         Handler::handle(input);
 }
 
-void DO::handle(vector<string>* input) {
-    if (input->at(0) == "DO") [
+void LOOK::handle(vector<string>* input) {
+    if (input->at(0) == "LOOK" && input->size() == 1) {
+        Player* player = Player::getPlayer();
+        if (player->getLocation()->isClassroom()) {
+            cout << endl << PrintColor(player->getLocation()->getName(), B_CYAN) << ": " << player->getLocation()->getClass(player->getSkill((SKILL)(player->getLocation()->getRequiredSkill()-1))) << endl;
+            cout << player->getLocation()->getDescriptionSkillLevel(player->getSkill((SKILL)(player->getLocation()->getRequiredSkill()-1))) << endl << endl;
+        }
+        else {
+            cout << endl << player->getLocation()->getDescription() << endl << endl;
+        }
+    }
+    else
+        Handler::handle(input);
+}
+
+/*void DO::handle(vector<string>* input) {
+    if (input->at(0) == "DO") {
         if (input->size() == 1) {
             cout << "What exaclty do you want to DO?";
         }
         else if (input->size() == 2 && input->at(1) == "PROJECT") {
-            Player* player = Player::getPlayer();
-            player->getLocation()->doProject();
+            //Player* player = Player::getPlayer();
+            //player->getLocation()->doProject();
         }
-    ]
+    }
     else
         Handler::handle(input);
-}
+}*/
 
 /* DEBUG COMMANDS: INFO */
 
