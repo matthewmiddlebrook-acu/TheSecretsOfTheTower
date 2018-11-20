@@ -1,24 +1,23 @@
 #include "Command.h"
 #include "PrintColor.h"
 
-/*map <string, string> MANUAL = {
-    { "MENU COMMANDS:\n", ""},
-    { "QUIT","\nManual QUIT:\n\tDescription: Exits the game\n\tExample: QUIT\n\n" },
-    { "MAN", "\nManual: MAN\n\tDescription: Displays the manual for the game or a specified command. \
-             \n\tUsage: MAN (displays game manual)\n\t       MAN (COMMAND) (displays manual for specified command) \
-             \n\tExample: MAN GO\n\n" },
-    { "GO",  "\nManual: GO\n\tDescription: Moves the player in a specified direction.\n\tUsage: GO (DIRECTION) \
-             \n\tPossible Directions: [NORTH, EAST, SOUTH, WEST, UP, DOWN]\n\tExample: GO NORTH\n\n" },
-    { "TAKE","\nManual: TAKE:\n\n" },
-    { "INVENTORY", "\nManual: Inventory\n\n" }
-};*/
 
-map<string,string> MANUAL = {
+
+
+/*map<string,string> MANUAL = {
     { "QUIT", "Exits the game." },
     { "GO", "Moves the player in a specified direction." },
     { "TAKE", "Picks up an item." },
     { "INVENTORY", "Shows player's current inventory." }
-};
+};*/
+
+string MANUAL = 
+"SITC GUIDE:\n" \
+"--------------------------------\n" \
+"Our goal here at SITC is to help you get through\n" \
+"college. Do assiments in classes to gain SKILLS.\n" \
+"Once you have ";
+
 
 
 vector<string> DIR = {"NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN"};
@@ -82,12 +81,8 @@ void Handler::handle(vector<string>* input) {
 
 // exits the game =
 void QUIT::handle(vector<string>* input) {
-    if (input->at(0) == "QUIT")  {
-        if (input->size() != 1)
-             cout << MANUAL["QUIT"];
-        else 
+    if (input->at(0) == "QUIT")
             exit(EXIT_SUCCESS);
-    }
     else
         Handler::handle(input);
 }
@@ -95,9 +90,10 @@ void QUIT::handle(vector<string>* input) {
 // no "arguements": ouputs game manual
 // one "arguement": outputs command manual
 void MAN::handle(vector<string>* input) {
-    if (input->at(0) == "MAN") {
+    if (input->at(0) == "GUIDE") {
         if (input->size() == 1) {
-            cout << endl << "Manual:" << endl << "----------------------" << endl;
+            cout << MANUAL;
+            /*cout << endl << "Manual:" << endl << "----------------------" << endl;
             for (map<string,string>::iterator it = MANUAL.begin(); it != MANUAL.end(); it++)
                 cout << it->first << ":  " << it->second << endl;
             cout << "----------------------" << endl << endl;
@@ -110,7 +106,7 @@ void MAN::handle(vector<string>* input) {
             }
             else {
                 cout << endl << "Please enter a valid command." << endl << endl; // MANUAL["MAN"];
-            }
+            }*/
                 
         }
     }
@@ -211,6 +207,19 @@ void SKILLS::handle(vector<string>* input) {
                 cout.width(15); cout << std::left << Player::getPlayer()->getSkill(convertStringToEnumSkill(STRING_SKILLS[i]));
             }
             cout << endl<< "-----------------------------------------------------------------------------------------------------------" << endl << endl;
+        }
+    }
+    else
+        Handler::handle(input);
+}
+
+void TALK::handle(vector<string>* input) {
+    if (input->at(0) == "TALK" && input->size() == 1) {
+        Player* player = Player::getPlayer();
+        vector<Person*> people = player->getLocation()->getPeople();
+        if (people.size() != 0) {
+            int index = rand() % people.size();
+            cout << people.at(index)->getDialogue() << endl;
         }
     }
     else
