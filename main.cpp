@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Command.h"
 #include "PrintColor.h"
+#include "ASCII.h"
 
 #include <string>
 #include <iostream>
@@ -141,25 +142,36 @@ int main()
         "He holds up a plate of two donuts, covered in sprinkles and chocolate icing. They look absolutely delicious.\n"
         "\"This should be a fun assignment!\"");
 
+    MBB315.setCompletionOutput(
+        "\"Great job!\" Professor Tanner tells you. \"You completed a beautiful render!\"");
+
     MBB315.setDescriptionSkillLevel(2, 
         "You walk into 315 again to take another class with Professor Tanner, and see him drinking from his green\n" \
         "Mario themed warp pipe mug, and what is probably his fifth cup of coffee...this morning. He shouts in a\n" \
         "terrible scottish accent, \"ALL RIGHT ME STUDENTS!\" The classroom grows quiet. \" Today, we are going to\n" \
-        "do thegreatest assignment ever.\" He takes a sip from his coffee and stares at you. \"We are going to model\n" \
-        "an Anvil.\" The class groans, remembering the horror stories of students who have formerly taken the class.\n" \
-        "\"Oh stop it!\" Tanner exclaims. \"You can do it!\"");
+        "do the greatest assignment ever.\" He takes a sip from his coffee and stares at you. Time seems to stand still.\n" \
+        "\"We are going to model an Anvil.\" The class groans, remembering the horror stories of students who have\n" \
+        "formerly taken the class. \"Oh stop it!\" Tanner exclaims. \"You can do it!\"");
+
 
     MBB318.setDescriptionSkillLevel(1,
         "Inside the classroom, you see a bunch of students with a half dead look on their faces, tired from waking\n" \
         "up for class at 8 am. Professor Tanner walks into the classroom, with a coffee mug in his hand. \"OY!!\"\n" \
         "he yells. \"For our first assignment, we are going to make a train animation! It's gonna be great! Hopefully...\"\n");
 
+    MBB318.setCompletionOutput(
+        "\"Wow!\" Professor Tanner tells you. \"It looks so realistic! I'm really impressed with your ASCII art skills!\n" \
+        "How long did it take you to do that though???\"");
+
 
     MBB118.setDescriptionSkillLevel(1,
         "You walk into your Intro to Business class and see your generic professor, who greets you. \"Hello, student.\"\n" \
         "They didn't even call you by name.");
-
     
+    MBB118.setCompletionOutput(
+        "\"Great.\" The professor says, extreeemely enthusiastically. \"Good luck having a successful business though.\n" \
+        "Look where I am. Of all the things I could have done in my life, I teach business.\" Yikes. They seem to be\n" \
+        "having an existential crisis. Oh well. You did...something.");
 
     cout << endl;
 
@@ -169,14 +181,16 @@ int main()
         cout << "~ ";
 
         getline(cin, input);
-        transform(input.begin(), input.end(), input.begin(), ::toupper);
-        vector<string> v;
-        stringstream ss(input);
+        if (input != "" && input.find_first_not_of(' ') != std::string::npos) {
+            transform(input.begin(), input.end(), input.begin(), ::toupper);
+            vector<string> v;
+            stringstream ss(input);
 
-        for (string word; ss >> word;)
-            v.push_back(word);
+            for (string word; ss >> word;)
+                v.push_back(word);
 
-        root.handle(&v);
+            root.handle(&v);
+        }
     }
 }
 

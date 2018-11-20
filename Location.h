@@ -23,6 +23,8 @@ class Location : public GameObject {
         map<Direction, string> denied;
         bool classroom = false;
         int required = 7;
+
+        string askOutput;
         string completionOutput;
 
       public:
@@ -68,7 +70,10 @@ class Location : public GameObject {
         int getRequiredSkill() { return required; }
 
         void setCompletionOutput(string output) { completionOutput = output; }
-        void getCompletionOutput() { return completionOutput; }
+        string getCompletionOutput() { return completionOutput; }
+
+        void setAskOutput(string output) { askOutput = output; }
+        string getAskOutput() { return askOutput; }
 };
 
 #endif
