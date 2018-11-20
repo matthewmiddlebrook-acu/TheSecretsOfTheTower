@@ -109,15 +109,13 @@ int main()
     Locations.push_back(&MBBHallway3);
 
 
+    // 3D Modeling
     MBB315.setDescriptionSkillLevel(1, 
         "You walk into 315 and are greeted by Professor Tanner, drinking a cup of coffee. He has a dazed, yet crazed look\n" \
         "in his eyes. He says, \"Welcome, " + player->getName() + ", to Into to 3D Modeling! Today, we are going to get\n" \
         "started on our first assignment where we will be learning Blender by modeling these donuts I have with me.\"\n" \
         "He holds up a plate of two donuts, covered in sprinkles and chocolate icing. They look absolutely delicious.\n"
         "\"This should be a fun assignment!\"");
-
-    MBB315.setCompletionOutput(
-        "\"Great job!\" Professor Tanner tells you. \"You completed a beautiful render!\"");
 
     MBB315.setDescriptionSkillLevel(2, 
         "You walk into 315 again to take another class with Professor Tanner, and see him drinking from his green\n" \
@@ -127,22 +125,47 @@ int main()
         "\"We are going to model an Anvil.\" The class groans, remembering the horror stories of students who have\n" \
         "formerly taken the class. \"Oh stop it!\" Tanner exclaims. \"You can do it!\"");
 
+    MBB315.setCompletionOutput(
+        "\"Great job!\" Professor Tanner tells you. \"You completed a beautiful render!\"");
 
-    MBB318.setDescriptionSkillLevel(0, // itc 110
+
+    // Animation
+    MBB218.setDescriptionSkillLevel(1,
         "Inside the classroom, you see a bunch of students with a half dead look on their faces, tired from waking\n" \
         "up for class at 8 am. Professor Tanner walks into the classroom, with a coffee mug in his hand. \"OY!!\"\n" \
         "he yells. \"For our first assignment, we are going to make a train animation! It's gonna be great! Hopefully...\"\n");
+    
+    MBB218.setDescriptionSkillLevel(2,
+        "You walk inside the Animation classroom, but there's no one inside. You wait a bit, and students finally\n" \
+        "start showing up. Class is supposed to be starting soon, but the professor isn't even here yet.\n" \
+        "Right at classtime, Professor Tanner finally walks in, with a wooden figurine. \"Morning class, today we are\n" \
+        "going to be creating a running animation. I've brought this guy here for reference. Good luck!\"");
 
-    MBB318.setCompletionOutput( // itc 110
+    MBB218.setCompletionOutput(
         "\"Wow!\" Professor Tanner tells you. \"It looks so realistic! I'm really impressed with your ASCII art skills!\n" \
-        "How long did it take you to do that though???\"");
+        "How long did it take you to do that though???\" ... Did Professor Tanner just break the 4th wall? Did I???");
 
 
-    MBB118.setDescriptionSkillLevel(1, // bus
+    // ITC 110
+    MBB318.setDescriptionSkillLevel(0,
+        "In the large classroom, you see Dr. Burton standing in the front excitedly moving his hands, talking about\n" \
+        "the latest and greatest thing in the technology entertainment industry. Around the classroom, you see many other\n" \
+        "students, eager to work on their first group project that requires them to program before they learn how.");
+
+    MBB318.setCompletionOutput(
+        "\"Wow!\" Dr. Burton exclaims. \"This is one of the best projects that I've ever seen. Great job!\"");
+    
+
+    // Business
+    MBB118.setDescriptionSkillLevel(1,
         "You walk into your Intro to Business class and see your generic professor, who greets you. \"Hello, student.\"\n" \
         "They didn't even call you by name.");
     
-    MBB118.setCompletionOutput( // bus
+    MBB118.setDescriptionSkillLevel(2,
+        "You walk into your Business class and see your generic professor, who greets you. \"Hello, student.\"\n" \
+        "They \"Put a face to my name,\" yet they still failed to mention my name. Why am I going to this class?");
+    
+    MBB118.setCompletionOutput(
         "\"Great.\" The professor says, extreeemely enthusiastically. \"Good luck having a successful business though.\n" \
         "Look where I am. Of all the things I could have done in my life, I teach business.\" Yikes. They seem to be\n" \
         "having an existential crisis. Oh well. You did...something.");
