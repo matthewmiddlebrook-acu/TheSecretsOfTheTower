@@ -8,12 +8,21 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <windows.h>
 using namespace std;
 
 // still need cas to handle whitespace
 
 vector<string> CLASSES {"PROGRAMMING", "SCRIPTING", "ANIMATION", "3D MODELING", "BUSINESS"};
 vector<string> STR_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE", "NONE", "GENERAL", "SPIRITUALITY"};
+
+bool finished(vector<Location*> Loc) {
+    int count = 0;
+    for (unsigned int i = 0; i < Loc.size(); i++)
+        if (Loc.at(i)->isClassroom() && Player::getPlayer()->getSkill((SKILL)(Loc.at(i)->getRequiredSkill())) >= Loc.at(i)->getLowReq())
+            count++;
+    return count == 0;
+}
 
 void schedule(vector<Location*> Loc) {
     string sched =
@@ -79,7 +88,7 @@ int main()
     Location MBBStairs1("MBBStairs1","You're in the first floor stairwell.", false, 7, noClasses, 0);
     Location MBBHallway1("MBBHallway1","You're in the first floor the hallway. There's classrooms to your WEST and EAST.\n" \
                          "Behind you (SOUTH), is the stairwell.", false, 7, noClasses, 0);                       
-    Location MBB215("MBB215","CHAPEL", false, 7, noClasses, 0); 
+    Location MBB215("MBB215","CHAPEL: Dr. Homer and Dr. Prather are in here with wisdom to share.", false, 7, noClasses, 0); 
     Location MBB218("MBB218","ANIMATION Classroom", true, 3, aniClasses, 1);
     Location MBBStairs2("MBBStairs2","You're in the second floor stairwell.", false, 7, noClasses, 1);
     Location MBBHallway2("MBBHallway2","You're in the second floor hallway. There's classrooms to your WEST and EAST.\n" \
@@ -157,7 +166,7 @@ int main()
     MBB218.setDescriptionSkillLevel(1,
         "Inside the classroom, you see a bunch of students with a half dead look on their faces, tired from waking\n" \
         "up for class at 8 am. Professor Tanner walks into the classroom, with a coffee mug in his hand. \"OY!!\"\n" \
-        "he yells. \"For our first assignment, we are going to make a train animation! It's gonna be great! Hopefully...\"\n");
+        "he yells. \"For our first assignment, we are going to make a train animation! It's gonna be great! Hopefully...\"");
     
     MBB218.setDescriptionSkillLevel(2,
         "You walk inside the Animation classroom, but there's no one inside. You wait a bit, and students finally\n" \
@@ -319,22 +328,89 @@ int main()
 
     while (true)
     {
-        string input;
-        cout << "~ ";
+        if (finished(Locations)) {
+            cout << endl;
+            Sleep(500);
+            cout << "You have completed all of the classes in the SITC department. You are now ready to complete the final exam." << endl;
+            cout << "Be warned, this is a very hard exam. The exam will now commence." << endl;
+            Sleep(2000);
+            cout << endl;
+            cout << "Who approaches the Bridge of Death" << endl;
+            Sleep(500);
+            cout << "Must answer me" << endl;
+            Sleep(500);
+            cout << "These questions three!"<< endl;
+            Sleep(500);
+            cout << "Ere the other side he see." << endl;
+                Sleep(2000);
+            cout << endl;
+            cout << "Whaaaaaat is your name?: My name is...";
+            string name_quiz;
+            getline(cin, name_quiz);
+            cout << endl;
+            Sleep(1000);
+            cout << endl;
+            cout << "Whaaaaaat is your quest?: To find the...";
+            string quest_quiz;
+            getline(cin, quest_quiz);
+            cout << endl;
+            Sleep(1000);
+            cout << endl;
+            cout << "Whaaaaaat is your favorite color?: ";
+            string color_quiz;
+            getline(cin, color_quiz);
+            cout << endl;
+            Sleep(5000);
+            transform(name_quiz.begin(), name_quiz.end(), name_quiz.begin(), ::toupper);
+            transform(name.begin(), name.end(), name.begin(), ::toupper);
+            transform(quest_quiz.begin(), quest_quiz.end(), quest_quiz.begin(), ::toupper);
+            transform(color_quiz.begin(), color_quiz.end(), color_quiz.begin(), ::toupper);
+            if (name_quiz == name && quest_quiz == "HOLY GRAIL" && color_quiz == "BLUE") {
+                cout << "Right. Off you go." << endl;
+                Sleep(1000);
+                cout << "Congratulations, you have passed the final exam!" << endl;
+                Sleep(1000);
+                cout << endl;
+                cout << "Thank you for taking classes at SITC. Now that you have graduated,\n" \
+                    "may you take the knowledge you have learned and make a successful living.\n" \
+                    "Thanks for your $46,000 a year! We hope to receive donations from you soon.\n" \
+                    "Just remember: when you donate, we put all the money on football stadiums." << endl;
+            } else {
+                cout << "College is a place where you build bridges." << endl;
+                Sleep(1000);
+                cout << "Since you incorrectly answered these questions," << endl;
+                Sleep(500);
+                cout << "you have fallen off your bridge and have lost your chance to graduate from SITC." << endl;
+                Sleep(500);
+                cout << "Please re-enroll to try again." << endl;
+                Sleep(500);
+                cout << "The game will now exit." << endl;
+                Sleep(1000);
+                return 0;
+            }
+            Sleep(1000);
+            cout << endl;
+            cout << "Press any key to quit." << endl;
+            cin.ignore();
+            return 0;
+        } else {
+            string input;
+            cout << "~ ";
 
-        getline(cin, input);
-        transform(input.begin(), input.end(), input.begin(), ::toupper);
-        vector<string> v;
-        stringstream ss(input);
-        for (string word; ss >> word;)
-            v.push_back(word);
-        
-        if (v.size() == 0 )
-            cout << endl << "Please enter a valid command." << endl << endl;
-        else if (v.at(0) == "SCHEDULE" && v.size() == 1)
-            schedule(Locations);
-        else
-            root.handle(&v);
+            getline(cin, input);
+            transform(input.begin(), input.end(), input.begin(), ::toupper);
+            vector<string> v;
+            stringstream ss(input);
+            for (string word; ss >> word;)
+                v.push_back(word);
+
+            if (v.size() == 0 )
+                cout << endl << "Please enter a valid command." << endl << endl;
+            else if (v.at(0) == "SCHEDULE" && v.size() == 1)
+                schedule(Locations);
+            else
+                root.handle(&v);
+        }
     }
 }
 
