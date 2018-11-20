@@ -134,7 +134,7 @@ void GO::handle(vector<string>* input) {
                         SKILL required = (SKILL)p->getLocation()->getRequiredSkill();
                         
                         if (p->getSkill(required) >= p->getLocation()->getLowReq()) {
-                            cout << PrintColor(p->getLocation()->getName(), B_CYAN) << endl;
+                            cout << PrintColor(p->getLocation()->getName(), B_CYAN) << ": " << p->getLocation()->getClass(p->getSkill((SKILL)(p->getLocation()->getRequiredSkill()-1))) << endl;
                             cout << p->getLocation()->getDescriptionSkillLevel(p->getSkill(required)) << endl;
                         } else {
                             cout << "The door is locked. You do not have the prerequisites for " << p->getLocation()->getClass(0) << "." << endl;
