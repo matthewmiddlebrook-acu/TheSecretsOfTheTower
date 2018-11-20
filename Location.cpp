@@ -5,8 +5,8 @@
 #include <vector>
 using namespace std;
 
-Location::Location(string name, string desc, bool _isClassroom, int req, vector<string> classes) :
-    GameObject(name), classroom(_isClassroom), classNames(classes)
+Location::Location(string name, string desc, bool _isClassroom, int req, vector<string> classes, int lowReq) :
+    GameObject(name), classroom(_isClassroom), lowestReq(lowReq), classNames(classes)
 {
     setDescription(desc);
     setRequiredSkill(req);
@@ -43,7 +43,7 @@ string Location::getDescriptionSkillLevel(int level) {
 }
 
 bool Location::hasDescriptionSkill(int level) {
-    return descriptions.count(to_string(level));
+    return descriptions.count(to_string(level)); // if level is a key
 }
 
 void Location::denyEntry(Direction dir, string item_required) {

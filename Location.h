@@ -24,13 +24,14 @@ class Location : public GameObject {
         map<Direction, string> denied;
         bool classroom = false;
         int required = 7;
+        int lowestReq;
 
         string askOutput;
         string completionOutput;
         vector<string> classNames;
 
       public:
-        Location(string name = "", string desc = "", bool _isClassroom = false, int req = 0, vector<string> classes = {});
+        Location(string name = "", string desc = "", bool _isClassroom = false, int req = 0, vector<string> classes = {}, int lowReq = 0);
 
         Location* getLocation(Direction dir);
         //reEntry means it automatically connects the other location to this one 
@@ -77,6 +78,8 @@ class Location : public GameObject {
         string getClass(int i) {return classNames.at(i);};
         void setAskOutput(string output) { askOutput = output; }
         string getAskOutput() { return askOutput; }
+
+        int getLowReq() { return lowestReq; }
 };
 
 #endif

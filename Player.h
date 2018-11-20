@@ -9,7 +9,7 @@
 #include <iostream>
 using namespace std;
 
-enum SKILL{TYPING, LOGIC, SPEECH, CREATIVITY, CRAFTSMANSHIP, JAPANESE, INTELLIGENCE, NONE};
+enum SKILL{TYPING, LOGIC, SPEECH, CREATIVITY, CRAFTSMANSHIP, JAPANESE, INTELLIGENCE, NONE, GENERAL};
 
 
 class Player : public Person {
@@ -20,7 +20,7 @@ class Player : public Person {
         static Player* p_instance;
         Player(string name = "", string desc = "") : Person(name, desc) {}
 
-        int skills[7] { };
+        int skills[9] { };
 
       public:
         static Player* getPlayer();

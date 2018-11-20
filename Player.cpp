@@ -54,7 +54,7 @@ bool Player::completeClass(string course) {
 
         return true;
     }
-    else if (course == "SCRIPTING") {
+    if (course == "SCRIPTING") {
         increaseSkill(TYPING,1);
         increaseSkill(LOGIC,1);
         increaseSkill(INTELLIGENCE,1);
@@ -67,7 +67,7 @@ bool Player::completeClass(string course) {
 
         return true;
     }
-    else if (course == "ANIMATION") {
+    if (course == "ANIMATION") {
         increaseSkill(JAPANESE,1);
         increaseSkill(CRAFTSMANSHIP,1);
         increaseSkill(CREATIVITY,1);
@@ -82,7 +82,7 @@ bool Player::completeClass(string course) {
 
         return true;
     }
-    else if (course == "3D MODELING") {
+    if (course == "3D MODELING") {
         increaseSkill(CRAFTSMANSHIP,1);
         increaseSkill(CREATIVITY,1);
         increaseSkill(INTELLIGENCE,1);
@@ -95,18 +95,34 @@ bool Player::completeClass(string course) {
 
         return true;
     }
-    else if (course == "BUSINESS") {
+    if (course == "BUSINESS") {
         increaseSkill(SPEECH,1);
-        decreaseSkill(LOGIC,1);
         decreaseSkill(INTELLIGENCE,1);
         cout << endl << endl;
         cout << "POWER SHIFT : SKILLS CHANGED" << endl;
         cout << "SPEECH: " << getSkill(SPEECH) << endl;
-        cout << "LOGIC: " << getSkill(LOGIC) << endl;
         cout << "INTELLIGENCE: " << getSkill(INTELLIGENCE) << endl;
         cout << endl;
 
         return true;
+    }
+    if (course == "ITC110") {
+        increaseSkill(LOGIC,1);
+        increaseSkill(TYPING,1);
+        increaseSkill(JAPANESE,1);
+        increaseSkill(SPEECH,1);
+        increaseSkill(CRAFTSMANSHIP,1);
+        increaseSkill(CREATIVITY,1);
+        increaseSkill(INTELLIGENCE,1);
+        cout << endl << endl;
+        cout << "POWER UP : SKILLS ADVANCED" << endl;
+        cout << "TYPING: " << getSkill(TYPING) << endl;
+        cout << "LOGIC: " << getSkill(LOGIC) << endl;
+        cout << "SPPECH: " << getSkill(SPEECH) << endl;
+        cout << "CRAFTSMANSHIP: " << getSkill(CRAFTSMANSHIP) << endl;
+        cout << "CREATIVITY: " << getSkill(CREATIVITY) << endl;
+        cout << "INTELLIGENCE: " << getSkill(INTELLIGENCE) << endl;
+        cout << endl;
     }
     return false;
 

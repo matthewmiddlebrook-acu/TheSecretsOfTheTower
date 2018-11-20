@@ -14,32 +14,59 @@ using namespace std;
 // still need cas to handle whitespace
 
 vector<string> CLASSES {"PROGRAMMING", "SCRIPTING", "ANIMATION", "3D MODELING", "BUSINESS"};
-vector<string> STR_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE", "NONE"};
+vector<string> STR_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE","NONE","GENERAL",};
 
 int main()
 {
-    /* INIT LOCATIONS */
+    // INIT PLAYER //
+    Player* player = Player::getPlayer();
+    string name;
+
+    // INIT ITEMS //
+    Item Schedule("Schedule","");
+    Item GuideBook("GuideBook","");
+
+    // INIT HANDLERS //
+    QUIT root;
+    MAN  man;
+    GO   go;
+    TAKE take;
+    INFO info;
+    SKILLS skill;
+    INVENTORY inv;
+
+    root.add(&man);
+    root.add(&go);
+    root.add(&take);
+    root.add(&info);
+    root.add(&inv);
+    root.add(&skill);
+
+    // INIT LOCATIONS //
+    string course;
+
     vector<string> noClasses = {""};
+    vector<string> itcClasses = {"INTRO TO ITC"};
     vector<string> proClasses = {"PROGRAMMING 1", "PROGRAMMING 2"};
     vector<string> modClasses = {"INTRO TO 3D MODELING", "ADVANCED 3D MODELING"};
     vector<string> aniClasses = {"INTRO TO ANIMATION", "ADVANCED ANIMATION"};
-    vector<string> busClasses = {"INTRO TO BUSINESS", "HOW TO FEEL GOOD WHILE GETTING A USELESS DEGREE"};
+    vector<string> busClasses = {"INTRO TO BUSINESS", "USELESS CLASS"};
 
-    Location MBB115("MBB115","PROGRAMMING Classroom", true, 1, proClasses);                                     // LOGIC
-    Location MBB118("MBB118","BUSINESS Classroom", true, 2, busClasses);                                        // SPEECH
-    Location MBBStairs1("MBBStairs1","You enter the stairwell.", false, 7, noClasses);
+    Location MBB115("MBB115","PROGRAMMING Classroom", true, 1, proClasses, 1);                                     // LOGIC
+    Location MBB118("MBB118","BUSINESS Classroom", true, 2, busClasses, 1);                                        // SPEECH
+    Location MBBStairs1("MBBStairs1","You enter the stairwell.", false, 7, noClasses, 0);
     Location MBBHallway1("MBBHallway1","You enter the hallway. There's classroom's on your WEST and EAST.\n" \
-                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses);                       
-    Location MBB215("MBB215","CHAPEL", false, 7, noClasses); 
-    Location MBB218("MBB218","EMPTY CLASSROOM", false, 7, noClasses);
-    Location MBBStairs2("MBBStairs2","You enter the stairwell.", false, 7, noClasses);
+                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses, 0);                       
+    Location MBB215("MBB215","CHAPEL", false, 7, noClasses, 0); 
+    Location MBB218("MBB218","ANIMATION Classroom", true, 3, aniClasses, 1);
+    Location MBBStairs2("MBBStairs2","You enter the stairwell.", false, 7, noClasses, 1);
     Location MBBHallway2("MBBHallway2","You enter the hallway. There's classroom's on your WEST and EAST.\n" \
-                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses);
-    Location MBB315("MBB315","3D MODELING Classroom", true, 4, modClasses);                                     // CRAFTSMANSHIP
-    Location MBB318("MBB318","ANIMATION Classroom", true, 3, aniClasses);                                       // CREATIVITY
-    Location MBBStairs3("MBBStairs3","You enter the stairwell.",false, 7, noClasses);
+                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses,0);
+    Location MBB315("MBB315","3D MODELING Classroom", true, 4, modClasses, 1);                                     // CRAFTSMANSHIP
+    Location MBB318("MBB318","ITC 110 Classroom", true, 8, itcClasses, 0);                                         // CREATIVITY
+    Location MBBStairs3("MBBStairs3","You enter the stairwell.",false, 7, noClasses, 0);
     Location MBBHallway3("MBBHallway3","You enter the hallway. There's classroom's on your WEST and EAST.\n" \
-                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses);
+                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses, 0);
     
     MBBHallway1.setDirection(EAST,&MBB115);
     MBBHallway1.setDirection(WEST,&MBB118);
@@ -70,105 +97,6 @@ int main()
     Locations.push_back(&MBBStairs3);
     Locations.push_back(&MBBHallway3);
 
-   
-
-
-    /* INIT ITEMS */
-    string sched = 
-        "SCHEDULE:\n" \
-        "-----------------------------\n" \
-        "Classes Being Offered:\n";
-    
-
-
-
-    Item Schedule("Schedule","");
-    Item GuideBook("GuideBook","");
-
-    /* INIT HANDLERS */
-    QUIT root;
-    MAN  man;
-    GO   go;
-    TAKE take;
-    INFO info;
-    // LOOK  look;
-    SKILLS skill;
-    INVENTORY inv;
-
-    root.add(&man);
-    root.add(&go);
-    root.add(&take);
-    root.add(&info);
-    root.add(&inv);
-    root.add(&skill);
-
-    /* INIT PLAYER */
-    Player* player = Player::getPlayer();
-    player->setLocation(&MBBHallway1);
-    string name, course;
-
-    /*for (unsigned int i = 0; i < Locations.size(); i++) {
-        if (Locations.at(i)->isClassroom()) {
-            sched += Locations.at(i)->getName() + "\t" + Locations.at(i)->getClass(player->getSkill((SKILL)Locations.at(i)->getRequiredSkill())) + "\n"; // need to add teacher
-            //cout << Locations.at(i)->getName() << "\t" << Locations.at(i)->getClass(player->getSkill((SKILL)Locations.at(i)->getRequiredSkill())) << "\t" << STR_SKILLS.at(Locations.at(i)->getRequiredSkill()) << endl;
-        }      
-    }*/
-
-    //cout << sched << endl;
-
-    /* INIT GAME */
-    //system("CLS");
-    cout << "\"You\'re going to need to take varying classes to get into a graduate program and pass the GRE. Here in SITC\n" \
-            "we offer courses in Scripting, Programming, Animation, 3D Modeling, and last, but definitely least, Business.\"";
-    cout << endl << endl;
-    cout << "A sweet, kindhearted woman sitting behind her desk is lecturing you about your class schedule. Great, my\n"   \
-            "freshman year hasn\'t even begun and I\'m already getting lectured by... you glace at the lady\'s nametag...\n" \
-            "MARY BETH CUEVAS. I guess she\'s just trying to help me out. I should probably pay attention.";
-    cout << endl << endl;
-    cout << "\"...avoid that class at all costs. Oh, and never take Homer. All the students say he\'s the worst. And well,\n" \
-            "that\'s the rundown. What did you say your name was again honey?\"";
-    cout << endl << endl;
-    cout << "TYPE NAME HERE: ";
-    getline(cin,name);
-    player->setName(name);
-    cout << endl;
-    cout << "\"Well, " + player->getName() + ", here\'s your schedule of the classes you can take. Complete one class and you\'ll\n" \
-            "be able to move onto the next one. Did you come in with any previous credit? If so, you can clep out of the\n" \
-            "entry level course for one of the following: SCRIPTING, PROGRAMMING, ANIMATION, 3D MODELING, or BUSINESS.\n" \
-            "What subject would you like to bring in credit for?\"";
-    cout << endl << endl;
-    cout << "TYPE ONE OF THE FOLLOWING: "; // only programming works right now
-    getline(cin,course);
-    transform(course.begin(), course.end(), course.begin(), ::toupper);
-    while (true) {
-        if (count(CLASSES.begin(), CLASSES.end(), course)) {
-            cout << endl;
-            cout << "You feel a surge of energy rush through your body. AHHHHHHHHHHH... ARRGGGGGHHHHHH. Power seeps into your skin.\n" \
-                    "You take a deep breath. You feel stronger than before. Everything is clearer. You have cleped out of the intro\n" \
-                    "course for " << course << ".";
-            player->completeClass(course);
-            break;
-        }
-        else {
-            cout << "Please enter a valid class." << endl << endl;
-            cout << "TYPE ONE OF THE FOLLOWING: "; // only programming works right now
-            getline(cin,course);
-            transform(course.begin(), course.end(), course.begin(), ::toupper);
-        }
-    }
-    cout << "\"Now that that\'s out of the way, here\'s your schedule and your campus guide.\" Ms. Cuevas hands you two papers.\n";
-    cout << endl;
-    cout << "TWO ITEMS ADDED TO INVENTORY: SCHEDULE, GUIDEBOOK\n";
-    cout << endl;
-    player->addItem(&Schedule);
-    player->addItem(&GuideBook);
-    cout << "\"If you have any questions concerning how to navigate campus or classes, please feel free to look at your guidebook\n" \
-            "by typing GUIDE. I wish you the best of luck with school tomorrow.\"";
-    cout << endl << endl;
-    cout << "You grab your belongings and exit the room. You remember Ms. Cuevas\' advice about avoiding Homer. School beings\n" \
-            "tomorrow. Freshman year. College life. Tomorrow... Parties. Freedom. Friends. Tomorrow...";
-    cout << endl << endl;
-    cout << "THE NEXT DAY" << endl << endl;
 
     MBB315.setDescriptionSkillLevel(1, 
         "You walk into 315 and are greeted by Professor Tanner, drinking a cup of coffee. He has a dazed, yet crazed look\n" \
@@ -189,24 +117,100 @@ int main()
         "formerly taken the class. \"Oh stop it!\" Tanner exclaims. \"You can do it!\"");
 
 
-    MBB318.setDescriptionSkillLevel(1,
+    MBB318.setDescriptionSkillLevel(0, // itc 110
         "Inside the classroom, you see a bunch of students with a half dead look on their faces, tired from waking\n" \
         "up for class at 8 am. Professor Tanner walks into the classroom, with a coffee mug in his hand. \"OY!!\"\n" \
         "he yells. \"For our first assignment, we are going to make a train animation! It's gonna be great! Hopefully...\"\n");
 
-    MBB318.setCompletionOutput(
+    MBB318.setCompletionOutput( // itc 110
         "\"Wow!\" Professor Tanner tells you. \"It looks so realistic! I'm really impressed with your ASCII art skills!\n" \
         "How long did it take you to do that though???\"");
 
 
-    MBB118.setDescriptionSkillLevel(1,
+    MBB118.setDescriptionSkillLevel(1, // bus
         "You walk into your Intro to Business class and see your generic professor, who greets you. \"Hello, student.\"\n" \
         "They didn't even call you by name.");
     
-    MBB118.setCompletionOutput(
+    MBB118.setCompletionOutput( // bus
         "\"Great.\" The professor says, extreeemely enthusiastically. \"Good luck having a successful business though.\n" \
         "Look where I am. Of all the things I could have done in my life, I teach business.\" Yikes. They seem to be\n" \
         "having an existential crisis. Oh well. You did...something.");
+
+
+
+    // INIT GAME //
+    //system("CLS");
+    cout << "\"You\'re going to need to take varying classes to get into a graduate program and pass the GRE. Here in SITC\n" \
+            "we offer courses in Scripting, Programming, Animation, 3D Modeling, and last, but definitely least, Business.\"";
+    cout << endl << endl;
+    cout << "A sweet, kindhearted woman sitting behind her desk is lecturing you about your class schedule. Great, my\n"   \
+            "freshman year hasn\'t even begun and I\'m already getting lectured by... you glace at the lady\'s nametag...\n" \
+            "MARY BETH CUEVAS. I guess she\'s just trying to help me out. I should probably pay attention.";
+    cout << endl << endl;
+    cout << "\"...avoid that class at all costs. Oh, and never take Homer. All the students say he\'s the worst. And well,\n" \
+            "that\'s the rundown. What did you say your name was again honey?\"";
+    cout << endl << endl;
+    cout << "TYPE NAME HERE: ";
+    getline(cin,name);
+    player->setName(name);
+    cout << endl;
+    /*cout << "\"Well, " + player->getName() + ", here\'s your schedule of the classes you can take. Complete one class and you\'ll\n" \
+            "be able to move onto the next one. Did you come in with any previous credit? If so, you can clep out of the\n" \
+            "entry level course for one of the following: SCRIPTING, PROGRAMMING, ANIMATION, 3D MODELING, or BUSINESS.\n" \
+            "What subject would you like to bring in credit for?\"";
+    cout << endl << endl;
+    cout << "TYPE ONE OF THE FOLLOWING: "; // only programming works right now
+    getline(cin,course);
+    transform(course.begin(), course.end(), course.begin(), ::toupper);
+    while (true) {
+        if (count(CLASSES.begin(), CLASSES.end(), course)) {
+            cout << endl;
+            cout << "You feel a surge of energy rush through your body. AHHHHHHHHHHH... ARRGGGGGHHHHHH. Power seeps into your skin.\n" \
+                    "You take a deep breath. You feel stronger than before. Everything is clearer. You have cleped out of the intro\n" \
+                    "course for " << course << ".";
+            player->completeClass(course);
+            break;
+        }
+        else {
+            cout << "Please enter a valid class." << endl << endl;
+            cout << "TYPE ONE OF THE FOLLOWING: ";
+            getline(cin,course);
+            transform(course.begin(), course.end(), course.begin(), ::toupper);
+        }
+    }*/
+    cout << "\"Now that that\'s out of the way, here\'s your schedule and your campus guide.\" Ms. Cuevas hands you two papers.\n";
+    cout << endl;
+    cout << "TWO ITEMS ADDED TO INVENTORY: SCHEDULE, GUIDEBOOK\n";
+    cout << endl;
+    player->addItem(&Schedule);
+    player->addItem(&GuideBook);
+    cout << "\"If you have any questions concerning how to navigate campus or classes, please feel free to look at your guidebook\n" \
+            "by typing GUIDE. I wish you the best of luck with school tomorrow.\"";
+    cout << endl << endl;
+    cout << "You grab your belongings and exit the room. You remember Ms. Cuevas\' advice about avoiding Homer. School beings\n" \
+            "tomorrow. Freshman year. College life. Tomorrow... Parties. Freedom. Friends. Tomorrow...";
+    cout << endl << endl;
+    cout << "THE NEXT DAY" << endl << endl;
+
+
+    // SET PLAYER //
+    player->setLocation(&MBBHallway1);
+
+    // CREATE SCHEDULE //
+    string sched =
+        "SCHEDULE:\n" \
+        "-----------------------------\n" \
+        "Classes Being Offered:\n";
+        //"MBB318\tINTRO TO ITC\t\tDr. Burton\n";
+    for (unsigned int i = 0; i < Locations.size(); i++) {
+        if (Locations.at(i)->isClassroom() && player->getSkill((SKILL)(Locations.at(i)->getRequiredSkill())) >= Locations.at(i)->getLowReq()) {
+            sched += Locations.at(i)->getName() + "\t" + Locations.at(i)->getClass(player->getSkill((SKILL)Locations.at(i)->getRequiredSkill())) + "\n"; // need to add teacher
+        }      
+    }
+    cout << sched;
+
+
+    // CREATE GUIDEBOOK //
 
     cout << endl;
 
