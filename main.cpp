@@ -25,8 +25,7 @@ void schedule(vector<Location*> Loc) {
         if (Loc.at(i)->isClassroom() && Player::getPlayer()->getSkill((SKILL)(Loc.at(i)->getRequiredSkill())) >= Loc.at(i)->getLowReq())
             sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) + "\n"; // need to add teacher
     cout << sched << endl;
-}
-        
+}     
 
 int main()
 {
@@ -303,19 +302,19 @@ int main()
         cout << "~ ";
 
         getline(cin, input);
-        if (input != "" && input.find_first_not_of(' ') != std::string::npos) {
-            transform(input.begin(), input.end(), input.begin(), ::toupper);
-            vector<string> v;
-            stringstream ss(input);
-
-            for (string word; ss >> word;)
-                v.push_back(word);
-
-            if (v.at(0) == "SCHEDULE" && v.size() == 1)
-                schedule(Locations);
-            else
-                root.handle(&v);
-        }
+        transform(input.begin(), input.end(), input.begin(), ::toupper);
+        vector<string> v;
+        stringstream ss(input);
+        for (string word; ss >> word;)
+            v.push_back(word);
+        
+        if (v.size() == 0 )
+            cout << "Please enter a valid command." << endl;
+        else if (v.at(0) == "SCHEDULE" && v.size() == 1)
+            schedule(Locations);
+        else
+            root.handle(&v);
+       // }
     }
 }
 

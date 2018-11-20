@@ -80,6 +80,7 @@ class Location : public GameObject {
         string getAskOutput() { return askOutput; }
 
         int getLowReq() { return lowestReq; }
+        vector<Person*> getPeople() { return people; }
 };
 
 #endif
