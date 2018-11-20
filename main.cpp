@@ -21,9 +21,14 @@ void schedule(vector<Location*> Loc) {
             "-----------------------------\n" \
             "Classes Being Offered:\n";
     for (unsigned int i = 0; i < Loc.size(); i++)
-        if (Loc.at(i)->isClassroom() && Player::getPlayer()->getSkill((SKILL)(Loc.at(i)->getRequiredSkill())) >= Loc.at(i)->getLowReq())
+        if (Loc.at(i)->isClassroom() && Player::getPlayer()->getSkill((SKILL)(Loc.at(i)->getRequiredSkill())) >= Loc.at(i)->getLowReq()) {
+            cout << endl << Loc.at(i)->getPeople().at(0)->getName() <<endl;
+            
             sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) 
                      + "\t" + Loc.at(i)->getPeople().at(0)->getName() + "\n"; 
+            
+        }
+           
     cout << sched << endl;
 }     
 
@@ -47,6 +52,7 @@ int main()
     INVENTORY inv;
     TALK tlk;
     DO doh;
+    LOOK lok;
 
     root.add(&man);
     root.add(&go);
@@ -56,6 +62,7 @@ int main()
     root.add(&skill);
     root.add(&tlk);
     root.add(&doh);
+    root.add(&lok);
 
     // INIT LOCATIONS //
     string course;
@@ -224,7 +231,7 @@ int main()
             transform(course.begin(), course.end(), course.begin(), ::toupper);
         }
     }*/
-    cout << "\"Now that that\'s out of the way, here\'s your schedule and your campus guide.\" Ms. Cuevas hands you two papers.\n";
+    cout << "\"Well, " + player->getName() + ", now that that\'s out of the way, here\'s your schedule and your campus guide.\" Ms. Cuevas hands you two papers.\n";
     cout << endl;
     cout << "TWO ITEMS ADDED TO INVENTORY: SCHEDULE, GUIDEBOOK\n";
     cout << endl;
@@ -313,7 +320,7 @@ int main()
             v.push_back(word);
         
         if (v.size() == 0 )
-            cout << "Please enter a valid command." << endl;
+            cout << endl << "Please enter a valid command." << endl << endl;
         else if (v.at(0) == "SCHEDULE" && v.size() == 1)
             schedule(Locations);
         else
