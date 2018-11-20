@@ -22,10 +22,10 @@ void schedule(vector<Location*> Loc) {
             "Classes Being Offered:\n";
     for (unsigned int i = 0; i < Loc.size(); i++)
         if (Loc.at(i)->isClassroom() && Player::getPlayer()->getSkill((SKILL)(Loc.at(i)->getRequiredSkill())) >= Loc.at(i)->getLowReq()) {
-            cout << endl << Loc.at(i)->getPeople().at(0)->getName() <<endl;
-            
-            sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) 
-                     + "\t" + Loc.at(i)->getPeople().at(0)->getName() + "\n"; 
+            // cout << endl << Loc.at(i)->getPeople().at(0)->getName() <<endl;
+
+            sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) + "\n";
+            //  + "\t" + Loc.at(i)->getPeople().at(0)->getName() + "\n"; 
             
         }
            
