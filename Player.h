@@ -30,13 +30,13 @@ class Player : public Person {
         //void addItem(Item* pickup);
         void useItem();
 
-        Location* getLocation();
+        Location* getLocation() const;
         void setLocation(Location *location);
 
         bool completeClass(std::string course);
         void increaseSkill(SKILL s, int amount) { skills[s] += amount; }
         void decreaseSkill(SKILL s, int amount) { skills[s] -= amount; }
-        int getSkill(SKILL s) { return skills[s]; }
+        int getSkill(SKILL s) const { return skills[s]; }
 };
 
 #endif

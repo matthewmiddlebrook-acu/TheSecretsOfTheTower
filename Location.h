@@ -33,13 +33,13 @@ class Location : public GameObject {
       public:
         Location(string name = "", string desc = "", bool _isClassroom = false, int req = 0, vector<string> classes = {}, int lowReq = 0);
 
-        Location* getLocation(Direction dir);
-        //reEntry means it automatically connects the other location to this one 
+        Location* getLocation(Direction dir) const;
+
         void setDirection(Direction dir, Location* loc);
-        bool checkDirection(Direction dir);
+        bool checkDirection(Direction dir) const;
         void removeDirection(Direction dir);
 
-        Direction oppositeDirection(Direction d);
+        Direction oppositeDirection(Direction d) const;
 
         void addItem(Item* item);
         void removeItem(Item* item);
@@ -49,40 +49,52 @@ class Location : public GameObject {
 
         vector<Item*>* getItems();
 
-        string getDescription();
+        string getDescription() const;
         void setDescription(string desc);
 
-        string getDescription(string state);
+        string getDescription(string state) const;
         void setDescription(string state, string desc);
 
-        // Attempted to add descriptions for skills, still not used yet though...
+        // Adds a description to the location per skill level,
+        // allowing multiple classes in one location
         void setDescriptionSkillLevel(int level, string desc);
-        string getDescriptionSkillLevel(int level);
+        string getDescriptionSkillLevel(int level) const;
 
-        bool hasDescriptionSkill(int level);
+        // Checks if there is a description for that skill level
+        bool hasDescriptionSkill(int level) const;
 
+        // Origionally created to deny access to a room until you got an item,
+        // now just denies access to the room and outputs the string
         void denyEntry(Direction dir, string item_required);
         void allowEntry(Direction dir);
 
-        bool deniedEntry(Direction dir);
-        string requiresItem(Direction dir);
+        // Checks if the room is blocked, and outputs why
+        bool deniedEntry(Direction dir) const;
+        string requiresItem(Direction dir) const;
 
         void setClassroom(bool isClassroom) { classroom = isClassroom; }
-        bool isClassroom() { return classroom; }
+        bool isClassroom() const { return classroom; }
 
+        // Sets what skill the location is associated with
         void setRequiredSkill(int req) { required = req; }
-        int getRequiredSkill() { return required; }
+        int getRequiredSkill() const { return required; }
 
+        // What will be outputted when a project is completed in the room
         void setCompletionOutput(string output) { completionOutput = output; }
-        string getCompletionOutput() { return completionOutput; }
+        string getCompletionOutput() const { return completionOutput; }
 
-        string getClass(int i) {return classNames.at(i);};
+        // Returns the name of the class based on skill level
+        string getClass(int i) const {return classNames.at(i);};
+
         void setAskOutput(string output) { askOutput = output; }
-        string getAskOutput() { return askOutput; }
+        string getAskOutput() const { return askOutput; }
 
-        int getLowReq() { return lowestReq; }
-        vector<Person*> getPeople() { return people; }
+        // Gets the lowest skill requirement value
+        int getLowReq() const { return lowestReq; }
 
+        vector<Person*> getPeople() const { return people; }
+
+        // Function that changes the location when a project is completed
         void doProject(int skill);
 };
 

@@ -13,7 +13,7 @@ using namespace std;
 // still need cas to handle whitespace
 
 vector<string> CLASSES {"PROGRAMMING", "SCRIPTING", "ANIMATION", "3D MODELING", "BUSINESS"};
-vector<string> STR_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE","NONE","GENERAL",};
+vector<string> STR_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE","NONE","GENERAL"};
 
 void schedule(vector<Location*> Loc) {
     string sched =
@@ -22,10 +22,10 @@ void schedule(vector<Location*> Loc) {
             "Classes Being Offered:\n";
     for (unsigned int i = 0; i < Loc.size(); i++)
         if (Loc.at(i)->isClassroom() && Player::getPlayer()->getSkill((SKILL)(Loc.at(i)->getRequiredSkill())) >= Loc.at(i)->getLowReq()) {
-            cout << endl << Loc.at(i)->getPeople().at(0)->getName() <<endl;
-            
-            sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) 
-                     + "\t" + Loc.at(i)->getPeople().at(0)->getName() + "\n"; 
+            // cout << endl << Loc.at(i)->getPeople().at(0)->getName() <<endl;
+
+            sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) + "\n";
+            //  + "\t" + Loc.at(i)->getPeople().at(0)->getName() + "\n"; 
             
         }
            
@@ -119,16 +119,18 @@ int main()
     Locations.push_back(&MBBStairs3);
     Locations.push_back(&MBBHallway3);
 
-    // 3D Modeling
+    // Programming
     MBB115.setDescriptionSkillLevel(1, 
         "You see Dr. Prather sitting patiently in a chair at the front of the classroom. As all the students file in,\n" \
-        "he announces the project for the course.");
+        "he announces the project for the course. \"You are going to be giving a sacrifice to the all powerful Athene!\n" \
+        "Please! Prepare your sacrifice quickly! You don't want to make her angry!");
 
     MBB115.setDescriptionSkillLevel(2, 
-        "TODO");
+        "As you enter the classroom, there is a faint smell of data structures. As you sit down, you notice that Dr. Prather" \
+        "is staring right at you. He shouts, \"Athene demands another sacrifice! Get it done quickly!\"");
 
     MBB115.setCompletionOutput(
-        "Athene: Program passed all test cases.");
+        "Athene: Assignment passed all test cases. You will live another day.");
 
 
     // 3D Modeling
@@ -296,6 +298,7 @@ int main()
     MBB115.addPerson(&prather);
     MBB118.addPerson(&bProf);
 
+    // "The final exam is now available. At anytime you are ready, type ___ to take the final."
     // "Are you ready to take the final?";
     // "What is your favorite color?";
 

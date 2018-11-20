@@ -28,70 +28,70 @@ void gotoxy(int column, int line) {
 
 void donut() {
     cout <<
-    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmdyooo++/ooyyyhdmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmdyo//--`.-/.-`.:-:++/+shmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmy+---:.-..`..`.-..::://:++//dmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmmmmdds--....`--..:```...`..:o-:-/s+soymmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmdyo-..-.-..+.`-..````.`-..-+:+:/+yssoyymmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmy/-.`..-+::-:-.......-.`-..--:/::s/yyysyydmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmd/-.---:/:sooo://+/::://:.`.-/:/+o/ss+o+sssoymmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmms---::/:o+/ysyyyoyysssoo+-.-/:://oyyooyssssoshmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmd/`-.`..+yy+osyyyyyyyso+:...//:::/+oooss+osossodyhhdhhdddddhdmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmo`.--``..ososhyhhhsso++:-..:--:/:///+:++osssyoo/+:oo-+//--://:.:+oyyshdmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmms .`--./::++ssydhy:/:---`/-.---/oo+//hysssyyss+:oddhsyyyyso++/+-:o+::/-:/osmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmh.```.--`.-+///o//-.-/.::../-s.s-/:yy/yhhhyyyso:+yyyhyhdhso:://://.:::+o:+/-shmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmh:-` `.`..`:.:...-`:---`-..-/o/+:/ysyhhhhhhyyo+:+hhshyshssos+-+so:+://+:++sso+oodmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmy``..`..```..:..`.`:.--.//o/+/+yys+yhhyhhhyy+::sdyddhhhyoo+o:/ssss/+/yos-/+/++so//+sdmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmm+.```-`:.:-``.-..-`.`:--///s+/ohyhyhhhy+yys/:+hdddyshhyysyyssss/.oyyo/+yoo:oysoo/    `:odmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmd+.`:`.-...-.```+--.:-::-:o-:syoyyyyyyyyy:+/:+sdddhssydyhosossyyh/yhhyyssysyo+ssyo+-``     -ommmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmd:    ..:```.`..``..-/--:::/oossssyyyyss+/:::+yddddddhhhhhshhyhhhyyhhhhyhyysosoosso/:```````   .hmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmm-      `--:`-.----..--++//+/+ooossso+/:-:::/yhhhhhysyyyyhyyyyyyhsyhhhhhysshos++so/:.`````````   /mmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmm/      `..--.--/:::::///++/+ooo+/:------::///++++oossssyssyyysoo+++//+ssso:://:///-.```````    .hmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmo.     `..---.:--::://////o++:..---.`` `-:////////:::::::::------::::::::://++/:-..`        .ommmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmy/.      `...-::-::://:/::-...`````````.-:/++++/////:::::::::::://+++++:/-..`.``      `:ohmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmhs/-`     ``.-::-..```         `````....--:/+++++++++////::::--.``````        `-/ohmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmdys+/-.`    `                ```.......--..```````````           `.:/oshdmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmmmmmdhyso+/:-..``                              ``.--:/+osyhdmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
-    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmddhhhyyyyyyyyyyyyyyyyhhhddmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm";
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmdyooo++/ooyyyhdmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmdyo//--`.-/.-`.:-:++/+shmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmy+---:.-..`..`.-..::://:++//dmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmmmmdds--....`--..:```...`..:o-:-/s+soymmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmdyo-..-.-..+.`-..````.`-..-+:+:/+yssoyymmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmy/-.`..-+::-:-.......-.`-..--:/::s/yyysyydmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmd/-.---:/:sooo://+/::://:.`.-/:/+o/ss+o+sssoymmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmms---::/:o+/ysyyyoyysssoo+-.-/:://oyyooyssssoshmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmd/`-.`..+yy+osyyyyyyyso+:...//:::/+oooss+osossodyhhdhhdddddhdmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmo`.--``..ososhyhhhsso++:-..:--:/:///+:++osssyoo/+:oo-+//--://:.:+oyyshdmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmms .`--./::++ssydhy:/:---`/-.---/oo+//hysssyyss+:oddhsyyyyso++/+-:o+::/-:/osmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmh.```.--`.-+///o//-.-/.::../-s.s-/:yy/yhhhyyyso:+yyyhyhdhso:://://.:::+o:+/-shmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmh:-` `.`..`:.:...-`:---`-..-/o/+:/ysyhhhhhhyyo+:+hhshyshssos+-+so:+://+:++sso+oodmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmy``..`..```..:..`.`:.--.//o/+/+yys+yhhyhhhyy+::sdyddhhhyoo+o:/ssss/+/yos-/+/++so//+sdmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmm+.```-`:.:-``.-..-`.`:--///s+/ohyhyhhhy+yys/:+hdddyshhyysyyssss/.oyyo/+yoo:oysoo/    `:odmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmd+.`:`.-...-.```+--.:-::-:o-:syoyyyyyyyyy:+/:+sdddhssydyhosossyyh/yhhyyssysyo+ssyo+-``     -ommmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmd:    ..:```.`..``..-/--:::/oossssyyyyss+/:::+yddddddhhhhhshhyhhhyyhhhhyhyysosoosso/:```````   .hmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmm-      `--:`-.----..--++//+/+ooossso+/:-:::/yhhhhhysyyyyhyyyyyyhsyhhhhhysshos++so/:.`````````   /mmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmm/      `..--.--/:::::///++/+ooo+/:------::///++++oossssyssyyysoo+++//+ssso:://:///-.```````    .hmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmo.     `..---.:--::://////o++:..---.`` `-:////////:::::::::------::::::::://++/:-..`        .ommmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmy/.      `...-::-::://:/::-...`````````.-:/++++/////:::::::::::://+++++:/-..`.``      `:ohmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmhs/-`     ``.-::-..```         `````....--:/+++++++++////::::--.``````        `-/ohmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmdys+/-.`    `                ```.......--..```````````           `.:/oshdmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmmmmmdhyso+/:-..``                              ``.--:/+osyhdmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl <<
+    "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmddhhhyyyyyyyyyyyyyyyyhhhddmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" << endl;
 }
 
 void anvil() {
     cout <<
-    " `..```````  `                                                                                                          " << endl <<
-    "````````` `                                                                                                             " << endl <<
-    "``.```                                                                `.-:://+oohmddyso++/:.`                           " << endl <<
-    "                                                        `.-:/+osyyhdmNNMNMNmdhhyyososyhyso+/:-`                         " << endl <<
-    "                                           `.-/+osyhddmNNMMMMMMMNNNmmNMMNmmhhyso+/:---..`...-.          `               " << endl <<
-    "                                      -+shmMMMMMMNNMNNNNNNMMMmdmmhhhyso+++///:---::-....````                            " << endl <<
-    "       :/-`                     -/osyhdhsoss/ssyhmNdhyysyyosyhyyssyo//+/+/:::-:-----.`                                  " << endl <<
-    "       ``                    `.-/hNysoddmNmmdhs+o::o++o+///oh+sssoso//////:---:--.`                                 ``  " << endl <<
-    "                  `.-//+oyhdddhyyhddysoy//+o++++-.:+///:/+oos+/+o++//::://:::/-.`                                       " << endl <<
-    "    ``  `-:+oyhhdddhhhhddddmmNNdhhdyssoo+.:++/+/:-.///-/o++://o++////:::/::::.           ``               ````          " << endl <<
-    "    `+ydddhhyysyyyyyyhhhs+//+o+::::::::-:--://::.`--:::--::::/+//::/:-:::::-`            ``                             " << endl <<
-    "      ```...--::/++///os++/+o+o/:/:-.-.```.--:---..-:---:::::://////::::--.                                             " << endl <<
-    "                  ````.``..-...````  ``   .----.``-----:------::::::------                                              " << endl <<
-    "                                          `..``   `......--:::::::://:::/-                                              " << endl <<
-    "                                                `         ``-:::/+o++o+os/                                              " << endl <<
-    "       `.`                                   `-/:..```      `/+osysyyysss+.       `-`                                   " << endl <<
-    "                   `                      `://::-..`.....`` `:yyyyyysso++///-`    ``   `                                " << endl <<
-    "                                      `./++//::-.`......``..-+oo+/++//////+osh+-  `                            `        " << endl <<
-    "                   ``               -++oso+/::-....```...--::hoo++/.`.```...:oydh+:``                `````              " << endl <<
-    "                  ....             `--/++/:::-..........-//:/dyso/.`..`...`.``./sdhyo:.            `    ```            `" << endl <<
-    "                                      ``.-::--.....-.--::///oNhss-.`````...-.```..:oo+/`                 `          `   " << endl <<
-    "                                           ``.-.------:///++yMmhs.```````     ```````      `  `  `       ```            " << endl <<
-    "                                               `.--::://+ooohMmNy.                              `     ``                " << endl <<
-    "                                                  `.-:/++ooshmhhs.                                    ``                " << endl <<
-    "     .-                                           .   .-/+osdd+os+                            ``       `  `             " << endl <<
-    "     ``                                                 `.-:s/:-.                                                       " << endl <<
-    "                                             `-```      `   `                                                           " << endl <<
-    "                                               `..`                                                                     " << endl <<
-    "                                          `      ``                                                                     " << endl <<
-    "                                                                                                                        ";
+    " `..```````  `                                                                                                         " << endl <<
+    "````````` `                                                                                                            " << endl <<
+    "``.```                                                                `.-:://+oohmddyso++/:.`                          " << endl <<
+    "                                                        `.-:/+osyyhdmNNMNMNmdhhyyososyhyso+/:-`                        " << endl <<
+    "                                           `.-/+osyhddmNNMMMMMMMNNNmmNMMNmmhhyso+/:---..`...-.          `              " << endl <<
+    "                                      -+shmMMMMMMNNMNNNNNNMMMmdmmhhhyso+++///:---::-....````                           " << endl <<
+    "       :/-`                     -/osyhdhsoss/ssyhmNdhyysyyosyhyyssyo//+/+/:::-:-----.`                                 " << endl <<
+    "       ``                    `.-/hNysoddmNmmdhs+o::o++o+///oh+sssoso//////:---:--.`                                 `` " << endl <<
+    "                  `.-//+oyhdddhyyhddysoy//+o++++-.:+///:/+oos+/+o++//::://:::/-.`                                      " << endl <<
+    "    ``  `-:+oyhhdddhhhhddddmmNNdhhdyssoo+.:++/+/:-.///-/o++://o++////:::/::::.           ``               ````         " << endl <<
+    "    `+ydddhhyysyyyyyyhhhs+//+o+::::::::-:--://::.`--:::--::::/+//::/:-:::::-`            ``                            " << endl <<
+    "      ```...--::/++///os++/+o+o/:/:-.-.```.--:---..-:---:::::://////::::--.                                            " << endl <<
+    "                  ````.``..-...````  ``   .----.``-----:------::::::------                                             " << endl <<
+    "                                          `..``   `......--:::::::://:::/-                                             " << endl <<
+    "                                                `         ``-:::/+o++o+os/                                             " << endl <<
+    "       `.`                                   `-/:..```      `/+osysyyysss+.       `-`                                  " << endl <<
+    "                   `                      `://::-..`.....`` `:yyyyyysso++///-`    ``   `                               " << endl <<
+    "                                      `./++//::-.`......``..-+oo+/++//////+osh+-  `                            `       " << endl <<
+    "                   ``               -++oso+/::-....```...--::hoo++/.`.```...:oydh+:``                `````             " << endl <<
+    "                  ....             `--/++/:::-..........-//:/dyso/.`..`...`.``./sdhyo:.            `    ```            " << endl <<
+    "                                      ``.-::--.....-.--::///oNhss-.`````...-.```..:oo+/`                 `          `  " << endl <<
+    "                                           ``.-.------:///++yMmhs.```````     ```````      `  `  `       ```           " << endl <<
+    "                                               `.--::://+ooohMmNy.                              `     ``               " << endl <<
+    "                                                  `.-:/++ooshmhhs.                                    ``               " << endl <<
+    "     .-                                           .   .-/+osdd+os+                            ``       `  `            " << endl <<
+    "     ``                                                 `.-:s/:-.                                                      " << endl <<
+    "                                             `-```      `   `                                                          " << endl <<
+    "                                               `..`                                                                    " << endl <<
+    "                                          `      ``                                                                    " << endl <<
+    "                                                                                                                       " << endl;
 }
 
 void walk() {
@@ -672,30 +672,6 @@ void train() {
     }
     // Goes to the bottom of the frame to resume normal output
     gotoxy(0, console_row+17);
-}
-
-void assignment(string course, int num) {
-    if (course == "PROGRAMMING") {
-        
-    }
-    else if (course == "SCRIPTING") {
-        
-    }
-    else if (course == "ANIMATION") {
-        if (num == 1)
-            train();
-        else
-            walk();
-    }
-    else if (course == "3D MODELING") {
-        if (num == 1)
-            donut();
-        else
-            anvil();
-    }
-    else if (course == "BUSINESS") {
-
-    }
 }
 
 #endif
