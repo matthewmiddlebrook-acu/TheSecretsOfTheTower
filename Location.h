@@ -21,6 +21,9 @@ class Location : public GameObject {
         vector<Person*> people;
         map<string, string> descriptions;
         map<Direction, string> denied;
+        bool classroom = false;
+        int required = 7;
+        string completionOutput;
 
       public:
         Location(string name = "", string desc = "");
@@ -50,11 +53,22 @@ class Location : public GameObject {
         void setDescriptionSkillLevel(int level, string desc);
         string getDescriptionSkillLevel(int level);
 
+        bool hasDescriptionSkill(int level);
+
         void denyEntry(Direction dir, string item_required);
         void allowEntry(Direction dir);
 
         bool deniedEntry(Direction dir);
         string requiresItem(Direction dir);
+
+        void setClassroom(bool isClassroom) { classroom = isClassroom; }
+        bool isClassroom() { return classroom; }
+
+        void setRequiredSkill(int req) { required = req; }
+        int getRequiredSkill() { return required; }
+
+        void setCompletionOutput(string output) { completionOutput = output; }
+        void getCompletionOutput() { return completionOutput; }
 };
 
 #endif

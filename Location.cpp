@@ -40,6 +40,10 @@ string Location::getDescriptionSkillLevel(int level) {
     return descriptions.at(to_string(level));
 }
 
+bool Location::hasDescriptionSkill(int level) {
+    return descriptions.count(to_string(level));
+}
+
 void Location::denyEntry(Direction dir, string item_required) {
     denied.insert(pair<Direction, string>(dir, item_required));
 }

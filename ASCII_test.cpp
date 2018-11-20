@@ -7,6 +7,7 @@ using namespace std;
 // Use width of 120
 // Image size 960x480
 
+
 void donut() {
     cout <<
     "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" <<
@@ -93,19 +94,6 @@ void gotoxy(int column, int line) {
 
 void train() {
     string choo[] = {
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
-        "                                                                       ",
         "                                              _________                ",
         "                                             |=========|               ",
         "                    __[]__         _          \\_______/                ",
@@ -128,7 +116,7 @@ void train() {
 
     for (int i = 70; i >= 0; i--) {
         stringstream ss;
-        for (int j = 0; j < 30; j++) {
+        for (int j = 0; j < 17; j++) {
             for (int k = i; k < 71; k++) {
                 ss << choo[j][k];
             }
@@ -140,10 +128,5 @@ void train() {
         Sleep(50);
     }
     // Goes to the bottom of the frame to resume normal output
-    gotoxy(0, console_row+30);
-}
-
-
-int main() {
-    train();
+    gotoxy(0, console_row+17);
 }

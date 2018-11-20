@@ -37,10 +37,11 @@ int main()
     MBBStairs1.setDirection(UP,&MBBStairs2);
     MBBHallway2.setDirection(EAST,&MBB215);
     MBBHallway2.setDirection(WEST,&MBB218);
+    MBBHallway2.setDirection(SOUTH,&MBBStairs2);
     MBBStairs2.setDirection(UP,&MBBStairs3);
-    MBBStairs3.setDirection(NORTH,&MBBHallway3);
     MBBHallway3.setDirection(EAST,&MBB315);
     MBBHallway3.setDirection(WEST,&MBB318);
+    MBBHallway3.setDirection(SOUTH,&MBBStairs3);
 
     /* INIT ITEMS */
     Item Schedule("Schedule","");
@@ -127,20 +128,55 @@ int main()
     cout << endl << endl;
     cout << "THE NEXT DAY" << endl << endl;
 
+    MBB315.setClassroom(true);
+    MBB315.setRequiredSkill(CRAFTSMANSHIP);
+    
+    MBB318.setClassroom(true);
+    MBB318.setRequiredSkill(CREATIVITY);
+
+    MBB315.setDescriptionSkillLevel(1, 
+        "You walk into 315 and are greeted by Professor Tanner, drinking a cup of coffee. He has a dazed, yet crazed look\n" \
+        "in his eyes. He says, \"Welcome, " + player->getName() + ", to Into to 3D Modeling! Today, we are going to get\n" \
+        "started on our first assignment where we will be learning Blender by modeling these donuts I have with me.\"\n" \
+        "He holds up a plate of two donuts, covered in sprinkles and chocolate icing. They look absolutely delicious.\n"
+        "\"This should be a fun assignment!\"");
+
+    MBB315.setDescriptionSkillLevel(2, 
+        "You walk into 315 again to take another class with Professor Tanner, and see him drinking from his green\n" \
+        "Mario themed warp pipe mug, and what is probably his fifth cup of coffee...this morning. He shouts in a\n" \
+        "terrible scottish accent, \"ALL RIGHT ME STUDENTS!\" The classroom grows quiet. \" Today, we are going to\n" \
+        "do thegreatest assignment ever.\" He takes a sip from his coffee and stares at you. \"We are going to model\n" \
+        "an Anvil.\" The class groans, remembering the horror stories of students who have formerly taken the class.\n" \
+        "\"Oh stop it!\" Tanner exclaims. \"You can do it!\"");
+
+    MBB318.setDescriptionSkillLevel(1,
+        "Inside the classroom, you see a bunch of students with a half dead look on their faces, tired from waking\n" \
+        "up for class at 8 am. Professor Tanner walks into the classroom, with a coffee mug in his hand. \"OY!!\"\n" \
+        "he yells. \"For our first assignment, we are going to make a train animation! It's gonna be great! Hopefully...\"\n");
+
+
+    MBB118.setDescriptionSkillLevel(1,
+        "You walk into your Intro to Business class and see your generic professor, who greets you. \"Hello, student.\"\n" \
+        "They didn't even call you by name.");
+
+    
+
+    cout << endl;
+
     while (true)
     {
-            string input;
-            cout << "~ ";
+        string input;
+        cout << "~ ";
 
-            getline(cin, input);
-            transform(input.begin(), input.end(), input.begin(), ::toupper);
-            vector<string> v;
-            stringstream ss(input);
+        getline(cin, input);
+        transform(input.begin(), input.end(), input.begin(), ::toupper);
+        vector<string> v;
+        stringstream ss(input);
 
-            for (string word; ss >> word;)
-                v.push_back(word);
-    
-            root.handle(&v);
+        for (string word; ss >> word;)
+            v.push_back(word);
+
+        root.handle(&v);
     }
 }
 
