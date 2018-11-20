@@ -133,7 +133,6 @@ vector<Item*>* Location::getItems() {
 void Location::doProject(int skill) {
     Player* player = Player::getPlayer();
     if (skill == 0) {
-<<<<<<< HEAD
         cout << "You spent hours upon hours working on your Unity project looking up info on StackOverflow and the Unity API.\n" \
                 "After hard work and sleepless nights, it is finally done! (except for that one bug you know is there,\n" \
                 "but nobody could possibly find...)" << endl;
@@ -143,18 +142,6 @@ void Location::doProject(int skill) {
         player->getLocation()->incrLowReq();
         player->move(EAST);
         player->getLocation()->denyEntry(WEST, "You have already taken Intro to ITC");
-=======
-        if (classNames.at(skill) == "INTRO TO ITC") {
-            cout << "You spent hours upon hours working on your Unity project looking up info on StackOverflow and the Unity API.\n" \
-                    "After hard work and sleepless nights, it is finally done! (except for that one bug you know is there,\n" \
-                    "but nobody could possibly find...)" << endl;
-            Sleep(1000);
-            cout << player->getLocation()->getCompletionOutput() << endl;
-            player->completeClass("ITC110");
-            player->move(EAST);
-            player->getLocation()->denyEntry(WEST, "You have already taken Intro to ITC");
-        }
->>>>>>> c780867c7fe74ce929350bb8b268be4f693b4ec4
     } else if (skill == 1) {
         if (classNames.at(skill) == "PROGRAMMING 1") {
             cout << endl;
