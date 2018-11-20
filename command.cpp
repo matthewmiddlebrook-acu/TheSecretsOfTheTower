@@ -38,10 +38,10 @@ string MANUAL =
 
 
 vector<string> DIR = {"NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN"};
-vector<string> STRING_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE"};
+vector<string> STRING_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE", "SPIRITUALITY"};
 
 // returns the corresponding direction
-// if the string "direciton" does not have a corresponding direction return 
+// if the string "direction" does not have a corresponding direction return 
 // NUM_DIRECTIONS (last element in enum).
 Direction convertStringToEnumDir(string direction) {
     if (direction == "NORTH")
@@ -75,6 +75,8 @@ SKILL convertStringToEnumSkill(string skill) {
         return JAPANESE;
     else if (skill == "INTELLIGENCE")
         return INTELLIGENCE;
+    else if (skill == "SPIRITUALITY")
+        return SPIRITUALITY;
 
     return NONE;
 }
@@ -104,8 +106,8 @@ void QUIT::handle(vector<string>* input) {
         Handler::handle(input);
 }
 
-// no "arguements": ouputs game manual
-// one "arguement": outputs command manual
+// no "arguments": ouput game manual
+// one "argument": outputs command manual
 void MAN::handle(vector<string>* input) {
     if (input->at(0) == "GUIDE") {
         if (input->size() == 1) {
@@ -161,6 +163,9 @@ void GO::handle(vector<string>* input) {
                         } else {
                             //cout << PrintColor(p->getLocation()->getName(), B_CYAN) << endl;
                             cout << endl << p->getLocation()->getDescription() << endl << endl;
+                            if (p->getLocation()->getName() == "MBB215") {
+                                p->completeClass("CHAPEL");
+                            }
                         }
                     }
                 } else {
@@ -173,7 +178,7 @@ void GO::handle(vector<string>* input) {
         Handler::handle(input);
 }
 
-// remvoves specified item from location and adds it to player's inventory
+// removes specified item from location and adds it to player's inventory
 void TAKE::handle(vector<string>* input) {
     if (input->at(0) == "TAKE") {
         if (input->size() != 2) 
@@ -220,7 +225,7 @@ void SKILLS::handle(vector<string>* input) {
         if (input->size() != 1)
             cout << "Invalid input." << endl;
         else {
-            cout << endl << "SKILLS:" << endl <<  "-----------------------------------------------------------------------------------------------------------" << endl;
+            cout << endl << "SKILLS:" << endl <<  "---------------------------------------------------------------------------------------------------------------------" << endl;
             for (unsigned int i = 0; i < STRING_SKILLS.size(); i++) {
                  cout.width(15); cout << std::left << STRING_SKILLS[i];
             }
@@ -228,7 +233,7 @@ void SKILLS::handle(vector<string>* input) {
             for (unsigned int i = 0; i < STRING_SKILLS.size(); i++) {
                 cout.width(15); cout << std::left << Player::getPlayer()->getSkill(convertStringToEnumSkill(STRING_SKILLS[i]));
             }
-            cout << endl<< "-----------------------------------------------------------------------------------------------------------" << endl << endl;
+            cout << endl<< "---------------------------------------------------------------------------------------------------------------------" << endl << endl;
         }
     }
     else
@@ -268,7 +273,7 @@ void LOOK::handle(vector<string>* input) {
 void DO::handle(vector<string>* input) {
     if (input->at(0) == "DO") {
         if (input->size() == 1) {
-            cout << "What exaclty do you want to DO?";
+            cout << "What exactly do you want to DO?";
         }
         else if (input->size() == 2 && input->at(1) == "PROJECT") {
             Player* player = Player::getPlayer();
@@ -281,7 +286,7 @@ void DO::handle(vector<string>* input) {
 
 /* DEBUG COMMANDS: INFO */
 
-// output's current location, location iventory, and player inventory
+// output's current location, location inventory, and player inventory
 void INFO::handle(vector<string>* input) {
     if (input->at(0) == "INFO") {
         cout << "Location: " << Player::getPlayer()->getLocation()->getName() << std::endl;

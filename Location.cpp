@@ -133,6 +133,7 @@ vector<Item*>* Location::getItems() {
 void Location::doProject(int skill) {
     Player* player = Player::getPlayer();
     if (skill == 0) {
+<<<<<<< HEAD
         cout << "You spent hours upon hours working on your Unity project looking up info on StackOverflow and the Unity API.\n" \
                 "After hard work and sleepless nights, it is finally done! (except for that one bug you know is there,\n" \
                 "but nobody could possibly find...)" << endl;
@@ -142,6 +143,18 @@ void Location::doProject(int skill) {
         player->getLocation()->incrLowReq();
         player->move(EAST);
         player->getLocation()->denyEntry(WEST, "You have already taken Intro to ITC");
+=======
+        if (classNames.at(skill) == "INTRO TO ITC") {
+            cout << "You spent hours upon hours working on your Unity project looking up info on StackOverflow and the Unity API.\n" \
+                    "After hard work and sleepless nights, it is finally done! (except for that one bug you know is there,\n" \
+                    "but nobody could possibly find...)" << endl;
+            Sleep(1000);
+            cout << player->getLocation()->getCompletionOutput() << endl;
+            player->completeClass("ITC110");
+            player->move(EAST);
+            player->getLocation()->denyEntry(WEST, "You have already taken Intro to ITC");
+        }
+>>>>>>> c780867c7fe74ce929350bb8b268be4f693b4ec4
     } else if (skill == 1) {
         if (classNames.at(skill) == "PROGRAMMING 1") {
             cout << endl;
@@ -198,7 +211,7 @@ void Location::doProject(int skill) {
             player->completeClass("PROGRAMMING");
             player->getLocation()->incrLowReq();
             player->move(WEST);
-            player->getLocation()->denyEntry(EAST, "You have already taken available Programming classes");
+            player->getLocation()->denyEntry(EAST, "\nYou have already taken available Programming classes\n");
             cout << "Congratulations! You have completed all available Programming classes." << endl;
         } else if (classNames.at(skill) == "ADVANCED 3D MODELING") {
             anvil();
@@ -207,7 +220,7 @@ void Location::doProject(int skill) {
             player->completeClass("3D MODELING");
             player->getLocation()->incrLowReq();
             player->move(WEST);
-            player->getLocation()->denyEntry(EAST, "You have already taken available 3D Modeling classes");
+            player->getLocation()->denyEntry(EAST, "\nYou have already taken available 3D Modeling classes\n");
             cout << "Congratulations! You have completed all available 3D Modeling classes." << endl;
         } else if (classNames.at(skill) == "ADVANCED ANIMATION") {
             walk();
@@ -216,7 +229,7 @@ void Location::doProject(int skill) {
             player->completeClass("ANIMATION");
             player->getLocation()->incrLowReq();
             player->move(EAST);
-            player->getLocation()->denyEntry(WEST, "You have already taken available Animation classes");
+            player->getLocation()->denyEntry(WEST, "\nYou have already taken available Animation classes\n");
             cout << "Congratulations! You have completed all available Animation classes." << endl;
         } else if (classNames.at(skill) == "\"ADVANCED\" BUSINESS") {
             cout << "You listened to an hour long talk about something ... business-y. You fell asleep halfway though." << endl;
@@ -232,7 +245,7 @@ void Location::doProject(int skill) {
             player->completeClass("BUSINESS");
             player->getLocation()->incrLowReq();
             player->move(EAST);
-            player->getLocation()->denyEntry(WEST, "You have already taken available Business classes");
+            player->getLocation()->denyEntry(WEST, "\nYou have already taken available Business classes\n");
             cout << "Congratulations! You have somehow suffered through all available Business classes." << endl;
         }
         cout << "After turning in the project, you left the classroom and are back in the hallway." << endl << endl;

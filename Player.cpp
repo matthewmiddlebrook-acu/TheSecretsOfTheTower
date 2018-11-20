@@ -34,7 +34,7 @@ bool Player::completeClass(string course) {
         increaseSkill(TYPING,1);
         increaseSkill(LOGIC,1);
         increaseSkill(INTELLIGENCE,1);
-        cout << endl << endl;
+        // cout << endl << endl;
         cout << "POWER UP : SKILLS ADVANCED" << endl;
         cout << "TYPING: " << getSkill(TYPING) << endl; 
         cout << "LOGIC: " << getSkill(LOGIC) << endl;
@@ -47,7 +47,7 @@ bool Player::completeClass(string course) {
         increaseSkill(TYPING,1);
         increaseSkill(LOGIC,1);
         increaseSkill(INTELLIGENCE,1);
-        cout << endl << endl;
+        // cout << endl << endl;
         cout << "POWER UP : SKILLS ADVANCED" << endl;
         cout << "TYPING: " << getSkill(TYPING) << endl; 
         cout << "LOGIC: " << getSkill(LOGIC) << endl;
@@ -61,7 +61,7 @@ bool Player::completeClass(string course) {
         // increaseSkill(CRAFTSMANSHIP,1);
         increaseSkill(CREATIVITY,1);
         increaseSkill(INTELLIGENCE,1);
-        cout << endl << endl;
+        // cout << endl << endl;
         cout << "POWER UP : SKILLS ADVANCED" << endl;
         cout << "JAPANESE: " << getSkill(JAPANESE) << endl; 
         // cout << "CRAFTSMANSHIP: " << getSkill(CRAFTSMANSHIP) << endl;
@@ -75,7 +75,7 @@ bool Player::completeClass(string course) {
         increaseSkill(CRAFTSMANSHIP,1);
         // increaseSkill(CREATIVITY,1);
         increaseSkill(INTELLIGENCE,1);
-        cout << endl << endl;
+        // cout << endl << endl;
         cout << "POWER UP : SKILLS ADVANCED" << endl;
         cout << "CRAFTSMANSHIP: " << getSkill(CRAFTSMANSHIP) << endl;
         // cout << "CREATIVITY: " << getSkill(CREATIVITY) << endl;
@@ -87,7 +87,7 @@ bool Player::completeClass(string course) {
     if (course == "BUSINESS") {
         increaseSkill(SPEECH,1);
         decreaseSkill(INTELLIGENCE,1);
-        cout << endl << endl;
+        // cout << endl << endl;
         cout << "POWER SHIFT : SKILLS CHANGED" << endl;
         cout << "SPEECH: " << getSkill(SPEECH) << endl;
         cout << "INTELLIGENCE: " << getSkill(INTELLIGENCE) << endl;
@@ -103,7 +103,7 @@ bool Player::completeClass(string course) {
         increaseSkill(CRAFTSMANSHIP,1);
         increaseSkill(CREATIVITY,1);
         increaseSkill(INTELLIGENCE,1);
-        cout << endl << endl;
+        // cout << endl << endl;
         cout << "POWER UP : SKILLS ADVANCED" << endl;
         cout << "TYPING: " << getSkill(TYPING) << endl;
         cout << "LOGIC: " << getSkill(LOGIC) << endl;
@@ -111,6 +111,13 @@ bool Player::completeClass(string course) {
         cout << "CRAFTSMANSHIP: " << getSkill(CRAFTSMANSHIP) << endl;
         cout << "CREATIVITY: " << getSkill(CREATIVITY) << endl;
         cout << "INTELLIGENCE: " << getSkill(INTELLIGENCE) << endl;
+        cout << endl;
+    }
+    if (course == "CHAPEL") {
+        increaseSkill(SPIRITUALITY, 1);
+        // cout << endl;
+        cout << "POWER UP : SKILLS ADVANCED" << endl;
+        cout << "SPIRITUALITY: " << getSkill(SPIRITUALITY) << endl;
         cout << endl;
     }
     return false;
