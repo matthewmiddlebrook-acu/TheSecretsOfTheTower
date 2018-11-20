@@ -13,7 +13,7 @@ using namespace std;
 // still need cas to handle whitespace
 
 vector<string> CLASSES {"PROGRAMMING", "SCRIPTING", "ANIMATION", "3D MODELING", "BUSINESS"};
-vector<string> STR_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE","NONE","GENERAL"};
+vector<string> STR_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE", "NONE", "GENERAL", "SPIRITUALITY"};
 
 void schedule(vector<Location*> Loc) {
     string sched =
@@ -126,7 +126,7 @@ int main()
         "Please! Prepare your sacrifice quickly! You don't want to make her angry!");
 
     MBB115.setDescriptionSkillLevel(2, 
-        "As you enter the classroom, there is a faint smell of data structures. As you sit down, you notice that Dr. Prather" \
+        "As you enter the classroom, there is a faint smell of data structures. As you sit down, you notice that Dr. Prather\n" \
         "is staring right at you. He shouts, \"Athene demands another sacrifice! Get it done quickly!\"");
 
     MBB115.setCompletionOutput(
@@ -260,14 +260,6 @@ int main()
     burton.setDialogue("\"There's no cheating in DET.\"");
     burton.setDialogue("\"Hi.\"");
 
-    // Don't know if I am going to use him, currently Tanner has 2 classes
-    Person homer = Person("Dr. Homer");
-    homer.setDialogue("\"I actually don't like computers.\"");
-    homer.setDialogue("\"What are you kids on nowdays? MyChat? SnapFace?\"");
-    homer.setDialogue("\"I don't know why people are so scared of me. My children LOVE me.\" he says, while laughing.\nThen, he stares into your soul.");
-    homer.setDialogue("\"What was it that you wanted?\"");
-    homer.setDialogue("\"I put a lot of effort into that PowerPoint presentation. Weren't the animations great?\"");
-
     Person prather = Person("Dr. Prather");
     prather.setDialogue("\"HCI is the greatest thing on the face of the earth.\"");
     prather.setDialogue("\"You should totally join HCI club! We're gonna present our research at SIGCHI!\"");
@@ -290,6 +282,25 @@ int main()
     bProf.setDialogue("\"My students know I've got an open door policy.\"");
     bProf.setDialogue("\"I definitely do not just say business cliches.\"");
 
+
+    Person wiseHomer = Person("Dr. Homer");
+    wiseHomer.setDialogue("\"HTML is a Programming Language\"\n-Dr. Pettit");
+    wiseHomer.setDialogue("\"Ruin and misery are in their paths.\"\n-Romans 3:16");
+    wiseHomer.setDialogue("\"I pray that, according to the riches of his glory, he may grant that you\nmay be strengthened in your inner being with power through his Spirit.\"\n-Ephesians 3:16");
+    wiseHomer.setDialogue("\"He has made my teeth grind on gravel,\nand made me cower in ashes;\"\n-Lamentations 3:16");
+    wiseHomer.setDialogue("\"I put a lot of effort into that PowerPoint presentation. Weren't the animations great?\"");
+
+    Person wisePrather = Person("Dr. Prather");
+    wisePrather.setDialogue("\"Ehud made for himself a sword with two edges, a cubit in length;\nand he fastened it on his right thigh under his clothes.\n-Judges 3:16\"");
+    wisePrather.setDialogue("\"Let the word of Christ dwell in you richly; teach and admonish one another in all wisdom;\nand with gratitude in your hearts sing psalms, hymns, and spiritual songs to God.\"\n-Colossians 3:16");
+    wisePrather.setDialogue("\"Do you not know that you are God's temple and that God's Spirit dwells in you?\"\n-1 Corinthians 3:16");
+    wisePrather.setDialogue("\"Long life is in her right hand;\nin her left hand are riches and honour.\"\n-Proverbs 3:16");
+    wisePrather.setDialogue("\"The Lord roars from Zion,\nand utters his voice from Jerusalem,\nand the heavens and the earth shake.\nBut the Lord is a refuge for his people,\na stronghold for the people of Israel.\"\n-Joel 3:16");
+
+    MBB215.addPerson(&wiseHomer);
+    MBB215.addPerson(&wisePrather);
+
+
     MBB318.addPerson(&burton);
 
     MBB218.addPerson(&tanner);
@@ -301,11 +312,6 @@ int main()
     // "The final exam is now available. At anytime you are ready, type ___ to take the final."
     // "Are you ready to take the final?";
     // "What is your favorite color?";
-
-    // SET PLAYER //
-    player->completeClass("ITC110");
-    
-
 
     // CREATE GUIDEBOOK //
 
@@ -329,7 +335,6 @@ int main()
             schedule(Locations);
         else
             root.handle(&v);
-       // }
     }
 }
 
