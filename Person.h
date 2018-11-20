@@ -11,7 +11,6 @@ using namespace std;
 class Person : public GameObject {
     private:
         vector<string> dialogue;
-        //Inventory* inventory;
         vector<Item*> inventory;
     public:
         Person(string name = "", string desc = "") : GameObject(name, desc) {}

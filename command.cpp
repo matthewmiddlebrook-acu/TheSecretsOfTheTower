@@ -228,6 +228,20 @@ void TALK::handle(vector<string>* input) {
         Handler::handle(input);
 }
 
+void DO::handle(vector<string>* input) {
+    if (input->at(0) == "DO") [
+        if (input->size() == 1) {
+            cout << "What exaclty do you want to DO?";
+        }
+        else if (input->size() == 2 && input->at(1) == "PROJECT") {
+            Player* player = Player::getPlayer();
+            player->getLocation()->doProject();
+        }
+    ]
+    else
+        Handler::handle(input);
+}
+
 /* DEBUG COMMANDS: INFO */
 
 // output's current location, location iventory, and player inventory
