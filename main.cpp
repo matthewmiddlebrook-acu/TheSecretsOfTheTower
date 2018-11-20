@@ -21,10 +21,10 @@ void schedule(vector<Location*> Loc) {
             "SCHEDULE:\n" \
             "-----------------------------\n" \
             "Classes Being Offered:\n";
-        for (unsigned int i = 0; i < Loc.size(); i++) 
-            if (Loc.at(i)->isClassroom() && Player::getPlayer()->getSkill((SKILL)(Loc.at(i)->getRequiredSkill())) >= Loc.at(i)->getLowReq()) {
-                sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) + "\n"; // need to add teacher
-        cout << sched << endl;
+    for (unsigned int i = 0; i < Loc.size(); i++)
+        if (Loc.at(i)->isClassroom() && Player::getPlayer()->getSkill((SKILL)(Loc.at(i)->getRequiredSkill())) >= Loc.at(i)->getLowReq())
+            sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) + "\n"; // need to add teacher
+    cout << sched << endl;
 }
         
 
@@ -206,21 +206,12 @@ int main()
 
     // Create a handler TALK, returns random string of person, size of vector
 
-<<<<<<< HEAD
-    /*Person burton = Person("Dr. Burton");
-    burton.setDialogue(0, "\"Buy my book! I've written many books on Corona and Amazon Lumberyard.\"");
-    burton.setDialogue(1, "\"Man buns are cool.\"");
-    burton.setDialogue(2, "\"Did you hear about the new [generic tech] yet? It sounds amazing!\"");
-    burton.setDialogue(3, "\"There's no cheating in DET.\"");
-    burton.setDialogue(4, "\"Hi.\"");
-=======
     Person burton = Person("Dr. Burton");
     burton.setDialogue("\"Buy my book! I've written many books on Corona and Amazon Lumberyard.\"");
     burton.setDialogue("\"Man buns are cool.\"");
     burton.setDialogue("\"Did you hear about the new [generic tech] yet? It sounds amazing!\"");
     burton.setDialogue("\"There's no cheating in DET.\"");
     burton.setDialogue("\"Hi.\"");
->>>>>>> 90d4087564265c1a4329977b30377639f7036ba7
 
     // Don't know if I am going to use him, currently Tanner has 2 classes
     Person homer = Person("Dr. Homer");
@@ -256,14 +247,10 @@ int main()
     MBB315.addPerson(&tanner);
 
     MBB115.addPerson(&prather);
-<<<<<<< HEAD
-    MBB118.addPerson(&bProf);*/
-=======
     MBB118.addPerson(&bProf);
 
     // "Are you ready to take the final?";
     // "What is your favorite color?";
->>>>>>> 90d4087564265c1a4329977b30377639f7036ba7
 
     // SET PLAYER //
     player->setLocation(&MBBHallway1);
