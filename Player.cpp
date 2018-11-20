@@ -107,7 +107,7 @@ bool Player::completeClass(string course) {
         cout << "POWER UP : SKILLS ADVANCED" << endl;
         cout << "TYPING: " << getSkill(TYPING) << endl;
         cout << "LOGIC: " << getSkill(LOGIC) << endl;
-        cout << "SPPECH: " << getSkill(SPEECH) << endl;
+        cout << "SPEECH: " << getSkill(SPEECH) << endl;
         cout << "CRAFTSMANSHIP: " << getSkill(CRAFTSMANSHIP) << endl;
         cout << "CREATIVITY: " << getSkill(CREATIVITY) << endl;
         cout << "INTELLIGENCE: " << getSkill(INTELLIGENCE) << endl;

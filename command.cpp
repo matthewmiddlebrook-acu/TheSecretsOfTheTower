@@ -22,15 +22,15 @@ string MANUAL =
 "if you pass, graduate from SITC.\n\n" \
 "COMMANDS:\n" \
 "---------------------\n" \
-"GUIDE: outpus the SITC guide\n" \
+"GUIDE: outputs the SITC guide\n" \
 "QUIT: exits the game\n" \
 "GO: moves the player in a specified direction\n" \
 "TAKE: adds an item to player's inventory\n" \
 "INVENTORY: outputs the player's inventory\n" \
 "SKILLS: outputs the player's skills\n" \
-"TALK: the players talks to a random person in the room\n" \
+"TALK: the player talks to a random person in the room\n" \
 "DO: the player does a project (DO PROJECT)\n\n" \
-"The possible diretions a player can GO are:\n" \
+"The possible directions a player can GO are:\n" \
 "NORTH, EAST, SOUTH, WEST, UP, DOWN\n\n" \
 "The SKILL tree consists of:\n" \
 "TYPING, LOGIC, SPEECH, CREATIVITY, CRAFTSMANSHIP, JAPANESE, INTELLIGENCE, SPIRITUALITY\n\n" \

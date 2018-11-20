@@ -171,7 +171,7 @@ int main()
     MBB218.setDescriptionSkillLevel(2,
         "You walk inside the Animation classroom, but there's no one inside. You wait a bit, and students finally\n" \
         "start showing up. Class is supposed to be starting soon, but the professor isn't even here yet.\n" \
-        "Right at classtime, Professor Tanner finally walks in, with a wooden figurine. \"Morning class, today we are\n" \
+        "Right at class time, Professor Tanner finally walks in, with a wooden figurine. \"Morning class, today we are\n" \
         "going to be creating a running animation. I've brought this guy here for reference. Good luck!\"");
 
     MBB218.setCompletionOutput(
