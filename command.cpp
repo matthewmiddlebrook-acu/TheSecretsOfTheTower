@@ -144,23 +144,27 @@ void GO::handle(vector<string>* input) {
             if (it == DIR.end())
                 cout << endl << "Please enter a valid direction. Possible directions are: NORTH, SOUTH, EAST, WEST, UP, and DOWN." << endl << endl; // MANUAL["GO"];
             else {
-                if (!(p->move((convertStringToEnumDir(input->at(1))))))
-                    cout << endl << "There's nothing in that direction." << endl << endl;
-                else {
-                    if (p->getLocation()->isClassroom()) {
-                        SKILL required = (SKILL)p->getLocation()->getRequiredSkill();
-                        
-                        if (p->getSkill(required) >= p->getLocation()->getLowReq()) {
-                            cout << endl << PrintColor(p->getLocation()->getName(), B_CYAN) << ": " << p->getLocation()->getClass(p->getSkill((SKILL)(p->getLocation()->getRequiredSkill()))) << endl;
-                            cout << p->getLocation()->getDescriptionSkillLevel(p->getSkill(required)) << endl << endl;
+                if (!p->getLocation()->deniedEntry(convertStringToEnumDir(input->at(1)))) {
+                    if (!(p->move((convertStringToEnumDir(input->at(1))))))
+                        cout << endl << "There's nothing in that direction." << endl << endl;
+                    else {
+                        if (p->getLocation()->isClassroom()) {
+                            SKILL required = (SKILL)p->getLocation()->getRequiredSkill();
+                            
+                            if (p->getSkill(required) >= p->getLocation()->getLowReq()) {
+                                cout << endl << PrintColor(p->getLocation()->getName(), B_CYAN) << ": " << p->getLocation()->getClass(p->getSkill((SKILL)(p->getLocation()->getRequiredSkill()))) << endl;
+                                cout << p->getLocation()->getDescriptionSkillLevel(p->getSkill(required)) << endl << endl;
+                            } else {
+                                cout << endl << "The door is locked. You do not have the prerequisites for " << p->getLocation()->getClass(1) << "." << endl << endl;
+                                p->move(p->getLocation()->oppositeDirection(convertStringToEnumDir(input->at(1))));
+                            }
                         } else {
-                            cout << endl << "The door is locked. You do not have the prerequisites for " << p->getLocation()->getClass(1) << "." << endl << endl;
-                            p->move(p->getLocation()->oppositeDirection(convertStringToEnumDir(input->at(1))));
+                            //cout << PrintColor(p->getLocation()->getName(), B_CYAN) << endl;
+                            cout << endl << p->getLocation()->getDescription() << endl << endl;
                         }
-                    } else {
-                        //cout << PrintColor(p->getLocation()->getName(), B_CYAN) << endl;
-                        cout << endl << p->getLocation()->getDescription() << endl << endl;
                     }
+                } else {
+                    cout << p->getLocation()->requiresItem(convertStringToEnumDir(input->at(1))) << endl;
                 }
             }
         }

@@ -22,20 +22,6 @@ void Player::setLocation(Location* location) {
 
 bool Player::move(Direction dir) {
     if (currentLocation->checkDirection(dir)) {
-        if (currentLocation->deniedEntry(dir)) {
-            // Requires item now just tells you what class you have already taken
-            cout << currentLocation->requiresItem(dir) << endl;
-            return false;
-            // string required_item = currentLocation->requiresItem(dir);
-            // if (hasItem(required_item)) {
-            //     currentLocation->allowEntry(dir);
-            //     setLocation(currentLocation->getLocation(dir));
-            //     return true;
-            // } else {
-            //     cout << currentLocation->getDescription(required_item) << endl;
-            //     return false;
-            // }
-        }
         setLocation(currentLocation->getLocation(dir));
         return true;
     } else {
