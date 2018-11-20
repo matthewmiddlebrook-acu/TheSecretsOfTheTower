@@ -24,6 +24,8 @@ class Location : public GameObject {
         map<Direction, string> denied;
         bool classroom = false;
         int required = 7;
+
+        string askOutput;
         string completionOutput;
         vector<string> classNames;
 
@@ -73,6 +75,8 @@ class Location : public GameObject {
         string getCompletionOutput() { return completionOutput; }
 
         string getClass(int i) {return classNames.at(i);};
+        void setAskOutput(string output) { askOutput = output; }
+        string getAskOutput() { return askOutput; }
 };
 
 #endif
