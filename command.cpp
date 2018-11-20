@@ -37,10 +37,6 @@ string MANUAL =
 "--------------------------------\n\n";
 
 
-
-
-
-
 vector<string> DIR = {"NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN"};
 vector<string> STRING_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE"};
 
@@ -113,7 +109,7 @@ void QUIT::handle(vector<string>* input) {
 void MAN::handle(vector<string>* input) {
     if (input->at(0) == "GUIDE") {
         if (input->size() == 1) {
-            cout << MANUAL;
+            cout << endl << MANUAL;
             /*cout << endl << "Manual:" << endl << "----------------------" << endl;
             for (map<string,string>::iterator it = MANUAL.begin(); it != MANUAL.end(); it++)
                 cout << it->first << ":  " << it->second << endl;
@@ -147,7 +143,7 @@ void GO::handle(vector<string>* input) {
             vector<string>::iterator it = find(DIR.begin(), DIR.end(), input->at(1));
             if (it == DIR.end())
                 cout << endl << "Please enter a valid direction. Possible directions are: NORTH, SOUTH, EAST, WEST, UP, and DOWN." << endl << endl; // MANUAL["GO"];
-            else
+            else {
                 if (!(p->move((convertStringToEnumDir(input->at(1))))))
                     cout << endl << "There's nothing in that direction." << endl << endl;
                 else {
@@ -166,6 +162,7 @@ void GO::handle(vector<string>* input) {
                         cout << endl << p->getLocation()->getDescription() << endl << endl;
                     }
                 }
+            }
         }
     }
     else
@@ -267,7 +264,7 @@ void LOOK::handle(vector<string>* input) {
 void DO::handle(vector<string>* input) {
     if (input->at(0) == "DO") {
         if (input->size() == 1) {
-            cout << "What exactly do you want to DO?";
+            cout << "What exaclty do you want to DO?";
         }
         else if (input->size() == 2 && input->at(1) == "PROJECT") {
             Player* player = Player::getPlayer();
