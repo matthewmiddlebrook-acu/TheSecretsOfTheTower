@@ -5,9 +5,11 @@
 #include <vector>
 using namespace std;
 
-Location::Location(string name, string desc) : GameObject(name) {
+Location::Location(string name, string desc, bool _isClassroom, int req, vector<string> classes) :
+    GameObject(name), classroom(_isClassroom), classNames(classes)
+{
     setDescription(desc);
-
+    setRequiredSkill(req);
     for (int i = 0; i < NUM_DIRECTIONS; i++)
     {
         locations[i] = NULL;

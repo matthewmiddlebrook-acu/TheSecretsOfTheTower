@@ -15,6 +15,7 @@
 //HAVE NOT COVERED CASE WHERE USER ENTERS LONG STRING OF NOTHING
 
 
+
 /* BASE HANDLER */
 class Handler {
     public:

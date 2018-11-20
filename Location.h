@@ -8,6 +8,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <string>
 using namespace std;
 
 // If you want to add more directions to the Direction enum, 
@@ -24,9 +25,10 @@ class Location : public GameObject {
         bool classroom = false;
         int required = 7;
         string completionOutput;
+        vector<string> classNames;
 
       public:
-        Location(string name = "", string desc = "");
+        Location(string name = "", string desc = "", bool _isClassroom = false, int req = 0, vector<string> classes = {});
 
         Location* getLocation(Direction dir);
         //reEntry means it automatically connects the other location to this one 
@@ -68,7 +70,9 @@ class Location : public GameObject {
         int getRequiredSkill() { return required; }
 
         void setCompletionOutput(string output) { completionOutput = output; }
-        void getCompletionOutput() { return completionOutput; }
+        string getCompletionOutput() { return completionOutput; }
+
+        string getClass(int i) {return classNames.at(i);};
 };
 
 #endif

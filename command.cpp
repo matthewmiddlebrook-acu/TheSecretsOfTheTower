@@ -1,8 +1,6 @@
 #include "Command.h"
 #include "PrintColor.h"
 
-using namespace std;
-
 /*map <string, string> MANUAL = {
     { "MENU COMMANDS:\n", ""},
     { "QUIT","\nManual QUIT:\n\tDescription: Exits the game\n\tExample: QUIT\n\n" },
@@ -138,13 +136,16 @@ void GO::handle(vector<string>* input) {
                 else {
                     cout << PrintColor(p->getLocation()->getName(), B_CYAN) << endl;
                     cout << endl;
+                    //cout << Player::getPlayer()->getLocation()->getClasses().at(0);
 
                     if (p->getLocation()->isClassroom()) {
                         SKILL required = (SKILL)p->getLocation()->getRequiredSkill();
+                        cout << required << endl;
+                        
                         if (p->getLocation()->hasDescriptionSkill(required)) {
                             cout << p->getLocation()->getDescriptionSkillLevel(p->getSkill(required)) << endl;
                         } else {
-                            cout << "You do not have the prerequisites to take this class." << endl;
+                            cout << "What are you doing here, you don't have the prerequisites for this class?" << endl;
                         }
                     } else {
                         cout << p->getLocation()->getDescription() << endl;

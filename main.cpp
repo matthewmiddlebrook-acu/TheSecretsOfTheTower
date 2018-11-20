@@ -13,24 +13,33 @@ using namespace std;
 // still need cas to handle whitespace
 
 vector<string> CLASSES {"PROGRAMMING", "SCRIPTING", "ANIMATION", "3D MODELING", "BUSINESS"};
+vector<string> STR_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSMANSHIP", "JAPANESE", "INTELLIGENCE", "NONE"};
 
 int main()
 {
     /* INIT LOCATIONS */
-    Location Atrium("Atrium","");
-    Location MBB115("MBB115","Scripting");
-    Location MBB118("MBB118","Business");
-    Location MBBHallway1("MBBHallway1","");
-    Location MBBStairs1("MBBStairs1","");
-    Location MBB215("MBB215","Programming");
-    Location MBB218("MBB218","Chapel");
-    Location MBBHallway2("MBBHallway2","");
-    Location MBBStairs2("MBBStairs2","");
-    Location MBB315("MBB315","3D Modeling");
-    Location MBB318("MBB318","Animation");
-    Location MBBHallway3("MBBHallway3","");
-    Location MBBStairs3("MBBStairs3","");
+    vector<string> noClasses = {""};
+    vector<string> proClasses = {"PROGRAMMING 1", "PROGRAMMING 2"};
+    vector<string> modClasses = {"INTRO TO 3D MODELING", "ADVANCED 3D MODELING"};
+    vector<string> aniClasses = {"INTRO TO ANIMATION", "ADVANCED ANIMATION"};
+    vector<string> busClasses = {"INTRO TO BUSINESS", "HOW TO FEEL GOOD WHILE GETTING A USELESS DEGREE"};
 
+    Location MBB115("MBB115","PROGRAMMING Classroom", true, 1, proClasses);                                     // LOGIC
+    Location MBB118("MBB118","BUSINESS Classroom", true, 2, busClasses);                                        // SPEECH
+    Location MBBStairs1("MBBStairs1","You enter the stairwell.", false, 7, noClasses);
+    Location MBBHallway1("MBBHallway1","You enter the hallway. There's classroom's on your WEST and EAST.\n" \
+                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses);                       
+    Location MBB215("MBB215","CHAPEL", false, 7, noClasses); 
+    Location MBB218("MBB218","EMPTY CLASSROOM", false, 7, noClasses);
+    Location MBBStairs2("MBBStairs2","You enter the stairwell.", false, 7, noClasses);
+    Location MBBHallway2("MBBHallway2","You enter the hallway. There's classroom's on your WEST and EAST.\n" \
+                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses);
+    Location MBB315("MBB315","3D MODELING Classroom", true, 4, modClasses);                                     // CRAFTSMANSHIP
+    Location MBB318("MBB318","ANIMATION Classroom", true, 3, aniClasses);                                       // CREATIVITY
+    Location MBBStairs3("MBBStairs3","You enter the stairwell.",false, 7, noClasses);
+    Location MBBHallway3("MBBHallway3","You enter the hallway. There's classroom's on your WEST and EAST.\n" \
+                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses);
+    
     MBBHallway1.setDirection(EAST,&MBB115);
     MBBHallway1.setDirection(WEST,&MBB118);
     MBBHallway1.setDirection(SOUTH,&MBBStairs1);
@@ -43,7 +52,35 @@ int main()
     MBBHallway3.setDirection(WEST,&MBB318);
     MBBHallway3.setDirection(SOUTH,&MBBStairs3);
 
+    vector<Location*> Locations;
+
+    Locations.push_back(&MBB115);
+    Locations.push_back(&MBB118);
+    Locations.push_back(&MBBStairs1);
+    Locations.push_back(&MBBHallway1);
+
+    Locations.push_back(&MBB215);
+    Locations.push_back(&MBB218);
+    Locations.push_back(&MBBStairs2);
+    Locations.push_back(&MBBHallway2);
+    
+    Locations.push_back(&MBB315);
+    Locations.push_back(&MBB318);
+    Locations.push_back(&MBBStairs3);
+    Locations.push_back(&MBBHallway3);
+
+   
+
+
     /* INIT ITEMS */
+    string sched = 
+        "SCHEDULE:\n" \
+        "-----------------------------\n" \
+        "Classes Being Offered:\n";
+    
+
+
+
     Item Schedule("Schedule","");
     Item GuideBook("GuideBook","");
 
@@ -69,9 +106,17 @@ int main()
     player->setLocation(&MBBHallway1);
     string name, course;
 
+    /*for (unsigned int i = 0; i < Locations.size(); i++) {
+        if (Locations.at(i)->isClassroom()) {
+            sched += Locations.at(i)->getName() + "\t" + Locations.at(i)->getClass(player->getSkill((SKILL)Locations.at(i)->getRequiredSkill())) + "\n"; // need to add teacher
+            //cout << Locations.at(i)->getName() << "\t" << Locations.at(i)->getClass(player->getSkill((SKILL)Locations.at(i)->getRequiredSkill())) << "\t" << STR_SKILLS.at(Locations.at(i)->getRequiredSkill()) << endl;
+        }      
+    }*/
+
+    //cout << sched << endl;
 
     /* INIT GAME */
-    system("CLS");
+    //system("CLS");
     cout << "\"You\'re going to need to take varying classes to get into a graduate program and pass the GRE. Here in SITC\n" \
             "we offer courses in Scripting, Programming, Animation, 3D Modeling, and last, but definitely least, Business.\"";
     cout << endl << endl;
@@ -89,9 +134,9 @@ int main()
     cout << "\"Well, " + player->getName() + ", here\'s your schedule of the classes you can take. Complete one class and you\'ll\n" \
             "be able to move onto the next one. Did you come in with any previous credit? If so, you can clep out of the\n" \
             "entry level course for one of the following: SCRIPTING, PROGRAMMING, ANIMATION, 3D MODELING, or BUSINESS.\n" \
-            "Would you like to clep out?\"";
+            "What subject would you like to bring in credit for?\"";
     cout << endl << endl;
-    cout << "TYPE ONE OF THE FOLLOWING OR NONE: "; // only programming works right now
+    cout << "TYPE ONE OF THE FOLLOWING: "; // only programming works right now
     getline(cin,course);
     transform(course.begin(), course.end(), course.begin(), ::toupper);
     while (true) {
@@ -103,13 +148,9 @@ int main()
             player->completeClass(course);
             break;
         }
-        else if (course == "NONE") {
-            cout << endl;
-            break;
-        }
         else {
-            cout << "Please enter a valid class or fill in the option NONE." << endl << endl;
-            cout << "TYPE ONE OF THE FOLLOWING OR NONE: "; // only programming works right now
+            cout << "Please enter a valid class." << endl << endl;
+            cout << "TYPE ONE OF THE FOLLOWING: "; // only programming works right now
             getline(cin,course);
             transform(course.begin(), course.end(), course.begin(), ::toupper);
         }
@@ -127,12 +168,6 @@ int main()
             "tomorrow. Freshman year. College life. Tomorrow... Parties. Freedom. Friends. Tomorrow...";
     cout << endl << endl;
     cout << "THE NEXT DAY" << endl << endl;
-
-    MBB315.setClassroom(true);
-    MBB315.setRequiredSkill(CRAFTSMANSHIP);
-    
-    MBB318.setClassroom(true);
-    MBB318.setRequiredSkill(CREATIVITY);
 
     MBB315.setDescriptionSkillLevel(1, 
         "You walk into 315 and are greeted by Professor Tanner, drinking a cup of coffee. He has a dazed, yet crazed look\n" \
@@ -156,6 +191,10 @@ int main()
 
 
     MBB118.setDescriptionSkillLevel(1,
+        "You walk into your Intro to Business class and see your generic professor, who greets you. \"Hello, student.\"\n" \
+        "They didn't even call you by name.");
+
+        MBB115.setDescriptionSkillLevel(1,
         "You walk into your Intro to Business class and see your generic professor, who greets you. \"Hello, student.\"\n" \
         "They didn't even call you by name.");
 
