@@ -155,10 +155,10 @@ void GO::handle(vector<string>* input) {
                         SKILL required = (SKILL)p->getLocation()->getRequiredSkill();
                         
                         if (p->getSkill(required) >= p->getLocation()->getLowReq()) {
-                            cout << endl << PrintColor(p->getLocation()->getName(), B_CYAN) << ": " << p->getLocation()->getClass(p->getSkill((SKILL)(p->getLocation()->getRequiredSkill()-1))) << endl;
+                            cout << endl << PrintColor(p->getLocation()->getName(), B_CYAN) << ": " << p->getLocation()->getClass(p->getSkill((SKILL)(p->getLocation()->getRequiredSkill()))) << endl;
                             cout << p->getLocation()->getDescriptionSkillLevel(p->getSkill(required)) << endl << endl;
                         } else {
-                            cout << endl << "The door is locked. You do not have the prerequisites for " << p->getLocation()->getClass(0) << "." << endl << endl;
+                            cout << endl << "The door is locked. You do not have the prerequisites for " << p->getLocation()->getClass(1) << "." << endl << endl;
                             p->move(p->getLocation()->oppositeDirection(convertStringToEnumDir(input->at(1))));
                         }
                     } else {
@@ -253,8 +253,8 @@ void LOOK::handle(vector<string>* input) {
     if (input->at(0) == "LOOK" && input->size() == 1) {
         Player* player = Player::getPlayer();
         if (player->getLocation()->isClassroom()) {
-            cout << endl << PrintColor(player->getLocation()->getName(), B_CYAN) << ": " << player->getLocation()->getClass(player->getSkill((SKILL)(player->getLocation()->getRequiredSkill()-1))) << endl;
-            cout << player->getLocation()->getDescriptionSkillLevel(player->getSkill((SKILL)(player->getLocation()->getRequiredSkill()-1))) << endl << endl;
+            cout << endl << PrintColor(player->getLocation()->getName(), B_CYAN) << ": " << player->getLocation()->getClass(player->getSkill((SKILL)(player->getLocation()->getRequiredSkill()))) << endl;
+            cout << player->getLocation()->getDescriptionSkillLevel(player->getSkill((SKILL)(player->getLocation()->getRequiredSkill()))) << endl << endl;
         }
         else {
             cout << endl << player->getLocation()->getDescription() << endl << endl;
@@ -271,7 +271,7 @@ void DO::handle(vector<string>* input) {
         }
         else if (input->size() == 2 && input->at(1) == "PROJECT") {
             Player* player = Player::getPlayer();
-            player->getLocation()->doProject(player->getSkill((SKILL)(player->getLocation()->getRequiredSkill()-1)));
+            player->getLocation()->doProject(player->getSkill((SKILL)(player->getLocation()->getRequiredSkill())));
         }
     }
     else

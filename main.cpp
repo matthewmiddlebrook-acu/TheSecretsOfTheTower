@@ -47,6 +47,7 @@ int main()
     INVENTORY inv;
     TALK tlk;
     DO doh;
+    LOOK lok;
 
     root.add(&man);
     root.add(&go);
@@ -56,6 +57,7 @@ int main()
     root.add(&skill);
     root.add(&tlk);
     root.add(&doh);
+    root.add(&lok);
 
     // INIT LOCATIONS //
     string course;

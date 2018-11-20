@@ -72,13 +72,13 @@ bool Player::completeClass(string course) {
     }
     if (course == "ANIMATION") {
         increaseSkill(JAPANESE,1);
-        increaseSkill(CRAFTSMANSHIP,1);
+        // increaseSkill(CRAFTSMANSHIP,1);
         increaseSkill(CREATIVITY,1);
         increaseSkill(INTELLIGENCE,1);
         cout << endl << endl;
         cout << "POWER UP : SKILLS ADVANCED" << endl;
         cout << "JAPANESE: " << getSkill(JAPANESE) << endl; 
-        cout << "CRAFTSMANSHIP: " << getSkill(CRAFTSMANSHIP) << endl;
+        // cout << "CRAFTSMANSHIP: " << getSkill(CRAFTSMANSHIP) << endl;
         cout << "CREATIVITY: " << getSkill(CREATIVITY) << endl;
         cout << "INTELLIGENCE: " << getSkill(INTELLIGENCE) << endl;
         cout << endl;
@@ -87,12 +87,12 @@ bool Player::completeClass(string course) {
     }
     if (course == "3D MODELING") {
         increaseSkill(CRAFTSMANSHIP,1);
-        increaseSkill(CREATIVITY,1);
+        // increaseSkill(CREATIVITY,1);
         increaseSkill(INTELLIGENCE,1);
         cout << endl << endl;
         cout << "POWER UP : SKILLS ADVANCED" << endl;
         cout << "CRAFTSMANSHIP: " << getSkill(CRAFTSMANSHIP) << endl;
-        cout << "CREATIVITY: " << getSkill(CREATIVITY) << endl;
+        // cout << "CREATIVITY: " << getSkill(CREATIVITY) << endl;
         cout << "INTELLIGENCE: " << getSkill(INTELLIGENCE) << endl;
         cout << endl;
 
