@@ -11,7 +11,7 @@ Player* Player::getPlayer() {
     return p_instance;
 }
 
-Location* Player::getLocation() {
+Location* Player::getLocation() const {
     return currentLocation;
 }
 

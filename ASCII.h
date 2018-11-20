@@ -674,28 +674,4 @@ void train() {
     gotoxy(0, console_row+17);
 }
 
-void assignment(string course, int num) {
-    if (course == "PROGRAMMING") {
-        
-    }
-    else if (course == "SCRIPTING") {
-        
-    }
-    else if (course == "ANIMATION") {
-        if (num == 1)
-            train();
-        else
-            walk();
-    }
-    else if (course == "3D MODELING") {
-        if (num == 1)
-            donut();
-        else
-            anvil();
-    }
-    else if (course == "BUSINESS") {
-
-    }
-}
-
 #endif

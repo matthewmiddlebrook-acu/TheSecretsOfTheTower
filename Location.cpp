@@ -18,7 +18,7 @@ Location::Location(string name, string desc, bool _isClassroom, int req, vector<
     }
 }
 
-string Location::getDescription() {
+string Location::getDescription() const {
     return descriptions.at("default");
 }
 
@@ -27,7 +27,7 @@ void Location::setDescription(string desc) {
 }
 
 // Gets the description if there is a special state (first entry or requires item), rather than just normal room description
-string Location::getDescription(string state) {
+string Location::getDescription(string state) const {
     return descriptions.at(state);
 }
 
@@ -40,11 +40,11 @@ void Location::setDescriptionSkillLevel(int level, string desc) {
     descriptions.insert(pair<string, string>(to_string(level), desc));
 }
 
-string Location::getDescriptionSkillLevel(int level) {
+string Location::getDescriptionSkillLevel(int level) const {
     return descriptions.at(to_string(level));
 }
 
-bool Location::hasDescriptionSkill(int level) {
+bool Location::hasDescriptionSkill(int level) const {
     return descriptions.count(to_string(level)); // if level is a key
 }
 
@@ -56,15 +56,15 @@ void Location::allowEntry(Direction dir) {
     denied.erase(dir);
 }
 
-bool Location::deniedEntry(Direction dir) {
+bool Location::deniedEntry(Direction dir) const {
     return denied.count(dir);
 }
 
-string Location::requiresItem(Direction dir) {
+string Location::requiresItem(Direction dir) const {
     return denied.at(dir);
 }
 
-Location* Location::getLocation(Direction dir) {
+Location* Location::getLocation(Direction dir) const {
     return locations[dir];
 }
 
@@ -81,11 +81,11 @@ void Location::setDirection(Direction dir, Location* loc) {
     }
 }
 
-bool Location::checkDirection(Direction dir) {
+bool Location::checkDirection(Direction dir) const {
     return locations[dir] != NULL;
 }
 
-Direction Location::oppositeDirection(Direction d) {
+Direction Location::oppositeDirection(Direction d) const {
     switch (d) {
         case NORTH:
             return SOUTH;
