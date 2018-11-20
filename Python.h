@@ -9,8 +9,8 @@ string answer1 = "00000000000012345678910024681012141618200369121518212427300481
 bool multTable() {
 
     cout << "Write a python program that outputs the multiplication table for 10. Put only a space between numbers." << endl;
-    cout << "Be carful, onve you move ot a line new line you will not be able to change your answer." << endl;
-    cout << "Type DONE hit enter on an emptyline to submit your program to Athene." << endl;
+    cout << "Be carful, once you move to a line new line you will not be able to change your answer." << endl;
+    cout << "Type DONE in all caps and hit enter on an empty line to submit your program to Athene." << endl;
     cout << "\nExample Table for 4:\n";
     cout << "0 0 0 0 0\n";
     cout << "0 1 2 3 4\n";
@@ -45,8 +45,8 @@ bool multTable() {
 
 bool helloWorld() {
     cout << "Write a python program that outputs \"Hello, World!\"." << endl;
-    cout << "Be carful, onve you move ot a line new line you will not be able to change your answer." << endl;
-    cout << "Type DONE hit enter on an emptyline to submit your program to Athene." << endl << endl;
+    cout << "Be carful, once you move to a line new line you will not be able to change your answer." << endl;
+    cout << "Type DONE in all caps and hit enter on an empty line to submit your program to Athene." << endl << endl;
 
     string line;
     ofstream outfile("test1.py");

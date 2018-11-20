@@ -139,6 +139,7 @@ void Location::doProject(int skill) {
         Sleep(1000);
         cout << player->getLocation()->getCompletionOutput() << endl;
         player->completeClass("ITC110");
+        player->getLocation()->incrLowReq();
         player->move(EAST);
         player->getLocation()->denyEntry(WEST, "You have already taken Intro to ITC");
     } else if (skill == 1) {
@@ -151,9 +152,9 @@ void Location::doProject(int skill) {
                 cout << endl << "Your code output does not match the expected output. Please try again." << endl << endl;
             }
             cout << endl << player->getLocation()->getCompletionOutput() << endl;
-            player->completeClass("PROGRAMMING");
             player->move(WEST);
             cout << "You have completed Programming 1! Come back to take Programming 2." << endl;
+            player->completeClass("PROGRAMMING");
         } else if (classNames.at(skill) == "INTRO TO 3D MODELING") {
             donut();
             Sleep(1000);
@@ -189,13 +190,13 @@ void Location::doProject(int skill) {
         if (classNames.at(skill) == "PROGRAMMING 2") {
             cout << endl;
             while (true) {
-
                 if (multTable()) 
                     break;
                 cout << endl << "Your code output does not match the expected output. Please try again." << endl << endl;
             }
             cout << endl << player->getLocation()->getCompletionOutput() << endl;
             player->completeClass("PROGRAMMING");
+            player->getLocation()->incrLowReq();
             player->move(WEST);
             player->getLocation()->denyEntry(EAST, "You have already taken available Programming classes");
             cout << "Congratulations! You have completed all available Programming classes." << endl;
@@ -204,6 +205,7 @@ void Location::doProject(int skill) {
             Sleep(1000);
             cout << player->getLocation()->getCompletionOutput() << endl;
             player->completeClass("3D MODELING");
+            player->getLocation()->incrLowReq();
             player->move(WEST);
             player->getLocation()->denyEntry(EAST, "You have already taken available 3D Modeling classes");
             cout << "Congratulations! You have completed all available 3D Modeling classes." << endl;
@@ -212,10 +214,11 @@ void Location::doProject(int skill) {
             Sleep(1000);
             cout << player->getLocation()->getCompletionOutput() << endl;
             player->completeClass("ANIMATION");
+            player->getLocation()->incrLowReq();
             player->move(EAST);
             player->getLocation()->denyEntry(WEST, "You have already taken available Animation classes");
             cout << "Congratulations! You have completed all available Animation classes." << endl;
-        } else if (classNames.at(skill) == "USELESS CLASS") {
+        } else if (classNames.at(skill) == "\"ADVANCED\" BUSINESS") {
             cout << "You listened to an hour long talk about something ... business-y. You fell asleep halfway though." << endl;
             Sleep(1000);
             cout << "So, your final is this:" << endl;
@@ -227,6 +230,7 @@ void Location::doProject(int skill) {
             cout << "That's correct! Great job!" << endl;
             cout << player->getLocation()->getCompletionOutput() << endl;
             player->completeClass("BUSINESS");
+            player->getLocation()->incrLowReq();
             player->move(EAST);
             player->getLocation()->denyEntry(WEST, "You have already taken available Business classes");
             cout << "Congratulations! You have somehow suffered through all available Business classes." << endl;

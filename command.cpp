@@ -17,7 +17,7 @@ string MANUAL =
 "Our goal here at SITC is to help you get through\n" \
 "college. DO assignments in classes to upgrade your\n" \
 "SKILLS. Once you have completed a class by DOing a PROJECT\n" \
-"your SKILLS increase. ONCE you have enough SKILL\n" \
+"(DO PROJECT) your SKILLS increase. Once you have enough SKILL\n" \
 "points you will be able to take the final exam and,\n"
 "if you pass, graduate from SITC.\n\n" \
 "COMMANDS:\n" \
@@ -29,11 +29,11 @@ string MANUAL =
 "INVENTORY: outputs the player's inventory\n" \
 "SKILLS: outputs the player's skills\n" \
 "TALK: the players talks to a random person in the room\n" \
-"DO: the player does a project\n\n" \
+"DO: the player does a project (DO PROJECT)\n\n" \
 "The possible diretions a player can GO are:\n" \
 "NORTH, EAST, SOUTH, WEST, UP, DOWN\n\n" \
 "The SKILL tree consists of:\n" \
-"TYPING, LOGIC, SPEECH, CREATIVITY, CRAFTSMANSHIP, JAPANESE, INTELLIGENCE\n\n" \
+"TYPING, LOGIC, SPEECH, CREATIVITY, CRAFTSMANSHIP, JAPANESE, INTELLIGENCE, SPIRITUALITY\n\n" \
 "--------------------------------\n\n";
 
 

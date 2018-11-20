@@ -72,7 +72,7 @@ int main()
     vector<string> proClasses = {"","PROGRAMMING 1", "PROGRAMMING 2"};
     vector<string> modClasses = {"","INTRO TO 3D MODELING", "ADVANCED 3D MODELING"};
     vector<string> aniClasses = {"","INTRO TO ANIMATION", "ADVANCED ANIMATION"};
-    vector<string> busClasses = {"","INTRO TO BUSINESS", "USELESS CLASS"};
+    vector<string> busClasses = {"","INTRO TO BUSINESS", "\"ADVANCED\" BUSINESS"};
 
     Location MBB115("MBB115","PROGRAMMING Classroom", true, 1, proClasses, 1);                                     // LOGIC
     Location MBB118("MBB118","BUSINESS Classroom", true, 2, busClasses, 1);                                        // SPEECH
@@ -303,7 +303,7 @@ int main()
     // "What is your favorite color?";
 
     // SET PLAYER //
-    player->completeClass("ITC110");
+    //player->completeClass("ITC110");
     
 
 
@@ -329,7 +329,6 @@ int main()
             schedule(Locations);
         else
             root.handle(&v);
-       // }
     }
 }
 

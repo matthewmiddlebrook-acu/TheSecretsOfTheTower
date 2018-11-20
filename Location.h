@@ -91,6 +91,7 @@ class Location : public GameObject {
 
         // Gets the lowest skill requirement value
         int getLowReq() const { return lowestReq; }
+        void incrLowReq() { lowestReq += 10; }
 
         vector<Person*> getPeople() const { return people; }
 
