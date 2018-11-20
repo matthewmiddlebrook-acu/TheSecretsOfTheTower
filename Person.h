@@ -15,8 +15,8 @@ class Person : public GameObject {
         vector<Item*> inventory;
     public:
         Person(string name = "", string desc = "") : GameObject(name, desc) {}
-        string getDialogue(int index) { return dialogue.at(index); }
-        void setDialogue(int index, string text) { dialogue[index] = text; }
+        string getDialogue() { return dialogue.at(rand() % dialogue.size()); }
+        void setDialogue(string text) { dialogue.push_back(text); }
         void giveItem(Person* recipient, Item* gift);
         void addItem(Item* item) { inventory.push_back(item); }
         vector<Item*>* getItems() { return &inventory; }

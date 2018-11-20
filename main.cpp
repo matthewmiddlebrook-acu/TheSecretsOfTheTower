@@ -195,41 +195,41 @@ int main()
     // Create a handler TALK, returns random string of person, size of vector
 
     Person burton = Person("Dr. Burton");
-    burton.setDialogue(0, "\"Buy my book! I've written many books on Corona and Amazon Lumberyard.\"");
-    burton.setDialogue(1, "\"Man buns are cool.\"");
-    burton.setDialogue(2, "\"Did you hear about the new [generic tech] yet? It sounds amazing!\"");
-    burton.setDialogue(3, "\"There's no cheating in DET.\"");
-    burton.setDialogue(4, "\"Hi.\"");
+    burton.setDialogue("\"Buy my book! I've written many books on Corona and Amazon Lumberyard.\"");
+    burton.setDialogue("\"Man buns are cool.\"");
+    burton.setDialogue("\"Did you hear about the new [generic tech] yet? It sounds amazing!\"");
+    burton.setDialogue("\"There's no cheating in DET.\"");
+    burton.setDialogue("\"Hi.\"");
 
     // Don't know if I am going to use him, currently Tanner has 2 classes
     Person homer = Person("Dr. Homer");
-    homer.setDialogue(0, "\"I actually don't like computers.\"");
-    homer.setDialogue(1, "\"What are you kids on nowdays? MyChat? SnapFace?\"");
-    homer.setDialogue(2, "\"I don't know why people are so scared of me. My children LOVE me.\" he says, while laughing.\nThen, he stares into your soul.");
-    homer.setDialogue(3, "\"What was it that you wanted?\"");
-    homer.setDialogue(4, "\"I put a lot of effort into that PowerPoint presentation. Weren't the animations great?\"");
+    homer.setDialogue("\"I actually don't like computers.\"");
+    homer.setDialogue("\"What are you kids on nowdays? MyChat? SnapFace?\"");
+    homer.setDialogue("\"I don't know why people are so scared of me. My children LOVE me.\" he says, while laughing.\nThen, he stares into your soul.");
+    homer.setDialogue("\"What was it that you wanted?\"");
+    homer.setDialogue("\"I put a lot of effort into that PowerPoint presentation. Weren't the animations great?\"");
 
     Person prather = Person("Dr. Prather");
-    prather.setDialogue(0, "\"HCI is the greatest thing on the face of the earth.\"");
-    prather.setDialogue(1, "\"You should totally join HCI club! We're gonna present our research at SIGCHI!\"");
-    prather.setDialogue(2, "\"I encountered a badly designed door the other day. It was awful\"");
-    prather.setDialogue(3, "\"Have you seen any Norman doors lately? Ya know, the ones you think before opening?\"");
-    prather.setDialogue(4, "\"That's the best designed door I've ever seen.\"");
+    prather.setDialogue("\"HCI is the greatest thing on the face of the earth.\"");
+    prather.setDialogue("\"You should totally join HCI club! We're gonna present our research at SIGCHI!\"");
+    prather.setDialogue("\"I encountered a badly designed door the other day. It was awful\"");
+    prather.setDialogue("\"Have you seen any Norman doors lately? Ya know, the ones you think before opening?\"");
+    prather.setDialogue("\"That's the best designed door I've ever seen.\"");
 
     Person tanner = Person("Professor Tanner");
-    tanner.setDialogue(0, "\"Do all the things.\"");
-    tanner.setDialogue(1, "\"Don't you have an assignment to complete?\"");
-    tanner.setDialogue(2, "\"Where did I leave my coffee?\"");
-    tanner.setDialogue(3, "\"Can you go get me Taco Bell?\"");
-    tanner.setDialogue(4, "\"Man I am really craving a taco right now.\"");
+    tanner.setDialogue("\"Do all the things.\"");
+    tanner.setDialogue("\"Don't you have an assignment to complete?\"");
+    tanner.setDialogue("\"Where did I leave my coffee?\"");
+    tanner.setDialogue("\"Can you go get me Taco Bell?\"");
+    tanner.setDialogue("\"Man I am really craving a taco right now.\"");
 
     Person bProf = Person("Business Professor");
-    bProf.setDialogue(0, "\"It's good to put a face to the name.\"");
-    bProf.setDialogue(1, "\"You need to wrap your head around this assignment.\"");
-    bProf.setDialogue(2, "\"You need to think outside the box.\"");
-    bProf.setDialogue(3, "\"Who's going to step up to the plate?\"");
-    bProf.setDialogue(4, "\"My students know I've got an open door policy.\"");
-    bProf.setDialogue(5, "\"I definitely do not just say business cliches.\"");
+    bProf.setDialogue("\"It's good to put a face to the name.\"");
+    bProf.setDialogue("\"You need to wrap your head around this assignment.\"");
+    bProf.setDialogue("\"You need to think outside the box.\"");
+    bProf.setDialogue("\"Who's going to step up to the plate?\"");
+    bProf.setDialogue("\"My students know I've got an open door policy.\"");
+    bProf.setDialogue("\"I definitely do not just say business cliches.\"");
 
     MBB318.addPerson(&tanner); //Change to 218 after merge
     MBB315.addPerson(&tanner);
@@ -237,8 +237,8 @@ int main()
     MBB115.addPerson(&prather);
     MBB118.addPerson(&bProf);
 
-    "Are you ready to take the final?";
-    "What is your favorite color?";
+    // "Are you ready to take the final?";
+    // "What is your favorite color?";
 
     // SET PLAYER //
     player->setLocation(&MBBHallway1);
