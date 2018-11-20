@@ -219,8 +219,10 @@ void TALK::handle(vector<string>* input) {
         vector<Person*> people = player->getLocation()->getPeople();
         if (people.size() != 0) {
             int index = rand() % people.size();
-            cout << people.at(index)->getDialogue() << endl;
+            cout << people.at(index)->getName() << ": " << people.at(index)->getDialogue() << endl;
         }
+        else
+            cout << "There's no one to talk to." << endl;
     }
     else
         Handler::handle(input);

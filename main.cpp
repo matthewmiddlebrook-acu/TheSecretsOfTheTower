@@ -45,6 +45,7 @@ int main()
     INFO info;
     SKILLS skill;
     INVENTORY inv;
+    TALK tlk;
 
     root.add(&man);
     root.add(&go);
@@ -52,6 +53,7 @@ int main()
     root.add(&info);
     root.add(&inv);
     root.add(&skill);
+    root.add(&tlk);
 
     // INIT LOCATIONS //
     string course;
