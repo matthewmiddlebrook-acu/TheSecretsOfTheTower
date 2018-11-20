@@ -300,6 +300,7 @@ int main()
     // "What is your favorite color?";
 
     // SET PLAYER //
+    player->completeClass("ITC110");
     
 
 

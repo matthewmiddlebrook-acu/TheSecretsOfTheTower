@@ -1,6 +1,7 @@
 #include "Location.h"
 #include "Player.h"
 #include "ASCII.h"
+#include "Python.h"
 
 #include <iostream>
 #include <algorithm>
@@ -142,8 +143,14 @@ void Location::doProject(int skill) {
         player->getLocation()->denyEntry(WEST, "You have already taken Intro to ITC");
     } else if (skill == 1) {
         if (classNames.at(skill) == "PROGRAMMING 1") {
-            // Add programming action
-            cout << player->getLocation()->getCompletionOutput() << endl;
+            cout << endl;
+            while (true) {
+
+                if (helloWorld()) 
+                    break;
+                cout << endl << "Your code output does not match the expected output. Please try again." << endl << endl;
+            }
+            cout << endl << player->getLocation()->getCompletionOutput() << endl;
             player->completeClass("PROGRAMMING");
             player->move(WEST);
         } else if (classNames.at(skill) == "INTRO TO 3D MODELING") {
@@ -167,8 +174,14 @@ void Location::doProject(int skill) {
         }
     } else {
         if (classNames.at(skill) == "PROGRAMMING 2") {
-            // Add programming action
-            cout << player->getLocation()->getCompletionOutput() << endl;
+            cout << endl;
+            while (true) {
+
+                if (multTable()) 
+                    break;
+                cout << endl << "Your code output does not match the expected output. Please try again." << endl << endl;
+            }
+            cout << endl << player->getLocation()->getCompletionOutput() << endl;
             player->completeClass("PROGRAMMING");
             player->move(WEST);
             player->getLocation()->denyEntry(EAST, "You have already taken available Programming classes");
