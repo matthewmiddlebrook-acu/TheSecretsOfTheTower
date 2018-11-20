@@ -131,23 +131,21 @@ void GO::handle(vector<string>* input) {
             if (it == DIR.end())
                 cout << endl << "Please enter a valid direction. Possible directions are: NORTH, SOUTH, EAST, WEST, UP, and DOWN." << endl << endl; // MANUAL["GO"];
             else
-                if (!(p->move(convertStringToEnumDir(input->at(1)))))
+                if (!(p->move((convertStringToEnumDir(input->at(1))))))
                     cout << endl << "There's nothing in the direction." << endl << endl;
                 else {
-                    cout << PrintColor(p->getLocation()->getName(), B_CYAN) << endl;
-                    cout << endl;
-                    //cout << Player::getPlayer()->getLocation()->getClasses().at(0);
-
                     if (p->getLocation()->isClassroom()) {
                         SKILL required = (SKILL)p->getLocation()->getRequiredSkill();
-                        cout << required << endl;
                         
-                        if (p->getLocation()->hasDescriptionSkill(required)) {
+                        if (p->getSkill(required) >= p->getLocation()->getLowReq()) {
+                            cout << PrintColor(p->getLocation()->getName(), B_CYAN) << endl;
                             cout << p->getLocation()->getDescriptionSkillLevel(p->getSkill(required)) << endl;
                         } else {
-                            cout << "What are you doing here, you don't have the prerequisites for this class?" << endl;
+                            cout << "The door is locked. You do not have the prerequisites for " << p->getLocation()->getClass(0) << "." << endl;
+                            p->move(p->getLocation()->oppositeDirection(convertStringToEnumDir(input->at(1))));
                         }
                     } else {
+                        cout << PrintColor(p->getLocation()->getName(), B_CYAN) << endl;
                         cout << p->getLocation()->getDescription() << endl;
                     }
                 }
