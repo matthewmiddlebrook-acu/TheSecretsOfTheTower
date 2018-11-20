@@ -109,17 +109,28 @@ int main()
     Locations.push_back(&MBBStairs3);
     Locations.push_back(&MBBHallway3);
 
+    // 3D Modeling
+    MBB115.setDescriptionSkillLevel(1, 
+        "You see Dr. Prather sitting patiently in a chair at the front of the classroom. As all the students file in,\n" \
+        "he announces the project for the course.");
+
+    MBB115.setDescriptionSkillLevel(2, 
+        "TODO");
+
+    MBB115.setCompletionOutput(
+        "Athene: Program passed all test cases.");
+
 
     // 3D Modeling
     MBB315.setDescriptionSkillLevel(1, 
-        "You walk into 315 and are greeted by Professor Tanner, drinking a cup of coffee. He has a dazed, yet crazed look\n" \
+        "You walk into the room and are greeted by Professor Tanner, drinking a cup of coffee. He has a dazed, yet crazed look\n" \
         "in his eyes. He says, \"Welcome, " + player->getName() + ", to Into to 3D Modeling! Today, we are going to get\n" \
         "started on our first assignment where we will be learning Blender by modeling these donuts I have with me.\"\n" \
         "He holds up a plate of two donuts, covered in sprinkles and chocolate icing. They look absolutely delicious.\n"
         "\"This should be a fun assignment!\"");
 
     MBB315.setDescriptionSkillLevel(2, 
-        "You walk into 315 again to take another class with Professor Tanner, and see him drinking from his green\n" \
+        "You walk into the room again to take another class with Professor Tanner, and see him drinking from his green\n" \
         "Mario themed warp pipe mug, and what is probably his fifth cup of coffee...this morning. He shouts in a\n" \
         "terrible scottish accent, \"ALL RIGHT ME STUDENTS!\" The classroom grows quiet. \" Today, we are going to\n" \
         "do the greatest assignment ever.\" He takes a sip from his coffee and stares at you. Time seems to stand still.\n" \
@@ -164,14 +175,15 @@ int main()
     
     MBB118.setDescriptionSkillLevel(2,
         "You walk into your Business class and see your generic professor, who greets you. \"Hello, student.\"\n" \
-        "They \"Put a face to my name,\" yet they still failed to mention my name. Why am I going to this class?");
+        "They \"put a face to my name,\" yet they still failed to mention my name. Why am I going to this class?");
     
     MBB118.setCompletionOutput(
         "\"Great.\" The professor says, extreeemely enthusiastically. \"Good luck having a successful business though.\n" \
         "Look where I am. Of all the things I could have done in my life, I teach business.\" Yikes. They seem to be\n" \
         "having an existential crisis. Oh well. You did...something.");
 
-
+    player->completeClass("ITC110");
+    player->completeClass("BUSINESS");
 
     // INIT GAME //
     //system("CLS");
@@ -266,7 +278,9 @@ int main()
     bProf.setDialogue("\"My students know I've got an open door policy.\"");
     bProf.setDialogue("\"I definitely do not just say business cliches.\"");
 
-    MBB318.addPerson(&tanner); //Change to 218 after merge
+    MBB318.addPerson(&burton);
+
+    MBB218.addPerson(&tanner);
     MBB315.addPerson(&tanner);
 
     MBB115.addPerson(&prather);
