@@ -17,12 +17,13 @@ vector<string> STR_SKILLS = {"TYPING", "LOGIC", "SPEECH", "CREATIVITY", "CRAFTSM
 
 void schedule(vector<Location*> Loc) {
     string sched =
-            "SCHEDULE:\n" \
+            "\nSCHEDULE:\n" \
             "-----------------------------\n" \
             "Classes Being Offered:\n";
     for (unsigned int i = 0; i < Loc.size(); i++)
         if (Loc.at(i)->isClassroom() && Player::getPlayer()->getSkill((SKILL)(Loc.at(i)->getRequiredSkill())) >= Loc.at(i)->getLowReq())
-            sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) + "\n"; // need to add teacher
+            sched += Loc.at(i)->getName() + "\t" + Loc.at(i)->getClass(Player::getPlayer()->getSkill((SKILL)Loc.at(i)->getRequiredSkill())) 
+                     + "\t" + Loc.at(i)->getPeople().at(0)->getName() + "\n"; 
     cout << sched << endl;
 }     
 
@@ -68,19 +69,19 @@ int main()
 
     Location MBB115("MBB115","PROGRAMMING Classroom", true, 1, proClasses, 1);                                     // LOGIC
     Location MBB118("MBB118","BUSINESS Classroom", true, 2, busClasses, 1);                                        // SPEECH
-    Location MBBStairs1("MBBStairs1","You enter the stairwell.", false, 7, noClasses, 0);
-    Location MBBHallway1("MBBHallway1","You enter the hallway. There's classroom's on your WEST and EAST.\n" \
-                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses, 0);                       
+    Location MBBStairs1("MBBStairs1","You're in the first floor stairwell.", false, 7, noClasses, 0);
+    Location MBBHallway1("MBBHallway1","You're in the first floor the hallway. There's classrooms to your WEST and EAST.\n" \
+                         "Behind you (SOUTH), is the stairwell.", false, 7, noClasses, 0);                       
     Location MBB215("MBB215","CHAPEL", false, 7, noClasses, 0); 
     Location MBB218("MBB218","ANIMATION Classroom", true, 3, aniClasses, 1);
-    Location MBBStairs2("MBBStairs2","You enter the stairwell.", false, 7, noClasses, 1);
-    Location MBBHallway2("MBBHallway2","You enter the hallway. There's classroom's on your WEST and EAST.\n" \
-                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses,0);
+    Location MBBStairs2("MBBStairs2","You're in the second floor stairwell.", false, 7, noClasses, 1);
+    Location MBBHallway2("MBBHallway2","You're in the second floor hallway. There's classrooms to your WEST and EAST.\n" \
+                         "Behind you (SOUTH), is the stairwell.", false, 7, noClasses,0);
     Location MBB315("MBB315","3D MODELING Classroom", true, 4, modClasses, 1);                                     // CRAFTSMANSHIP
     Location MBB318("MBB318","ITC 110 Classroom", true, 8, itcClasses, 0);                                         // CREATIVITY
-    Location MBBStairs3("MBBStairs3","You enter the stairwell.",false, 7, noClasses, 0);
-    Location MBBHallway3("MBBHallway3","You enter the hallway. There's classroom's on your WEST and EAST.\n" \
-                         "Behind you (SOUTH), is the stairwell.\n", false, 7, noClasses, 0);
+    Location MBBStairs3("MBBStairs3","You're in the third floor stairwell.",false, 7, noClasses, 0);
+    Location MBBHallway3("MBBHallway3","You're in the third floor hallway. There's classrooms to your WEST and EAST.\n" \
+                         "Behind you (SOUTH), is the stairwell.", false, 7, noClasses, 0);
     
     MBBHallway1.setDirection(EAST,&MBB115);
     MBBHallway1.setDirection(WEST,&MBB118);
@@ -185,7 +186,6 @@ int main()
         "having an existential crisis. Oh well. You did...something.");
 
     // INIT GAME //
-    //system("CLS");
     cout << "\"You\'re going to need to take varying classes to get into a graduate program and pass the GRE. Here in SITC\n" \
             "we offer courses in Scripting, Programming, Animation, 3D Modeling, and last, but definitely least, Business.\"";
     cout << endl << endl;
@@ -237,6 +237,10 @@ int main()
             "tomorrow. Freshman year. College life. Tomorrow... Parties. Freedom. Friends. Tomorrow...";
     cout << endl << endl;
     cout << "THE NEXT DAY" << endl << endl;
+    player->setLocation(&MBBHallway1);
+    cout << "Your standing in the first floor hallway of the Mabee Business Building. Schedule in hand, you\'re ready to\n" \
+            "start your college experience...";
+    cout << endl << endl;
 
     // Create a handler TALK, returns random string of person, size of vector
 
@@ -289,7 +293,7 @@ int main()
     // "What is your favorite color?";
 
     // SET PLAYER //
-    player->setLocation(&MBBHallway1);
+    
 
 
     // CREATE GUIDEBOOK //
