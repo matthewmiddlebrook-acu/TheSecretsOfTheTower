@@ -37,6 +37,7 @@ class Location : public GameObject {
         //reEntry means it automatically connects the other location to this one 
         void setDirection(Direction dir, Location* loc);
         bool checkDirection(Direction dir);
+        void removeDirection(Direction dir);
 
         Direction oppositeDirection(Direction d);
 
@@ -81,6 +82,8 @@ class Location : public GameObject {
 
         int getLowReq() { return lowestReq; }
         vector<Person*> getPeople() { return people; }
+
+        void doProject(int skill);
 };
 
 #endif

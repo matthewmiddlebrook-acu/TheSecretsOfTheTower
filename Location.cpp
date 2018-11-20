@@ -1,4 +1,6 @@
 #include "Location.h"
+#include "Player.h"
+#include "ASCII.h"
 
 #include <iostream>
 #include <algorithm>
@@ -125,4 +127,56 @@ Person* Location::removePerson(Person* person) {
 
 vector<Item*>* Location::getItems() {
     return &items;
+}
+
+void Location::doProject(int skill) {
+    Player* player = Player::getPlayer();
+    if (skill == 0) {
+        cout << "You spent hours upon hours working on your Unity project looking up info on StackOverflow and the Unity API.\n" \
+                "After hard work and sleepless nights, it is finally done! (except for that one bug you know is there,\n" \
+                "but nobody could possibly find...)";
+        player->completeClass("ITC110");
+        player->move(EAST);
+        player->getLocation()->denyEntry(WEST, "You have already taken Intro to ITC");
+    } else if (skill == 1) {
+        if (classNames.at(skill) == "PROGRAMMING 1") {
+            // Add programming action
+            player->completeClass("PROGRAMMING");
+            player->move(WEST);
+        } else if (classNames.at(skill) == "INTRO TO 3D MODELING") {
+            donut();
+            player->completeClass("3D MODELING");
+            player->move(WEST);
+        } else if (classNames.at(skill) == "INTRO TO ANIMATION") {
+            train();
+            player->completeClass("ANIMATION");
+            player->move(EAST);
+        } else if (classNames.at(skill) == "INTRO TO BUSINESS") {
+            // Add business action
+            player->completeClass("BUSINESS");
+            player->move(EAST);
+        }
+    } else {
+        if (classNames.at(skill) == "PROGRAMMING 2") {
+            // Add programming action
+            player->completeClass("PROGRAMMING");
+            player->move(WEST);
+            player->getLocation()->denyEntry(EAST, "You have already taken available Programming classes");
+        } else if (classNames.at(skill) == "ADVANCED 3D MODELING") {
+            anvil();
+            player->completeClass("3D MODELING");
+            player->move(WEST);
+            player->getLocation()->denyEntry(EAST, "You have already taken available 3D Modeling classes");
+        } else if (classNames.at(skill) == "ADVANCED ANIMATION") {
+            walk();
+            player->completeClass("ANIMATION");
+            player->move(EAST);
+            player->getLocation()->denyEntry(WEST, "You have already taken available Animation classes");
+        } else if (classNames.at(skill) == "USELESS CLASS") {
+            // Add business action
+            player->completeClass("BUSINESS");
+            player->move(EAST);
+            player->getLocation()->denyEntry(WEST, "You have already taken available Business classes");
+        }
+    }
 }

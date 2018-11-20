@@ -229,15 +229,15 @@ void TALK::handle(vector<string>* input) {
 }
 
 void DO::handle(vector<string>* input) {
-    if (input->at(0) == "DO") [
+    if (input->at(0) == "DO") {
         if (input->size() == 1) {
-            cout << "What exaclty do you want to DO?";
+            cout << "What exactly do you want to DO?";
         }
         else if (input->size() == 2 && input->at(1) == "PROJECT") {
             Player* player = Player::getPlayer();
-            player->getLocation()->doProject();
+            player->getLocation()->doProject(player->getSkill((SKILL)(player->getLocation()->getRequiredSkill()-1)));
         }
-    ]
+    }
     else
         Handler::handle(input);
 }

@@ -3,7 +3,6 @@
 #include "Player.h"
 #include "Command.h"
 #include "PrintColor.h"
-#include "ASCII.h"
 
 #include <string>
 #include <iostream>
@@ -46,6 +45,7 @@ int main()
     SKILLS skill;
     INVENTORY inv;
     TALK tlk;
+    DO doh;
 
     root.add(&man);
     root.add(&go);
@@ -54,16 +54,17 @@ int main()
     root.add(&inv);
     root.add(&skill);
     root.add(&tlk);
+    root.add(&doh);
 
     // INIT LOCATIONS //
     string course;
 
     vector<string> noClasses = {""};
     vector<string> itcClasses = {"INTRO TO ITC"};
-    vector<string> proClasses = {"PROGRAMMING 1", "PROGRAMMING 2"};
-    vector<string> modClasses = {"INTRO TO 3D MODELING", "ADVANCED 3D MODELING"};
-    vector<string> aniClasses = {"INTRO TO ANIMATION", "ADVANCED ANIMATION"};
-    vector<string> busClasses = {"INTRO TO BUSINESS", "USELESS CLASS"};
+    vector<string> proClasses = {"","PROGRAMMING 1", "PROGRAMMING 2"};
+    vector<string> modClasses = {"","INTRO TO 3D MODELING", "ADVANCED 3D MODELING"};
+    vector<string> aniClasses = {"","INTRO TO ANIMATION", "ADVANCED ANIMATION"};
+    vector<string> busClasses = {"","INTRO TO BUSINESS", "USELESS CLASS"};
 
     Location MBB115("MBB115","PROGRAMMING Classroom", true, 1, proClasses, 1);                                     // LOGIC
     Location MBB118("MBB118","BUSINESS Classroom", true, 2, busClasses, 1);                                        // SPEECH
@@ -182,9 +183,6 @@ int main()
         "\"Great.\" The professor says, extreeemely enthusiastically. \"Good luck having a successful business though.\n" \
         "Look where I am. Of all the things I could have done in my life, I teach business.\" Yikes. They seem to be\n" \
         "having an existential crisis. Oh well. You did...something.");
-
-    player->completeClass("ITC110");
-    player->completeClass("BUSINESS");
 
     // INIT GAME //
     //system("CLS");
